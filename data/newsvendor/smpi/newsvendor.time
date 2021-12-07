@@ -1,0 +1,26 @@
+*000000001111111111222222222233333333334444444444555555555566
+*>>4>678901<34>678901<34>6789012345<789>123456<89>1234567890<
+TIME          NEWSVENDOR
+PERIODS       EXPLICIT
+    TIME1   
+    TIME2   
+    TIME3   
+COLUMNS
+    X         TIME1   
+    I         TIME2   
+    L         TIME2
+    S         TIME2
+    Y         TIME2
+    E         TIME2    
+    Z         TIME3
+ROWS
+    ROW1      TIME1
+    ROW2      TIME2
+    ROW3      TIME2 
+    ROW4      TIME2 
+    ROW5      TIME2
+    PROFIT    TIME3       
+SVARS
+    D         TIME2       63
+    R         TIME3       9    
+ENDATA

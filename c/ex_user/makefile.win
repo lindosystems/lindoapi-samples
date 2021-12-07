@@ -1,0 +1,12 @@
+###########################################################################
+# makefile $Id$ 
+#
+# Linking against LINDO-API libraries on Linux/Unix Platforms.
+#
+# Copyright (c) 2000-2017, Lindo Systems Inc.
+###########################################################################
+
+# 
+EXAMPLE=ex_user
+
+include ../makefile.win.inc

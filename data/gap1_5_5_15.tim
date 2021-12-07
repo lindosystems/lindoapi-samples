@@ -1,0 +1,108 @@
+*000000001111111111222222222233333333334444444444555555555566
+*>>4>678901<34>678901<34>6789012345<789>123456<89>1234567890<
+TIME          NO_TITLE
+PERIODS       EXPLICIT
+    TIME0000
+    TIME0001
+    TIME0002
+    TIME0003
+    TIME0004
+    TIME0005
+ROWS
+    K1        TIME0001                         
+    K2        TIME0002                         
+    K3        TIME0003                         
+    K4        TIME0004                         
+    K5        TIME0005                         
+    A1        TIME0000                         
+    A2        TIME0000                         
+    A3        TIME0000                         
+    A4        TIME0000                         
+    A5        TIME0000                         
+    A6        TIME0000                         
+    A7        TIME0000                         
+    A8        TIME0000                         
+    A9        TIME0000                         
+    A10       TIME0000                         
+    A11       TIME0000                         
+    A12       TIME0000                         
+    A13       TIME0000                         
+    A14       TIME0000                         
+    A15       TIME0000                         
+COLUMNS
+    x1_1      TIME0001                         
+    x1_2      TIME0001                         
+    x1_3      TIME0001                         
+    x1_4      TIME0001                         
+    x1_5      TIME0001                         
+    x1_6      TIME0001                         
+    x1_7      TIME0001                         
+    x1_8      TIME0001                         
+    x1_9      TIME0001                         
+    x1_10     TIME0001                         
+    x1_11     TIME0001                         
+    x1_12     TIME0001                         
+    x1_13     TIME0001                         
+    x1_14     TIME0001                         
+    x1_15     TIME0001                         
+    x2_1      TIME0002                         
+    x2_2      TIME0002                         
+    x2_3      TIME0002                         
+    x2_4      TIME0002                         
+    x2_5      TIME0002                         
+    x2_6      TIME0002                         
+    x2_7      TIME0002                         
+    x2_8      TIME0002                         
+    x2_9      TIME0002                         
+    x2_10     TIME0002                         
+    x2_11     TIME0002                         
+    x2_12     TIME0002                         
+    x2_13     TIME0002                         
+    x2_14     TIME0002                         
+    x2_15     TIME0002                         
+    x3_1      TIME0003                         
+    x3_2      TIME0003                         
+    x3_3      TIME0003                         
+    x3_4      TIME0003                         
+    x3_5      TIME0003                         
+    x3_6      TIME0003                         
+    x3_7      TIME0003                         
+    x3_8      TIME0003                         
+    x3_9      TIME0003                         
+    x3_10     TIME0003                         
+    x3_11     TIME0003                         
+    x3_12     TIME0003                         
+    x3_13     TIME0003                         
+    x3_14     TIME0003                         
+    x3_15     TIME0003                         
+    x4_1      TIME0004                         
+    x4_2      TIME0004                         
+    x4_3      TIME0004                         
+    x4_4      TIME0004                         
+    x4_5      TIME0004                         
+    x4_6      TIME0004                         
+    x4_7      TIME0004                         
+    x4_8      TIME0004                         
+    x4_9      TIME0004                         
+    x4_10     TIME0004                         
+    x4_11     TIME0004                         
+    x4_12     TIME0004                         
+    x4_13     TIME0004                         
+    x4_14     TIME0004                         
+    x4_15     TIME0004                         
+    x5_1      TIME0005                         
+    x5_2      TIME0005                         
+    x5_3      TIME0005                         
+    x5_4      TIME0005                         
+    x5_5      TIME0005                         
+    x5_6      TIME0005                         
+    x5_7      TIME0005                         
+    x5_8      TIME0005                         
+    x5_9      TIME0005                         
+    x5_10     TIME0005                         
+    x5_11     TIME0005                         
+    x5_12     TIME0005                         
+    x5_13     TIME0005                         
+    x5_14     TIME0005                         
+    x5_15     TIME0005                         
+ENDATA

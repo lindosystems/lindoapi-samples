@@ -1,0 +1,48 @@
+{
+  "instances": [ 
+  		"$LINDOAPI_HOME/samples/data/bm23.mps.gz", 
+  		"$LINDOAPI_HOME/samples/data/p0033.mps.gz", 
+  		"$LINDOAPI_HOME/samples/data/p0201.mps.gz", 
+  		"$LINDOAPI_HOME/samples/data/p0282.mps.gz" 
+  	],
+  
+  "options": {
+    "criterion": 1,
+    "max_parsets": 12,
+    "nthreads": 1,
+    "ntrials": 2,
+    "seed": 1032,
+    "time_limit": 100,
+    "xdll": "-",
+    "tracelog": "-",
+    "outputlog": "-",
+    "wparbase": "my.par"
+  },
+  
+  "zdynamic": [ 
+  		"LS_IPARAM_LP_SCALE", 
+  		"LS_IPARAM_MIP_PRELEVEL", 
+  		"LS_IPARAM_MIP_BRANCHDIR", 
+  		"LS_IPARAM_MIP_BRANCHRULE", 
+  		"LS_IPARAM_MIP_FP_MODE", 
+  		"LS_DPARAM_SOLVER_FEASTOL" 
+  		],
+  		
+  "zstatic": {
+    "1": {
+      "LS_DPARAM_MIP_RELINTTOL": 0.0001,
+      "LS_DPARAM_SOLVER_OPTTOL": 1e-006,
+      "LS_IPARAM_MIP_NODESELRULE": 4
+    },
+    "2": {
+      "LS_DPARAM_MIP_RELINTTOL": 0.001,
+      "LS_DPARAM_SOLVER_OPTTOL": 1e-005,
+      "LS_IPARAM_MIP_NODESELRULE": 1
+    },
+    "3": {
+      "LS_DPARAM_MIP_RELINTTOL": 1e-005,
+      "LS_DPARAM_SOLVER_OPTTOL": 0.0001,
+      "LS_IPARAM_MIP_NODESELRULE": 3
+    }
+  }
+}

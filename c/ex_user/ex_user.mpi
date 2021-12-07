@@ -1,0 +1,35 @@
+*****************************************************************
+*                                                               *
+*       minimize x * @user(1, sin(x * pi), sin(x * pi))         *
+*                    @user(2,n,x) <= 100                        *
+*                   0 <= x <= 10                                *
+*                                                               *
+*****************************************************************
+BEGINMODEL   xsinxpi     
+!  NUMOBJS        1
+!  NUMCONS        1
+!  NUMVARS        1
+VARIABLES
+!       Name     Lower Bound   Initial Point     Upper Bound    Type
+    X0000000       0.000000      2.510640          10.0000       C    
+OBJECTIVES
+  OBJ00000    MINIMIZE  
+    EP_PUSH_VAR      X0000000
+    EP_PUSH_NUM      1
+    EP_PUSH_VAR      X0000000
+    EP_PI       
+    EP_MULTIPLY 
+    EP_PUSH_VAR      X0000000
+    EP_PI       
+    EP_MULTIPLY 
+    EP_USER          3     
+    EP_MULTIPLY 
+CONSTRAINTS
+  R0000000    L
+    EP_PUSH_NUM      2
+    EP_PUSH_NUM      20    
+    EP_PUSH_VAR      X0000000
+    EP_USER          3     
+    EP_PUSH_NUM      100
+    EP_MINUS
+ENDMODEL

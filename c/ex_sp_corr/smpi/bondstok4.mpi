@@ -1,0 +1,87 @@
+BEGINMODEL   bondstok4   
+! Number of Objective Functions:         1
+! Number of Constraints        :         5
+! Number of Variables          :         9
+VARIABLES
+!Name         Lower Bound       Initial Point         Upper Bound    Type
+Y 0  1.2345678806304932  1e+030        C
+W 0  1.2345678806304932  1e+030        C
+X1B 0  1.2345678806304932  1e+030        C
+X1S 0  1.2345678806304932  1e+030        C
+X2B 0  1.2345678806304932  1e+030        C
+X2S 0  1.2345678806304932  1e+030        C
+X3B 0  1.2345678806304932  1e+030        C
+X3S 0  1.2345678806304932  1e+030        C
+Z 0  1.2345678806304932  1e+030        C
+OBJECTIVES
+  OBJ00000    MINIMIZE  
+    EP_PUSH_NUM       4 
+    EP_PUSH_VAR  Y
+    EP_MULTIPLY 
+    EP_PUSH_VAR  W
+    EP_MINUS    
+CONSTRAINTS
+  STAGE1A    E         
+    EP_PUSH_VAR  X1B
+    EP_PUSH_VAR  X1S
+    EP_PLUS     
+    EP_PUSH_NUM       55 
+    EP_MINUS    
+  STAGE2A    E         
+    EP_PUSH_SVAR      R1B 
+    EP_NEGATE   
+    EP_PUSH_VAR  X1B
+    EP_MULTIPLY 
+    EP_PUSH_SVAR      R1S 
+    EP_PUSH_VAR  X1S
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_VAR  X2B
+    EP_PLUS     
+    EP_PUSH_VAR  X2S
+    EP_PLUS     
+    EP_PUSH_NUM       0 
+    EP_MINUS    
+  STAGE3A    E         
+    EP_PUSH_SVAR      R2B 
+    EP_NEGATE   
+    EP_PUSH_VAR  X2B
+    EP_MULTIPLY 
+    EP_PUSH_SVAR      R2S 
+    EP_PUSH_VAR  X2S
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_VAR  X3B
+    EP_PLUS     
+    EP_PUSH_VAR  X3S
+    EP_PLUS     
+    EP_PUSH_NUM       0 
+    EP_MINUS    
+  STAGE4A    E         
+    EP_PUSH_SVAR      R3B 
+    EP_NEGATE   
+    EP_PUSH_VAR  X3B
+    EP_MULTIPLY 
+    EP_PUSH_SVAR      R3S 
+    EP_PUSH_VAR  X3S
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_VAR  Z
+    EP_PLUS     
+    EP_PUSH_NUM       0 
+    EP_MINUS    
+  STAGE4B    E         
+    EP_PUSH_SVAR      R3B 
+    EP_PUSH_VAR  X3B
+    EP_MULTIPLY 
+    EP_PUSH_SVAR      R3S 
+    EP_PUSH_VAR  X3S
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  Y
+    EP_PLUS     
+    EP_PUSH_VAR  W
+    EP_MINUS    
+    EP_PUSH_NUM       80 
+    EP_MINUS    
+ENDMODEL

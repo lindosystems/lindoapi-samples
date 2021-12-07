@@ -1,0 +1,17 @@
+MAX  X11 + 0 X12 + 2 X22 + 3 X33 + 0 X34 + 4 X44 
+SUBJECT TO
+     X11 +          X22                          = 10
+                    X22 + 5 X33 +  4 X34 + 6 X44 = 20
+     X33 - Y33                                   = 0
+     X34 - Y34                                   = 0
+     X44 - Y44                                   = 0
+END
+FREE X11
+FREE X12
+FREE X22
+FREE X33
+FREE X34
+FREE X44
+FREE Y33
+FREE Y34
+FREE Y44

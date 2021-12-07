@@ -1,0 +1,46 @@
+rem rem rem
+@call ctest.bat ex_addinst
+@call ctest.bat ex_ccp_kilosa
+@call ctest.bat ex_datetime
+@call ctest.bat ex_dist_eval
+@call ctest.bat ex_dist_gen
+@call ctest.bat ex_dw
+@call ctest.bat ex_iis ..\..\data\testilp.mps
+@call ctest.bat ex_iostream
+@call ctest.bat ex_lp2
+@call ctest.bat ex_lp_trans
+@call ctest.bat ex_markow
+@call ctest.bat ex_modify
+@call ctest.bat ex_mps ..\..\data\bm23.mps
+@call ctest.bat ex_mt1 ..\..\data 3
+@call ctest.bat ex_multis
+@call ctest.bat ex_nlp1
+@call ctest.bat ex_nlp2
+@call ctest.bat ex_nlp2_lnrz
+@call ctest.bat ex_nlp3
+@call ctest.bat ex_nlp4
+@call ctest.bat ex_nlp5
+@call ctest.bat ex_nlp6
+@call ctest.bat ex_nlp7
+@call ctest.bat ex_nlp8
+@call ctest.bat ex_nlp9_uc
+@call ctest.bat ex_port
+@call ctest.bat ex_pthread
+@call ctest.bat ex_qp_soc
+@call ctest.bat ex_samp1
+@call ctest.bat ex_samp2
+@call ctest.bat ex_samp3
+@call ctest.bat ex_samp4
+@call ctest.bat ex_sbd
+@call ctest.bat ex_sdp1
+@call ctest.bat ex_sdp2
+@call ctest.bat ex_soc1
+@call ctest.bat ex_soc2
+@call ctest.bat ex_sp_bondstok
+@call ctest.bat ex_sp_corr
+@call ctest.bat ex_sp_newsboy
+@call ctest.bat ex_sp_putoption
+@call ctest.bat ex_user
+@call ctest.bat ex_user2
+@call ctest.bat ex_user3
+@call ctest.bat ex_xray

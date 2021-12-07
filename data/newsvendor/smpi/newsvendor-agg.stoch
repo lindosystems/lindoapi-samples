@@ -1,0 +1,28 @@
+*00000000111111111122222222223333333333444444444455555555556666666666777777777788888888
+*>>4>678901<34>678901<34>6789012345<789>123456<89>1234567890<234>678901<345>7890123456<
+*
+* This version corresponds to "newsvendor_scen.stoc" without the non-anticipativity 
+* constraints.
+*
+STOCHI        NEWSVENDOR
+BLOCKS        DISCRETE
+ BL BLK0      TIME2     0.1200000000
+    INST      D         90.000000000 
+    INST      R         9.0000000000
+ BL BLK0      TIME2     0.2800000000
+    INST      D         90.000000000 
+    INST      R         -15.00000000
+ BL BLK0      TIME2     0.1500000000
+    INST      D         60.000000000 
+    INST      R         9.0000000000
+ BL BLK0      TIME2     0.1500000000
+    INST      D         60.000000000 
+    INST      R         -15.00000000
+ BL BLK0      TIME2     0.2700000000
+    INST      D         30.000000000 
+    INST      R         9.0000000000
+ BL BLK0      TIME2     0.0300000000
+    INST      D         30.000000000 
+    INST      R         -15.00000000
+ENDATA
+

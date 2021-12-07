@@ -1,0 +1,24 @@
+*000000001111111111222222222233333333334444444444555555555566
+*>>4>678901<34>678901<34>6789012345<789>123456<89>1234567890<
+TIME          GASCOMPANY
+PERIODS       EXPLICIT
+    TIME1   
+    TIME2   
+COLUMNS
+    X0        TIME2   
+    X1        TIME2   
+    X2        TIME2   
+    X3        TIME1   
+    X4        TIME1 
+    X5        TIME2
+    X6        TIME2
+ROWS
+    R0        TIME2
+    R1        TIME2   
+    R2        TIME2   
+    R3        TIME1   
+    R4        TIME2   
+SVARS
+    RV0       TIME2       0
+    RV1       TIME2       0
+ENDATA

@@ -1,0 +1,15 @@
+###########################################################################
+# @makefile 
+#
+# Linking against LINDO-API libraries on Windows Platforms.
+#
+# Copyright (c) 2001-2002, Lindo Systems Inc.
+###########################################################################
+
+EXAMPLE= Form1
+
+all : $(EXAMPLE).exe
+
+$(EXAMPLE).exe : $(EXAMPLE).vb ..\..\..\..\include\lindo.vb 
+	vbc $(EXAMPLE).vb ..\..\..\..\include\lindo.vb /platform:x86
+ 

@@ -1,0 +1,79 @@
+* Gupta MINLP benchmark
+* 
+*  This is a variant of an expression found in
+*  Gupta, O. K. and A. Ravindran (1985)
+*  "Branch-and-bound Experiments in Convex Nonlinear 
+*  Integer Programming.", Management Science, 31 pp.1533-1546.
+*****************************************************************
+* MODEL:
+* 
+* MIN = X0;
+* 
+* - 1.00000*X1^2*X2          >= -675;
+* 
+* - 0.10000*X1^2*X3^2        >= -0.419;
+* 
+* + 0.00201*X1^4*X2*X3^2 + X0 = 0;
+* 
+* @Gin(X1); @Bnd(0,X1,1e5); 
+* @Gin(X2); @Bnd(0,X2,1e5); 
+* @Bnd(0,X3,1e3); 
+* @Free(X4); 
+* 
+* End
+*****************************************************************
+BEGINMODEL   gupta21        
+!  NUMOBJS        1
+!  NUMCONS        3
+!  NUMVARS        4
+VARIABLES
+!       Name     Lower Bound   Initial Point     Upper Bound    Type
+    X0000000         -1e+030         1.23457          1e+030       C
+    X0000001               0         1.23457          1e+005       I
+    X0000002               0         1.23457          1e+005       I
+    X0000003               0             0.2          1e+003       C
+OBJECTIVES
+  OBJ00000    MINIMIZE  
+    EP_PUSH_VAR      X0000000
+CONSTRAINTS
+  R0000000    G         
+    EP_PUSH_VAR      X0000001
+    EP_PUSH_NUM             2
+    EP_POWER    
+    EP_NEGATE   
+    EP_PUSH_VAR      X0000002
+    EP_MULTIPLY 
+    EP_PUSH_NUM           675
+    EP_NEGATE   
+    EP_MINUS    
+  R0000001    G         
+    EP_PUSH_NUM           0.1
+    EP_NEGATE   
+    EP_PUSH_VAR      X0000001
+    EP_PUSH_NUM             2
+    EP_POWER    
+    EP_MULTIPLY 
+    EP_PUSH_VAR      X0000003
+    EP_PUSH_NUM             2
+    EP_POWER    
+    EP_MULTIPLY 
+    EP_PUSH_NUM         0.419
+    EP_NEGATE   
+    EP_MINUS    
+  R0000002    E         
+    EP_PUSH_NUM       0.00201
+    EP_PUSH_VAR      X0000001
+    EP_PUSH_NUM             4
+    EP_POWER    
+    EP_MULTIPLY 
+    EP_PUSH_VAR      X0000002
+    EP_MULTIPLY 
+    EP_PUSH_VAR      X0000003
+    EP_PUSH_NUM             2
+    EP_POWER    
+    EP_MULTIPLY 
+    EP_PUSH_VAR      X0000000
+    EP_PLUS     
+    EP_PUSH_NUM             0
+    EP_MINUS    
+ENDMODEL

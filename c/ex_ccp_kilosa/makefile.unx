@@ -1,0 +1,14 @@
+###########################################################################
+# makefile $Id$ 
+#
+# Linking against LINDO-API libraries on Linux/Unix Platforms.
+#
+# Copyright (c) 2000-2017, Lindo Systems Inc.
+###########################################################################
+
+
+# Specify application name
+
+EXAMPLE=ex_ccp_kilosa
+
+include ../makefile.unx.inc

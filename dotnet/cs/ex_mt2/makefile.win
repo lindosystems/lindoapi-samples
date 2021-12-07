@@ -1,0 +1,15 @@
+###########################################################################
+# @makefile 
+#
+# Linking against LINDO-API libraries on Windows Platforms.
+#
+# Copyright (c) 2001-2002, Lindo Systems Inc.
+###########################################################################
+
+EXAMPLE= ex_mt2
+
+all : $(EXAMPLE).exe
+
+$(EXAMPLE).exe : $(EXAMPLE).cs ..\..\..\..\include\lindo.cs
+	csc $(EXAMPLE).cs ..\..\..\..\include\lindo.cs /platform:x86
+ 

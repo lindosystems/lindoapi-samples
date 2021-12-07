@@ -1,0 +1,39 @@
+- F90/95 Compiler Support Notes -
+
+1- The F9x interfaces provided in lindoapi/include directory are specific to 
+Intel F9x compilers. You may need to create similar interfaces to use 
+LINDO API with other F9x compilers. 
+
+2- The F9x interface 'lindo.fi' is located under 'lindoapi/include' folder and 
+needs to be  included in your application source code as illustrated in sample 
+applications under 'samples/fort' folder.
+
+3- Prior to building your project, make sure to change your compiler settings so 
+that 132 characters per line is allowed in the source files. If your compiler does 
+not support 132 characters, you will need to modify "include\lindo.fi" manually 
+so that the lines don't exceed 72 chars per line. 
+ 
+ remark: Intel F9x compiler v10.x or later achieve this with '-132' compiler option
+ and this is used in the makefiles provided.
+
+4- You may need to edit the source file (samp1, samp2) and change the arguments 
+of the "include" statements to lowercase. This could also be achieved with an
+appropriate compiler option.
+
+5- In building the samples on Linux, make sure to modify the makefile so that
+- $CCOM points to the correct Intel F9x compiler
+- $PLATFORM is appropriately chosen depending on target platform (32-bit
+or 64-bit Linux)
+
+6- Use the project solution file (*.sln) under 'samples/fort/samp1' to build
+the sample on Win32 or Win64.
+
+
+7- The interfaces pass variables and arrays by [VALUE] therefore heavily relies 
+on F9x's LOC() function. See the samples for usage.
+
+
+
+
+
+

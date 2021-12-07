@@ -1,0 +1,22 @@
+NAME           PRODUCTS
+ROWS
+ N  OBJ
+ L  CAPACITY
+ G  DEMAND1
+ G  DEMAND2
+COLUMNS
+    X1        OBJ            2
+    X1        CAPACITY       1
+    X1        DEMAND1        2
+    X1        DEMAND2        3
+*    
+    X2        OBJ            3
+    X2        CAPACITY       1
+    X2        DEMAND1        6
+    X2        DEMAND2        3.4
+RHS
+    RHS1      CAPACITY       100
+    RHS1      DEMAND1        180
+    RHS1      DEMAND2        162
+BOUNDS
+ENDATA

@@ -1,0 +1,62 @@
+BEGINMODEL   gascompany  
+! Number of Objective Functions:         1
+! Number of Constraints        :         5
+! Number of Variables          :         7
+VARIABLES
+!       Name     Lower Bound   Initial Point     Upper Bound    Type
+    X0 0  1.2345678806304932  1e+030        C
+    X1 0  1.2345678806304932  1e+030        C
+    X2 0  1.2345678806304932  1e+030        C
+    X3 0  1.2345678806304932  1e+030        C
+    X4 0  1.2345678806304932  1e+030        C
+    X5 0  1.2345678806304932  1e+030        C
+    X6 0  1.2345678806304932  1e+030        C
+OBJECTIVES
+  OBJ00000    MINIMIZE  
+    EP_PUSH_VAR      X0
+CONSTRAINTS
+  R0    E         
+    EP_PUSH_VAR      X0
+    EP_PUSH_VAR      X1
+    EP_PUSH_VAR      X2
+    EP_PLUS     
+    EP_MINUS    
+  R1    E         
+    EP_PUSH_VAR      X1
+    EP_PUSH_NUM       0 
+    EP_PUSH_NUM       5 
+    EP_PUSH_VAR      X3
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_SVAR     RV0 
+    EP_PUSH_VAR      X5
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_MINUS    
+  R2    E         
+    EP_PUSH_VAR      X2
+    EP_PUSH_NUM       0 
+    EP_PUSH_NUM       1 
+    EP_PUSH_VAR      X4
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       1 
+    EP_PUSH_VAR      X6
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_MINUS    
+  R3    E         
+    EP_PUSH_VAR      X4
+    EP_PUSH_VAR      X3
+    EP_PUSH_NUM       100 
+    EP_MINUS    
+    EP_MINUS    
+  R4    E         
+    EP_PUSH_VAR      X6
+    EP_PUSH_VAR      X4
+    EP_PUSH_VAR      X5
+    EP_PLUS     
+    EP_PUSH_SVAR     RV1 
+    EP_MINUS    
+    EP_MINUS    
+ENDMODEL

@@ -1,0 +1,23 @@
+*000000001111111111222222222233333333334444444444555555555566
+*234567890123456789012345678901234567890123456789012345678901
+STOCH         PRODUCTS
+*
+INDEP         UNIFORM       ADD
+    X1        DEMAND1       -0.8    STAGE1    0.8
+*
+INDEP         EXPONENTIAL   SUB
+    X2        DEMAND2       2.5     STAGE1
+*    
+INDEP         NORMAL        ADD
+  RHS1        DEMAND1       0       STAGE1    12    
+*  
+INDEP         NORMAL        ADD
+  RHS1        DEMAND2       0       STAGE1    9
+*
+* Joint chance-constraint
+*   
+CHANCE
+ JG CC1       CON1       0.95 
+    DEMAND1
+    DEMAND2
+ENDATA    

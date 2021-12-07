@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LINDO API on Android</string>
+    <string name="action_settings">Settings</string>
+    <string name="solve">Solve</string>
+    <string name="load">Load</string>
+    <string name="clear">Clear</string>
+    <string name="reset">Reset</string>
+    <string name="appDesign">...</string>
+    <string name="viewLic">View license key</string>
+    <string name="readManual">Read Manual</string>
+    <string name="inputPad">Enter a linear or nonlinear (integer) problem in LP/MPX format. Refer to LINDO API manual for LP/MPX format. \nTap RESET to toggle between samples</string>
+</resources>

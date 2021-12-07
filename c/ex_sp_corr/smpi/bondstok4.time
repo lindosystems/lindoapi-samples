@@ -1,0 +1,30 @@
+TIME          BONDSTOK4
+PERIODS       EXPLICIT
+    STAGE1  
+    STAGE2  
+    STAGE3  
+    STAGE4  
+COLUMNS
+    X1B       STAGE1  
+    X1S       STAGE1  
+    X2B       STAGE2  
+    X2S       STAGE2  
+    X3B       STAGE3  
+    X3S       STAGE3  
+    Y         STAGE4  
+    W         STAGE4  
+    Z         STAGE4  
+ROWS
+    STAGE1A   STAGE1  
+    STAGE2A   STAGE2  
+    STAGE3A   STAGE3  
+    STAGE4A   STAGE4  
+    STAGE4B   STAGE4  
+SPARS
+    R1B       STAGE2        -91
+    R1S       STAGE2        -92
+    R2B       STAGE3        -93
+    R2S       STAGE3        -94
+    R3B       STAGE4        -95
+    R3S       STAGE4        -96
+ENDATA

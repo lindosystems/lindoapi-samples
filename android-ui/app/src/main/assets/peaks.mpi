@@ -1,0 +1,85 @@
+BEGINMODEL   peaks       
+!  NUMOBJS        1
+!  NUMCONS        1
+!  NUMVARS        3
+VARIABLES
+!       Name     Lower Bound   Initial Point     Upper Bound    Type
+    X0000000         -1e+030         1.23457          1e+030       C
+    X0000001              -3         1.23457               3       C
+    X0000002              -3         1.23457               3       C
+OBJECTIVES
+  OBJ00000    MINIMIZE  
+    EP_PUSH_VAR      X0000000
+    EP_NEGATE   
+CONSTRAINTS
+  R0000000    E         
+    EP_PUSH_NUM      3
+    EP_PUSH_NUM      1
+    EP_PUSH_VAR      X0000001
+    EP_MINUS    
+    EP_PUSH_NUM      2
+    EP_POWER    
+    EP_MULTIPLY 
+    EP_PUSH_NUM      1
+    EP_NEGATE   
+    EP_PUSH_VAR      X0000001
+    EP_PUSH_NUM      2
+    EP_POWER    
+    EP_MULTIPLY 
+    EP_PUSH_VAR      X0000002
+    EP_PUSH_NUM      1
+    EP_PLUS     
+    EP_PUSH_NUM      2
+    EP_POWER    
+    EP_MINUS    
+    EP_EXP      
+    EP_MULTIPLY 
+    EP_PUSH_NUM      10
+    EP_PUSH_VAR      X0000001
+    EP_PUSH_NUM      5
+    EP_DIVIDE   
+    EP_PUSH_VAR      X0000001
+    EP_PUSH_NUM      3
+    EP_POWER    
+    EP_MINUS    
+    EP_PUSH_VAR      X0000002
+    EP_PUSH_NUM      5
+    EP_POWER    
+    EP_MINUS    
+    EP_MULTIPLY 
+    EP_PUSH_NUM      1
+    EP_NEGATE   
+    EP_PUSH_VAR      X0000001
+    EP_PUSH_NUM      2
+    EP_POWER    
+    EP_MULTIPLY 
+    EP_PUSH_VAR      X0000002
+    EP_PUSH_NUM      2
+    EP_POWER    
+    EP_MINUS    
+    EP_EXP      
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_NUM      1
+    EP_PUSH_NUM      3
+    EP_DIVIDE   
+    EP_PUSH_NUM      1
+    EP_NEGATE   
+    EP_PUSH_VAR      X0000001
+    EP_PUSH_NUM      1
+    EP_PLUS     
+    EP_PUSH_NUM      2
+    EP_POWER    
+    EP_MULTIPLY 
+    EP_PUSH_VAR      X0000002
+    EP_PUSH_NUM      2
+    EP_POWER    
+    EP_MINUS    
+    EP_EXP      
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_VAR      X0000000
+    EP_MINUS    
+    EP_PUSH_NUM      0
+    EP_MINUS    
+ENDMODEL

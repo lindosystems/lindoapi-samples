@@ -1,0 +1,29 @@
+*****************************************************************
+*                                                               *
+*       minimize  @user(x0,x1,x2,x3)                            *
+*                    x0 <= 100                                  *
+*                                                               *
+*****************************************************************
+BEGINMODEL   user2
+!  NUMOBJS        1
+!  NUMCONS        1
+!  NUMVARS        1
+VARIABLES
+!       Name     Lower Bound   Initial Point     Upper Bound    Type
+    X0000000       0.000000      2.510640          100.000       C    
+    X0000001       0.000000      2.510640          10.0000       C    
+    X0000002       0.000000      2.510640          10.0000       C    
+    X0000003       0.000000      2.510640          10.0000       C        
+OBJECTIVES
+  OBJ00000    MINIMIZE  
+    EP_PUSH_VAR      X0000000
+    EP_PUSH_VAR      X0000001
+    EP_PUSH_VAR      X0000002
+    EP_PUSH_VAR      X0000003
+    EP_USER          4
+CONSTRAINTS
+  R0000000    L
+    EP_PUSH_VAR      X0000000
+    EP_PUSH_NUM      100
+    EP_MINUS
+ENDMODEL

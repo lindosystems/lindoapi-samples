@@ -1,0 +1,50 @@
+*000000001111111111222222222233333333334444444444555555555566
+*>>4>678901<34>678901<34>6789012345<789>123456<89>1234567890<
+TIME          NEWTITLE
+PERIODS       EXPLICIT
+    TIME0000
+    TIME0001
+    TIME0002
+    TIME0003
+    TIME0004
+    TIME0005
+ROWS
+    INITIAL   TIME0000                         
+    R0000001  TIME0001                         
+    R0000003  TIME0003                         
+    R0000005  TIME0005                         
+    R0000007  TIME0002                         
+    R0000009  TIME0004                         
+    R0000000  TIME0000                         
+    R0000002  TIME0002                         
+    R0000004  TIME0004                         
+    R0000006  TIME0001                         
+    R0000008  TIME0003                         
+    R0000010  TIME0005                         
+    R0000011  TIME0005                         
+COLUMNS
+    W5        TIME0005                         
+    P0        TIME0000                         
+    P1        TIME0001                         
+    P2        TIME0002                         
+    P3        TIME0003                         
+    P4        TIME0004                         
+    P5        TIME0005                         
+    Y0        TIME0000                         
+    W0        TIME0000                         
+    Y1        TIME0001                         
+    W1        TIME0001                         
+    Y2        TIME0002                         
+    W2        TIME0002                         
+    Y3        TIME0003                         
+    W3        TIME0003                         
+    Y4        TIME0004                         
+    W4        TIME0004                         
+    Y5        TIME0005                         
+SPARS
+    RV000000  TIME0001                 0
+    RV000001  TIME0002                 0
+    RV000002  TIME0003                 0
+    RV000003  TIME0004                 0
+    RV000004  TIME0005                 0
+ENDATA

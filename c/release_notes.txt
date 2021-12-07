@@ -1,0 +1,25 @@
+
+# LINDO API  C/C++ Application Samples
+
+                      Copyright (c) 2000-2020
+
+         LINDO Systems, Inc.           312.988.7422
+         1415 North Dayton St.         info@lindo.com
+         Chicago, IL 60622             http://www.lindo.com
+
+         $Id$
+
+## NEW SAMPLES v13.0
+ - ex_tuner for parameter tuning tool
+ - ex_objlex for lexico optimization
+ 
+## NEW SAMPLES v12.0
+ - None
+ 
+## NEW SAMPLES v11.0
+ - ex_alldiff for ALLDIFF constraints
+ - ex_orbits  for detecting and displaying symmetry orbits in MIPs
+ 
+## NEW SAMPLES v10.0
+ - ex_user3 for grey-box interface
+ - ex_objpool for illustrating multiple objective optimization

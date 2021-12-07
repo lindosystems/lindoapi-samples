@@ -1,0 +1,47 @@
+#!/bin/sh
+sh ctest.sh ex_addinst
+sh ctest.sh ex_ccp_kilosa
+sh ctest.sh ex_datetime
+sh ctest.sh ex_dist_eval
+sh ctest.sh ex_dist_gen
+sh ctest.sh ex_dw
+sh ctest.sh ex_iis ../../data/testilp.mps
+sh ctest.sh ex_iostream
+sh ctest.sh ex_lp2
+sh ctest.sh ex_lp_trans
+sh ctest.sh ex_markow
+sh ctest.sh ex_modify
+sh ctest.sh ex_mps ../../data/bm23.mps
+sh ctest.sh ex_mt1 ../../data 3
+sh ctest.sh ex_multis
+sh ctest.sh ex_nlp1
+sh ctest.sh ex_nlp2
+sh ctest.sh ex_nlp2_lnrz
+sh ctest.sh ex_nlp3
+sh ctest.sh ex_nlp4
+sh ctest.sh ex_nlp5
+sh ctest.sh ex_nlp6
+sh ctest.sh ex_nlp7
+sh ctest.sh ex_nlp8
+sh ctest.sh ex_nlp9_uc
+sh ctest.sh ex_port
+sh ctest.sh ex_pthread
+sh ctest.sh ex_qp_soc
+sh ctest.sh ex_samp1
+sh ctest.sh ex_samp2
+sh ctest.sh ex_samp3
+sh ctest.sh ex_samp4
+sh ctest.sh ex_sbd
+sh ctest.sh ex_sdp1
+sh ctest.sh ex_sdp2
+sh ctest.sh ex_soc1
+sh ctest.sh ex_soc2
+sh ctest.sh ex_sp_bondstok
+sh ctest.sh ex_sp_corr
+sh ctest.sh ex_sp_newsboy
+sh ctest.sh ex_sp_putoption
+sh ctest.sh ex_user
+sh ctest.sh ex_user2
+sh ctest.sh ex_xray
+sh ctest.sh ex_orbits
+sh ctest.sh ex_alldiff

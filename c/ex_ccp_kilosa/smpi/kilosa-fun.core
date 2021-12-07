@@ -1,0 +1,46 @@
+BEGINMODEL   kilosa-fun  
+! Number of Objective Functions:         1
+! Number of Constraints        :         2
+! Number of Variables          :         2
+VARIABLES
+!  Name                  Lower Bound        Initial Point          Upper Bound     Type
+   XM                              0    1.234567880630493               1e+030        C
+   XS                              0    1.234567880630493               1e+030        C
+OBJECTIVES
+  OBJ00000    MINIMIZE    
+    EP_USRCOD            -101
+    EP_PUSH_VAR  XM
+    EP_PUSH_VAR  XS
+    EP_PLUS     
+CONSTRAINTS
+  CALORIES    G           
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_SPAR SP000000
+    EP_MULTIPLY 
+    EP_PUSH_VAR  XM
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_SPAR SP000001
+    EP_MULTIPLY 
+    EP_PUSH_VAR  XS
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+  PROTEIN    G           
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_SPAR SP000000
+    EP_MULTIPLY 
+    EP_PUSH_VAR  XM
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_SPAR SP000001
+    EP_MULTIPLY 
+    EP_PUSH_VAR  XS
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+ENDMODEL

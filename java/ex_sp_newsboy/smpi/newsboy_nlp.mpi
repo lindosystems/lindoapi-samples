@@ -1,0 +1,60 @@
+BEGINMODEL   newsvendor     
+! Number of Objective Functions:         1
+! Number of Constraints        :         5
+! Number of Variables          :         6
+VARIABLES
+!Name         Lower Bound       Initial Point         Upper Bound    Type
+S 0  1.2345678806304932  1e+030        C
+HI 0  1.2345678806304932  1e+030        C
+PI 0  1.2345678806304932  1e+030        C
+VI 0  1.2345678806304932  1e+030        C
+PROFIT 0  1.2345678806304932  1e+030        C
+OBJECTIVES
+  OBJ00000    MAXIMIZE  
+    EP_PUSH_VAR  PROFIT
+CONSTRAINTS
+  R1    G         
+    EP_PUSH_VAR  S
+    EP_PUSH_NUM       1 
+    EP_MINUS    
+  R2    E         
+    EP_PUSH_VAR  HI
+    EP_PUSH_NUM       10 
+    EP_PUSH_NUM       0 
+    EP_PUSH_VAR  S
+    EP_PUSH_SVAR  D
+    EP_MINUS    
+    EP_MAX                  2
+    EP_MULTIPLY 
+    EP_MINUS    
+  R3    E         
+    EP_PUSH_VAR  PI
+    EP_PUSH_NUM       5 
+    EP_PUSH_NUM       0 
+    EP_PUSH_SVAR  D
+    EP_PUSH_VAR  S
+    EP_MINUS    
+    EP_MAX                  2
+    EP_MULTIPLY 
+    EP_MINUS    
+  R4    E         
+    EP_PUSH_VAR  VI
+    EP_PUSH_NUM       60 
+    EP_PUSH_VAR  S
+    EP_PUSH_SVAR  D
+    EP_MIN                  2
+    EP_MULTIPLY 
+    EP_MINUS    
+  R5    E         
+    EP_PUSH_VAR  PROFIT
+    EP_PUSH_VAR  VI
+    EP_PUSH_NUM       30 
+    EP_PUSH_VAR  S
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_VAR  HI
+    EP_MINUS    
+    EP_PUSH_VAR  PI
+    EP_MINUS    
+    EP_MINUS    
+ENDMODEL

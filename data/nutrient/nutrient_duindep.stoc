@@ -1,0 +1,23 @@
+*000000001111111111222222222233333333334444444444555555555566
+*234567890123456789012345678901234567890123456789012345678901
+STOCH         nutirent
+INDEP         DISCRETE
+*
+    X1        ROW1          1       STAGE1    0.25
+    X1        ROW1          2       STAGE1    0.25
+    X1        ROW1          3       STAGE1    0.25
+    X1        ROW1          4       STAGE1    0.25
+*
+    X1        ROW2          1       STAGE1    0.333333
+    X1        ROW2          2       STAGE1    0.333333
+    X1        ROW2          3       STAGE1    0.333333
+* Indep chance-constraint
+*   
+CHANCE
+ JG CC1       CON1       0.60
+    ROW1
+ JG CC1       CON2       0.60
+    ROW2
+ENDATA    
+
+

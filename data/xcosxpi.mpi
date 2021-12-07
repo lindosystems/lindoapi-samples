@@ -1,0 +1,27 @@
+*****************************************************************
+*                                                               *
+*             minimize x * cos(x * pi)                          *
+*                                                               *
+*                   0 <= x <= 10                                *
+*                                                               *
+*****************************************************************
+BEGINMODEL   xcosxpi     
+!  NUMOBJS        1
+!  NUMCONS        1
+!  NUMVARS        2
+VARIABLES
+!       Name     Lower Bound   Initial Point     Upper Bound    Type
+    X0000000               0         9.01124              10       C
+    X0000001              -2               0               2       C
+OBJECTIVES
+  OBJ00000    MINIMIZE  
+    EP_PUSH_VAR      X0000000
+    EP_PUSH_VAR      X0000000
+    EP_PI       
+    EP_MULTIPLY 
+    EP_COS      
+    EP_MULTIPLY 
+CONSTRAINTS
+  R0000000    E         
+    EP_PUSH_VAR      X0000001
+ENDMODEL

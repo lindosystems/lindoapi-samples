@@ -1,0 +1,22 @@
+# Microsoft Developer Studio Generated Dependency File, included by stafflnd.mak
+
+.\stafflnd.cpp : \
+	".\stafflnd.h"\
+	".\stafflndDlg.h"\
+	".\stdafx.h"\
+	
+
+.\stafflnd.rc : \
+	".\res\stafflnd.ico"\
+	".\res\stafflnd.rc2"\
+	
+
+.\stafflndDlg.cpp : \
+	".\stafflnd.h"\
+	".\stafflndDlg.h"\
+	".\stdafx.h"\
+	
+
+.\StdAfx.cpp : \
+	".\stdafx.h"\
+	

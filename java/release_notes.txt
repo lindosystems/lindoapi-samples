@@ -1,0 +1,94 @@
+
+                    LINDO API  Java Native Interface (JNI)
+
+                      Copyright (c) 2000-2020
+
+         LINDO Systems, Inc.           312.988.7422
+         1415 North Dayton St.         info@lindo.com
+         Chicago, IL 60622             http://www.lindo.com
+
+         $Id$
+
+
+OVERVIEW
+This interface allows LINDO API to be called from java applications running 
+on a java virtual machine (JVM). The interface consists of
+
+	- lindoapi/bin/<platform>/lindojni.dll   (win32/64)
+	- lindoapi/bin/<platform>/liblindojni.so (unix-like systems)
+	- lindoapi/lib/<platform>/lindo<x_y>.jar
+       
+             where platform - platform name like win32, linux32, etc..
+                   x - major version
+                   y - minor version
+         
+	
+The following scripts could be used to run the samples at command prompt.
+	
+	- samples/java/jtest.bat  (win32/64)
+	- samples/java/jtest.sh   (unix-like systems)
+
+RELEASE NOTES 13.0
+- API extensions
+
+RELEASE NOTES 12.0
+- API extensions
+
+RELEASE NOTES 11.0
+- API extensions
+
+RELEASE NOTES 10.0
+- API extensions
+
+RELEASE NOTES 9.0
+- API extensions
+
+RELEASE NOTES 8.0
+- API extensions
+
+RELEASE NOTES 7.0	
+- API extensions
+- A global solver application (ex_gop) is added to sample list. This sample
+illustrates different alternatives when displaying progress information 
+produced while solving a model.
+
+
+RELEASE NOTES 6.1	
+- API extensions
+- A stochastic programming application (ex_sp_newsboy) is added to sample list.
+
+RELEASE NOTES 5.0
+- API extensions
+-  With the release of LINDO API 5.0.345, JNI support has been extended to 64-bit
+platforms. This required the interface to use the generic java type 'Object'
+as references to native LINDO API handles for pEnv and pModel. In the previous
+versions, pEnv and pModel handles were declared as 'int' type. This definition is
+no longer supported and the current interface is not backward compatible -- declaring
+pEnv and pModel as 'int' is not possible from version 5.0.345 and forward. 
+
+To be able to use the new release with your existing java applications, you should
+modify the declarations of all pModel and pEnv handles from 'int[]' to 'Object'.  
+The difference in declarations is illustrated below.
+
+	Old declaration 
+
+	{
+		int pEnv[] = new int[1];
+		int pModel[] = new int[1];
+	}
+
+
+	New declaration
+
+	{
+		Object pEnv = null;
+		Object pModel = null;		
+	}
+		
+See the sample applications under samples/java/* directory for usage.
+
+
+- The java class archive 'lindo<x_y>.jar' is moved to lindoapi/lib/<platform>
+directory. You can examine jtest.bat and jtest.sh how samples are built and run.
+
+		

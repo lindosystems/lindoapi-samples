@@ -1,0 +1,42 @@
+{
+  "instances": [ 
+  		"$LINDOAPI_HOME/samples/data/xcosxpi.mpi", 
+  		"$LINDOAPI_HOME/samples/data/testgop.mpi" 
+  	],
+  
+  "options": {
+    "criterion": 1,
+    "max_parsets": 12,
+    "nthreads": 1,
+    "ntrials": 2,
+    "seed": 1032,
+    "time_limit": 100,
+    "xdll": "-",
+    "tracelog": "-",
+    "outputlog": "-",
+    "wparbase": "my.par"
+  },
+  
+  "zdynamic": [ 
+  		"LS_IPARAM_NLP_USE_LINDO_CRASH", 
+  		"LS_IPARAM_NLP_AUTOHESS", 
+  		"LS_IPARAM_NLP_AUTODERIV", 
+  		"LS_IPARAM_NLP_USE_SELCONEVAL", 
+  		"LS_DPARAM_NLP_PSTEP_FINITEDIFF", 
+  		"LS_IPARAM_NLP_DERIV_DIFFTYPE" 
+  	],
+  "zstatic": {
+    "1": {
+      "LS_DPARAM_NLP_FEASTOL": 1e-006,
+      "LS_DPARAM_NLP_REDGTOL": 1e-006
+    },
+    "2": {
+      "LS_DPARAM_NLP_FEASTOL": 1e-005,
+      "LS_DPARAM_NLP_REDGTOL": 1e-005
+    },
+    "3": {
+      "LS_DPARAM_NLP_FEASTOL": 1e-004,
+      "LS_DPARAM_NLP_REDGTOL": 1e-004
+    }
+  }
+}

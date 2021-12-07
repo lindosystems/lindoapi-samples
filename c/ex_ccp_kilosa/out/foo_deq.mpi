@@ -1,0 +1,1418 @@
+BEGINMODEL   foo_deq     
+! Number of Objective Functions:         1
+! Number of Constraints        :        60
+! Number of Variables          :        60
+VARIABLES
+!Name                  Lower Bound        Initial Point          Upper Bound     Type
+   C0000000                        0                    0               1e+030        C
+   C0000001                        0                    0               1e+030        C
+   B0000002                        0                    0                    1        B
+   B0000003                        0                    0                    1        B
+   B0000004                        0                    0                    1        B
+   B0000005                        0                    0                    1        B
+   B0000006                        0                    0                    1        B
+   B0000007                        0                    0                    1        B
+   B0000008                        0                    0                    1        B
+   B0000009                        0                    0                    1        B
+   B0000010                        0                    0                    1        B
+   B0000011                        0                    0                    1        B
+   B0000012                        0                    0                    1        B
+   B0000013                        0                    0                    1        B
+   B0000014                        0                    0                    1        B
+   B0000015                        0                    0                    1        B
+   B0000016                        0                    0                    1        B
+   B0000017                        0                    0                    1        B
+   B0000018                        0                    0                    1        B
+   B0000019                        0                    0                    1        B
+   B0000020                        0                    0                    1        B
+   B0000021                        0                    0                    1        B
+   B0000022                        0                    0                    1        B
+   B0000023                        0                    0                    1        B
+   B0000024                        0                    0                    1        B
+   B0000025                        0                    0                    1        B
+   B0000026                        0                    0                    1        B
+   B0000027                        0                    0                    1        B
+   B0000028                        0                    0                    1        B
+   B0000029                        0                    0                    1        B
+   B0000030                        0                    0                    1        B
+   B0000031                        0                    0                    1        B
+   B0000032                        0                    0                    1        B
+   B0000033                        0                    0                    1        B
+   B0000034                        0                    0                    1        B
+   B0000035                        0                    0                    1        B
+   B0000036                        0                    0                    1        B
+   B0000037                        0                    0                    1        B
+   B0000038                        0                    0                    1        B
+   B0000039                        0                    0                    1        B
+   B0000040                        0                    0                    1        B
+   B0000041                        0                    0                    1        B
+   B0000042                        0                    0                    1        B
+   B0000043                        0                    0                    1        B
+   B0000044                        0                    0                    1        B
+   B0000045                        0                    0                    1        B
+   B0000046                        0                    0                    1        B
+   B0000047                        0                    0                    1        B
+   B0000048                        0                    0                    1        B
+   B0000049                        0                    0                    1        B
+   B0000050                        0                    0                    1        B
+   B0000051                        0                    0                    1        B
+   B0000052                        0                    0                    1        B
+   B0000053                        0                    0                    1        B
+   B0000054                        0                    0                    1        B
+   B0000055                        0                    0                    1        B
+   B0000056                        0                    0                    1        B
+   B0000057                        0                    0                    1        B
+   B0000058                        0                    0                    1        B
+   B0000059                        0                    0                    1        B
+OBJECTIVES
+  OBJ00000    MINIMIZE    LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_VAR  C0000000    
+    EP_PUSH_VAR  C0000001    
+    EP_PLUS     
+    EP_PUSH_NUM       1 
+    EP_MULTIPLY 
+CONSTRAINTS
+  R0000000      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       11.68199458690475 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000002    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000001      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       11.68199458690475 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000003    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000002      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       16.364957543382211 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       15.983133694887053 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000004    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000003      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       16.364957543382211 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       15.983133694887053 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000005    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000004      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       3.8858098900094529 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000006    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000005      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       3.8858098900094529 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000007    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000006      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       13.709645058615674 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       2.7726811916425635 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000008    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000007      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       13.709645058615674 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       2.7726811916425635 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000009    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000008      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       28.194597095275562 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       22.905145336623757 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000010    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000009      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       28.194597095275562 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       22.905145336623757 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000011    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000010      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       8.2808828948408397 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000012    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000011      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       8.2808828948408397 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000013    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000012      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       10.739800928726021 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000014    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000013      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       10.739800928726021 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000015    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000014      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       11.872907393291332 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       1.6298514642486053 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000016    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000015      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       11.872907393291332 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       1.6298514642486053 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000017    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000016      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       17.552290989599431 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       12.724460963592406 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000018    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000017      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       17.552290989599431 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       12.724460963592406 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000019    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000018      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000020    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000019      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000021    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000020      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       1.6097410649168911 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       2.0658794946334069 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000022    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000021      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       1.6097410649168911 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       2.0658794946334069 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000023    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000022      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       7.8377215234110897 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000024    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000023      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       7.8377215234110897 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000025    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000024      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       20.948825855974352 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       8.7349383401367646 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000026    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000025      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       20.948825855974352 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       8.7349383401367646 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000027    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000026      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       19.987316025417641 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       12.413231619355075 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000028    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000027      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       19.987316025417641 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       12.413231619355075 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000029    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000028      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       10.083899473291186 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       6.487396354367883 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000030    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000029      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       10.083899473291186 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       6.487396354367883 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000031    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000030      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       1.218859472130128 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       5.7701150344945304 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000032    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000031      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       1.218859472130128 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       5.7701150344945304 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000033    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000032      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       3.7418904773498669 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000034    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000033      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       3.7418904773498669 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000035    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000034      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       16.40923483277686 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       27.620688500719318 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000036    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000035      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       16.40923483277686 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       27.620688500719318 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000037    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000036      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       8.0449661682639722 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000038    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000037      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       8.0449661682639722 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       0 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000039    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000038      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       10.493323179759029 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       16.794595861591418 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000040    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000039      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       10.493323179759029 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       16.794595861591418 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000041    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000040      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       3.7324009856198805 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       18.018730808372133 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000042    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000041      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       3.7324009856198805 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       18.018730808372133 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000043    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000042      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       12.112861015080369 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       24.21902604364471 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000044    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000043      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       12.112861015080369 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       24.21902604364471 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000045    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000044      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       8.2209709681907999 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       14.674652182172757 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000046    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000045      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       8.2209709681907999 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       14.674652182172757 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000047    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000046      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       18.468268035549343 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       16.236366099379261 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000048    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000047      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       18.468268035549343 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       16.236366099379261 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000049    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000048      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       9.2906080512870766 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       7.6508217378156091 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000050    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000049      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       9.2906080512870766 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       7.6508217378156091 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000051    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000050      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       8.7134099868363446 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       31.474684409487615 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000052    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000051      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       8.7134099868363446 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       31.474684409487615 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000053    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000052      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       4.0125545244193193 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       20.997659976590676 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000054    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000053      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       4.0125545244193193 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       20.997659976590676 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000055    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000054      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       11.349563891236285 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       9.97271203395516 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000056    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000055      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       11.349563891236285 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       9.97271203395516 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000057    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000056      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       27.296735434184772 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       2.7999999999999998 
+    EP_PUSH_NUM       12.056745966337546 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       44 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000058    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000057      G           LINEAR
+    EP_USRCOD            -101
+    EP_PUSH_NUM       6.4000000000000004 
+    EP_PUSH_NUM       27.296735434184772 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000000    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       8 
+    EP_PUSH_NUM       12.056745966337546 
+    EP_MULTIPLY 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       89 
+    EP_MINUS    
+    EP_PUSH_VAR  B0000059    
+    EP_PUSH_NUM       100000000 
+    EP_MULTIPLY 
+    EP_PLUS     
+  R0000058      L           LINEAR
+    EP_PUSH_NUM       0 
+    EP_PUSH_VAR  B0000020    
+    EP_PUSH_NUM       0.066666666666666666 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000034    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000006    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000014    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000002    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000032    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000022    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000042    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000054    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000024    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000038    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000046    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000012    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000052    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000050    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000030    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000040    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000056    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000016    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000044    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000008    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000004    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000036    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000018    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000048    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000028    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000026    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000058    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000010    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       0.099999999999999978 
+    EP_MINUS    
+  R0000059      L           LINEAR
+    EP_PUSH_NUM       0 
+    EP_PUSH_VAR  B0000021    
+    EP_PUSH_NUM       0.066666666666666666 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000035    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000007    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000015    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000003    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000033    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000023    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000043    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000055    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000025    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000039    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000047    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000013    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000053    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000051    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000031    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000041    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000057    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000017    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000045    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000009    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000005    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000037    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000019    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000049    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000029    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000027    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000059    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  B0000011    
+    EP_PUSH_NUM       0.033333333333333333 
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       0.099999999999999978 
+    EP_MINUS    
+ENDMODEL

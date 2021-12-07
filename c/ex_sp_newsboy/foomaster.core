@@ -1,0 +1,63 @@
+BEGINMODEL   foomaster   
+! Number of Objective Functions:         1
+! Number of Constraints        :         4
+! Number of Variables          :         6
+VARIABLES
+!Name                  Lower Bound        Initial Point          Upper Bound     Type
+   C0000000                        0                    0               1e+030        C
+   C0000001                        0                    0               1e+030        C
+   C0000002                        0                    0               1e+030        C
+   C0000003                        0                    0               1e+030        C
+   C0000004                        0                    0               1e+030        C
+   C0000005                        0                    0               1e+030        C
+OBJECTIVES
+  OBJ00000    MAXIMIZE  
+    EP_PUSH_VAR  C0000000    
+CONSTRAINTS
+  R0000000      G         
+    EP_PUSH_VAR  C0000001    
+    EP_PUSH_NUM       1 
+    EP_MINUS    
+  R0000001      E         
+    EP_PUSH_VAR  C0000002    
+    EP_PUSH_VAR  C0000001    
+    EP_PUSH_VAR  C0000003    
+    EP_PLUS     
+    EP_PUSH_SPAR SP000000
+    EP_MINUS    
+    EP_MINUS    
+  R0000002      E         
+    EP_PUSH_VAR  C0000004    
+    EP_PUSH_VAR  C0000005    
+    EP_PLUS     
+    EP_PUSH_VAR  C0000002    
+    EP_MINUS    
+  R0000003      E         
+    EP_PUSH_VAR  C0000000    
+    EP_PUSH_NUM       60 
+    EP_PUSH_SPAR SP000000
+    EP_PUSH_VAR  C0000003    
+    EP_MINUS    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       30 
+    EP_PUSH_VAR  C0000001    
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_NUM       10 
+    EP_PUSH_VAR  C0000002    
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_NUM       5 
+    EP_PUSH_VAR  C0000003    
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_VAR  C0000004    
+    EP_PUSH_SPAR SP000001
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       10 
+    EP_PUSH_VAR  C0000005    
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_MINUS    
+ENDMODEL

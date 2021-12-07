@@ -1,0 +1,41 @@
+{
+  "instances": [ 
+  	"$LINDOAPI_HOME/samples/data/truss.mps.gz", 
+  	"$LINDOAPI_HOME/samples/data/pilot4.mps.gz", 
+  	"$LINDOAPI_HOME/samples/data/pilot87.mps.gz", 
+  	"$LINDOAPI_HOME/samples/data/stocfor3.mps.gz" 
+  	],
+  	
+  "options": {
+    "criterion": 1,
+    "max_parsets": 12,
+    "nthreads": 4,
+    "ntrials": 2,
+    "seed": 1032,
+    "time_limit": 100,
+    "xdll": "-",
+    "tracelog": "-",
+    "outputlog": "-",
+    "wparbase": "my-lp.par"
+  },
+  
+  "zdynamic": [ 
+  		"LS_IPARAM_LP_SCALE", 
+  		"LS_IPARAM_LP_PRELEVEL"
+  		],
+  		
+  "zstatic": {
+    "1": {
+      "LS_DPARAM_SOLVER_OPTTOL": 1e-6
+    },
+    "2": {
+      "LS_DPARAM_SOLVER_OPTTOL": 1e-5
+    },
+    "3": {
+      "LS_DPARAM_SOLVER_FEASTOL": 1e-6
+    },
+    "4": {
+      "LS_DPARAM_SOLVER_FEASTOL": 1e-5
+    }    
+  }
+}

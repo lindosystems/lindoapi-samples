@@ -1,0 +1,39 @@
+
+
+! ------------------------------------------------------------------
+!  IIS Report by
+!  LINDO API v. 13.0.4099.113 (DEBUG) (Built Jan 24 2020 13:00:18
+!  Barrier Solver Version 9.1.011, Nonlinear Solver Version 3.15P
+!  Platform Windows 32x86 (W))
+! ------------------------------------------------------------------
+
+! Filter algorithm     : 0
+! Infeasibility norm   : 0
+! Analysis level       : 5
+! Sensitivity filter   : 1
+
+
+! Necessary rows       : 3
+! Necessary cols       : 0
+! Sufficient rows      : 0
+! Sufficient cols      : 0
+
+
+MINIMIZE  DUMMY
+
+SUBJECT TO
+! The necessary rows in the IIS:
+ROW4)   -1.000000 X2
+   +1.000000 X3
+   > 50000.000000
+ROW6)   +1.000000 X3
+   < 50000.000000
+ROW11)   +1.000000 X2
+   > 80000.000000
+
+END
+
+
+! Variable bounds were not included in the analysis,
+! hence they remain unchanged. Skipping variables dropped with non-IIS rows..
+

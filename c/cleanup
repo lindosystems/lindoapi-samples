@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+#$Id: cleanup 6 2007-08-06 10:36:19Z Administrator $
+#
+
+/bin/find . -type d -name "Debug" -exec rm -rfv '{}' \;
+/bin/find . -type d -name "Release" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.exe" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.ilk" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.plg" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.ncb" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.opt" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.o" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.os" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.bak" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.user" -exec rm -rfv '{}' \;
+/bin/find . -type f -name "*.suo" -exec rm -rfv '{}' \;
+
+/bin/find ../fort -type d -name "Debug" -exec rm -rfv '{}' \;
+/bin/find ../fort -type d -name "Release" -exec rm -rfv '{}' \;

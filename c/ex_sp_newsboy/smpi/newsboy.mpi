@@ -1,0 +1,74 @@
+BEGINMODEL   newsboy_v5  
+! Number of Objective Functions:         1
+! Number of Constraints        :         6
+! Number of Variables          :         7
+VARIABLES
+!Name         Lower Bound       Initial Point         Upper Bound    Type
+X 0  1.2345678806304932  1e+030        C
+I 0  1.2345678806304932  1e+030        C
+L 0  1.2345678806304932  1e+030        C
+S 0  1.2345678806304932  1e+030        C
+Y 0  1.2345678806304932  1e+030        C
+E 0  1.2345678806304932  1e+030        C
+Z 0  1.2345678806304932  1e+030        C
+OBJECTIVES
+  OBJ00000    MAXIMIZE
+    EP_PUSH_VAR  Z
+CONSTRAINTS
+  ROW1    G         
+    EP_PUSH_VAR  X
+    EP_PUSH_NUM       1 
+    EP_MINUS    
+  ROW2    E         
+    EP_PUSH_VAR  X
+    EP_PUSH_VAR  I
+    EP_MINUS    
+    EP_PUSH_VAR  L
+    EP_PLUS     
+    EP_PUSH_SPAR     D
+    EP_MINUS    
+  ROW3    E         
+    EP_PUSH_VAR  X
+    EP_PUSH_VAR  I
+    EP_MINUS    
+    EP_PUSH_VAR  S
+    EP_MINUS    
+    EP_PUSH_NUM       0 
+    EP_MINUS    
+  ROW4    E         
+    EP_PUSH_VAR  Y
+    EP_PUSH_VAR  I
+    EP_MINUS    
+    EP_PUSH_VAR  E
+    EP_PLUS     
+    EP_PUSH_NUM       0 
+    EP_MINUS    
+  PROFIT    E         
+    EP_PUSH_NUM       60 
+    EP_PUSH_VAR  S
+    EP_MULTIPLY 
+    EP_PUSH_NUM       30 
+    EP_PUSH_VAR  X
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_NUM       10 
+    EP_PUSH_VAR  I
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_NUM       5 
+    EP_PUSH_VAR  L
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_VAR  Y
+    EP_PUSH_SPAR      R
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       10 
+    EP_PUSH_VAR  E
+    EP_MULTIPLY 
+    EP_MINUS    
+    EP_PUSH_VAR  Z
+    EP_MINUS    
+    EP_PUSH_NUM       0 
+    EP_MINUS    
+ENDMODEL

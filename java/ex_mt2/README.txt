@@ -1,0 +1,1 @@
+This is the same as ex_mt1 except that each thread has its own pLSenv (LINDO Environment Object)

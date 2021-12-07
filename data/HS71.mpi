@@ -1,0 +1,57 @@
+BEGINMODEL   HS71        
+! Number of Objective Functions:         1
+! Number of Constraints        :         2
+! Number of Variables          :         4
+VARIABLES
+!  Name                  Lower Bound        Initial Point          Upper Bound     Type
+   X1                              1            1.2345678                    5        C
+   X4                              1            1.2345678                    5        C
+   X2                              1            1.2345678                    5        C
+   X3                              1            1.2345678                    5        C
+OBJECTIVES
+  OBJ00000    MINIMIZE    
+    EP_USRCOD            -101
+    EP_PUSH_VAR  X1
+    EP_PUSH_VAR  X4
+    EP_MULTIPLY 
+    EP_PUSH_VAR  X1
+    EP_PUSH_VAR  X2
+    EP_PLUS     
+    EP_PUSH_VAR  X3
+    EP_PLUS     
+    EP_USRCOD            -200
+    EP_MULTIPLY 
+    EP_PUSH_VAR  X3
+    EP_PLUS     
+CONSTRAINTS
+  3    E           CONVEX
+    EP_USRCOD            -101
+    EP_PUSH_VAR  X1
+    EP_PUSH_NUM       2 
+    EP_POWER    
+    EP_PUSH_VAR  X2
+    EP_PUSH_NUM       2 
+    EP_POWER    
+    EP_PLUS     
+    EP_PUSH_VAR  X3
+    EP_PUSH_NUM       2 
+    EP_POWER    
+    EP_PLUS     
+    EP_PUSH_VAR  X4
+    EP_PUSH_NUM       2 
+    EP_POWER    
+    EP_PLUS     
+    EP_PUSH_NUM       40 
+    EP_MINUS    
+  2    G           
+    EP_USRCOD            -101
+    EP_PUSH_VAR  X1
+    EP_PUSH_VAR  X2
+    EP_MULTIPLY 
+    EP_PUSH_VAR  X3
+    EP_MULTIPLY 
+    EP_PUSH_VAR  X4
+    EP_MULTIPLY 
+    EP_PUSH_NUM       25 
+    EP_MINUS    
+ENDMODEL

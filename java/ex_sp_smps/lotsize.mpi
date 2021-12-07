@@ -1,0 +1,365 @@
+BEGINMODEL   zsto        
+! Number of Objective Functions:         1
+! Number of Constraints        :        29
+! Number of Variables          :        46
+VARIABLES
+!Name                  Lower Bound        Initial Point          Upper Bound     Type
+   X0000000                  -1e+030              14008.8               1e+030        C
+   X0000001                        0                    1                    1        B
+   X0000002                        0                  282               1e+030        C
+   X0000003                        0                   18               1e+030        C
+   X0000004                  -1e+030                   18               1e+030        C
+   X0000005                  -1e+030                  298               1e+030        C
+   X0000006                        0             -2.72934               1e+030        C
+   X0000007                        0              15.2707               1e+030        C
+   X0000008                        0              2.72934               1e+030        C
+   X0000009                        0                    1                    1        B
+   X0000010                        0              287.271               1e+030        C
+   X0000011                        0              12.7293               1e+030        C
+   X0000012                  -1e+030                   28               1e+030        C
+   X0000013                  -1e+030              3332.62               1e+030        C
+   X0000014                        0                  -23               1e+030        C
+   X0000015                        0                    5               1e+030        C
+   X0000016                        0                   23               1e+030        C
+   X0000017                        0                    1                    1        B
+   X0000018                        0              269.151               1e+030        C
+   X0000019                        0              30.8493               1e+030        C
+   X0000020                  -1e+030              35.8493               1e+030        C
+   X0000021                  -1e+030              1964.34               1e+030        C
+   X0000022                        0             -30.2937               1e+030        C
+   X0000023                        0              5.55556               1e+030        C
+   X0000024                        0              30.2937               1e+030        C
+   X0000025                        0                    1                    1        B
+   X0000026                        0              257.556               1e+030        C
+   X0000027                        0              42.4444               1e+030        C
+   X0000028                  -1e+030                   48               1e+030        C
+   X0000029                  -1e+030              4057.04               1e+030        C
+   X0000030                        0             -42.4444               1e+030        C
+   X0000031                        0              5.55556               1e+030        C
+   X0000032                        0              42.4444               1e+030        C
+   X0000033                        0                    1                    1        B
+   X0000034                        0               247.94               1e+030        C
+   X0000035                        0              52.0598               1e+030        C
+   X0000036                  -1e+030              57.6154               1e+030        C
+   X0000037                  -1e+030              1933.77               1e+030        C
+   X0000038                        0             -57.6154               1e+030        C
+   X0000039                        0         1.42109e-014               1e+030        C
+   X0000040                        0              57.6154               1e+030        C
+   X0000041                        0                    0                    1        B
+   X0000042                        0                    0               1e+030        C
+   X0000043                        0                    0               1e+030        C
+   X0000044                  -1e+030         1.42109e-014               1e+030        C
+   X0000045                  -1e+030              2423.08               1e+030        C
+OBJECTIVES
+  OBJ00000    MINIMIZE  
+    EP_PUSH_VAR  X0000000    
+CONSTRAINTS
+  R0000000      E         
+    EP_PUSH_NUM       300 
+    EP_PUSH_VAR  X0000001    
+    EP_MULTIPLY 
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000003    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000002    
+    EP_MINUS    
+  R0000001      E         
+    EP_PUSH_VAR  X0000003    
+    EP_PUSH_VAR  X0000004    
+    EP_MINUS    
+  R0000002      E         
+    EP_PUSH_NUM       100 
+    EP_PUSH_VAR  X0000001    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       6 
+    EP_PUSH_VAR  X0000003    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       5 
+    EP_PUSH_VAR  X0000004    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  X0000005    
+    EP_MINUS    
+  R0000003      E         
+    EP_PUSH_SVAR RV000000    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000008    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000006    
+    EP_MINUS    
+  R0000004      E         
+    EP_PUSH_VAR  X0000004    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000008    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000007    
+    EP_MINUS    
+  R0000005      E         
+    EP_PUSH_NUM       300 
+    EP_PUSH_VAR  X0000009    
+    EP_MULTIPLY 
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000011    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000010    
+    EP_MINUS    
+  R0000006      E         
+    EP_PUSH_VAR  X0000004    
+    EP_PUSH_VAR  X0000008    
+    EP_MINUS    
+    EP_PUSH_VAR  X0000011    
+    EP_PLUS     
+    EP_PUSH_VAR  X0000012    
+    EP_MINUS    
+  R0000007      E         
+    EP_PUSH_NUM       100 
+    EP_PUSH_VAR  X0000009    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       6 
+    EP_PUSH_VAR  X0000011    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       5 
+    EP_PUSH_VAR  X0000012    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       60 
+    EP_PUSH_SVAR RV000000    
+    EP_PUSH_VAR  X0000008    
+    EP_MINUS    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  X0000013    
+    EP_MINUS    
+  R0000008      E         
+    EP_PUSH_SVAR RV000001    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000016    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000014    
+    EP_MINUS    
+  R0000009      E         
+    EP_PUSH_VAR  X0000012    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000016    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000015    
+    EP_MINUS    
+  R0000010      E         
+    EP_PUSH_NUM       300 
+    EP_PUSH_VAR  X0000017    
+    EP_MULTIPLY 
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000019    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000018    
+    EP_MINUS    
+  R0000011      E         
+    EP_PUSH_VAR  X0000012    
+    EP_PUSH_VAR  X0000016    
+    EP_MINUS    
+    EP_PUSH_VAR  X0000019    
+    EP_PLUS     
+    EP_PUSH_VAR  X0000020    
+    EP_MINUS    
+  R0000012      E         
+    EP_PUSH_NUM       100 
+    EP_PUSH_VAR  X0000017    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       6 
+    EP_PUSH_VAR  X0000019    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       5 
+    EP_PUSH_VAR  X0000020    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       60 
+    EP_PUSH_SVAR RV000001    
+    EP_PUSH_VAR  X0000016    
+    EP_MINUS    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  X0000021    
+    EP_MINUS    
+  R0000013      E         
+    EP_PUSH_SVAR RV000002    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000024    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000022    
+    EP_MINUS    
+  R0000014      E         
+    EP_PUSH_VAR  X0000020    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000024    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000023    
+    EP_MINUS    
+  R0000015      E         
+    EP_PUSH_NUM       300 
+    EP_PUSH_VAR  X0000025    
+    EP_MULTIPLY 
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000027    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000026    
+    EP_MINUS    
+  R0000016      E         
+    EP_PUSH_VAR  X0000020    
+    EP_PUSH_VAR  X0000024    
+    EP_MINUS    
+    EP_PUSH_VAR  X0000027    
+    EP_PLUS     
+    EP_PUSH_VAR  X0000028    
+    EP_MINUS    
+  R0000017      E         
+    EP_PUSH_NUM       100 
+    EP_PUSH_VAR  X0000025    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       6 
+    EP_PUSH_VAR  X0000027    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       5 
+    EP_PUSH_VAR  X0000028    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       60 
+    EP_PUSH_SVAR RV000002    
+    EP_PUSH_VAR  X0000024    
+    EP_MINUS    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  X0000029    
+    EP_MINUS    
+  R0000018      E         
+    EP_PUSH_SVAR RV000003    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000032    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000030    
+    EP_MINUS    
+  R0000019      E         
+    EP_PUSH_VAR  X0000028    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000032    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000031    
+    EP_MINUS    
+  R0000020      E         
+    EP_PUSH_NUM       300 
+    EP_PUSH_VAR  X0000033    
+    EP_MULTIPLY 
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000035    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000034    
+    EP_MINUS    
+  R0000021      E         
+    EP_PUSH_VAR  X0000028    
+    EP_PUSH_VAR  X0000032    
+    EP_MINUS    
+    EP_PUSH_VAR  X0000035    
+    EP_PLUS     
+    EP_PUSH_VAR  X0000036    
+    EP_MINUS    
+  R0000022      E         
+    EP_PUSH_NUM       100 
+    EP_PUSH_VAR  X0000033    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       6 
+    EP_PUSH_VAR  X0000035    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       5 
+    EP_PUSH_VAR  X0000036    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       60 
+    EP_PUSH_SVAR RV000003    
+    EP_PUSH_VAR  X0000032    
+    EP_MINUS    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  X0000037    
+    EP_MINUS    
+  R0000023      E         
+    EP_PUSH_SVAR RV000004    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000040    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000038    
+    EP_MINUS    
+  R0000024      E         
+    EP_PUSH_VAR  X0000036    
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000040    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000039    
+    EP_MINUS    
+  R0000025      E         
+    EP_PUSH_NUM       300 
+    EP_PUSH_VAR  X0000041    
+    EP_MULTIPLY 
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000043    
+    EP_PLUS     
+    EP_NEGATE   
+    EP_PUSH_VAR  X0000042    
+    EP_MINUS    
+  R0000026      E         
+    EP_PUSH_VAR  X0000036    
+    EP_PUSH_VAR  X0000040    
+    EP_MINUS    
+    EP_PUSH_VAR  X0000043    
+    EP_PLUS     
+    EP_PUSH_VAR  X0000044    
+    EP_MINUS    
+  R0000027      E         
+    EP_PUSH_NUM       100 
+    EP_PUSH_VAR  X0000041    
+    EP_MULTIPLY 
+    EP_PUSH_NUM       6 
+    EP_PUSH_VAR  X0000043    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       5 
+    EP_PUSH_VAR  X0000044    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_NUM       60 
+    EP_PUSH_SVAR RV000004    
+    EP_PUSH_VAR  X0000040    
+    EP_MINUS    
+    EP_MULTIPLY 
+    EP_PLUS     
+    EP_PUSH_VAR  X0000045    
+    EP_MINUS    
+  R0000028      E         
+    EP_PUSH_VAR  X0000005    
+    EP_PUSH_VAR  X0000013    
+    EP_PUSH_VAR  X0000021    
+    EP_PUSH_VAR  X0000029    
+    EP_PUSH_VAR  X0000037    
+    EP_PUSH_VAR  X0000045    
+    EP_SUM                  6
+    EP_PUSH_VAR  X0000000    
+    EP_MINUS    
+ENDMODEL

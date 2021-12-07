@@ -1,0 +1,17 @@
+NAME           nutirent
+ROWS
+ N  OBJ
+ G  ROW1
+ G  ROW2
+COLUMNS
+    X1  OBJ  1
+    X1  ROW1  1
+    X1  ROW2  1
+    X2  OBJ  1
+    X2  ROW1  1
+    X2  ROW2  3
+RHS
+    RHS1      ROW1  7
+    RHS1      ROW2  12
+BOUNDS
+ENDATA
