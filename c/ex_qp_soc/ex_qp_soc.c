@@ -83,7 +83,7 @@ int main()
   /*****************************************************************
    * Step 1: Create a model in the environment.
    *****************************************************************/
-   nErrorCode = LSloadLicenseString("../../../license/lndapi130.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadLicenseString("../../../license/lndapi140.lic",MY_LICENSE_KEY);
 
    pEnv = LScreateEnv ( &nErrorCode, MY_LICENSE_KEY);
    APIERRORCHECK;

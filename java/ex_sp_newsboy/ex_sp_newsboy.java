@@ -223,7 +223,7 @@ public class ex_sp_newsboy extends Lindo
 		ex_sp_newsboy ls = new ex_sp_newsboy();
 
 		// Read license file and create a LINDO environment.
-		nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi130.lic",cLicenseKey);
+		nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi140.lic",cLicenseKey);
 		APIErrorCheck(pEnv);
 
 		APIVERSION();

@@ -70,3 +70,6 @@ VB, F90 and Delphi samples should be built and run using the associated IDE proj
 
 ## Python and R
 Refer to lindoapi/Python and lindoapi/R folders.
+
+## Julia applications
+Refer to lindoapi/samples/julia

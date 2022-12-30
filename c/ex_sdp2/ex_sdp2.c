@@ -78,7 +78,7 @@ int main(int argc, char **argv)
   /****************************************************************
    * Step 1: Create a LINDO environment.
    ****************************************************************/
-   nErrorCode = LSloadLicenseString("../../../license/lndapi130.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadLicenseString("../../../license/lndapi140.lic",MY_LICENSE_KEY);
    APIERRORCHECK;
    APIVERSION;
 

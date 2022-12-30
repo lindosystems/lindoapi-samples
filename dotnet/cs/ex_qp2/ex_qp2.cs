@@ -29,7 +29,7 @@ public class ex_qp2
             StringBuilder LibVersion = new StringBuilder(lindo.LS_MAX_ERROR_MESSAGE_LENGTH);
             StringBuilder LibBuilded = new StringBuilder(lindo.LS_MAX_ERROR_MESSAGE_LENGTH);
 
-			errorcode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi130.lic", LicenseKey);        
+			errorcode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi140.lic", LicenseKey);        
 			CheckErr(env,errorcode);			
 			
             // Create a LINDO environment.

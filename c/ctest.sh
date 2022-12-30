@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # set PLATFORM
-source ../../include/platform.inc
+. ../../include/platform.inc
 
 # Optionally, update environment variables
-#source ../../bin/$PLATFORM/lindoapivars.sh
+#. ../../bin/$PLATFORM/lindoapivars.sh
 
 ############################################################################  
 if [ "$LINDOAPI_HOME" = "" ]; then

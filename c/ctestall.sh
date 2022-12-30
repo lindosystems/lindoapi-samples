@@ -25,7 +25,7 @@ sh ctest.sh ex_nlp7
 sh ctest.sh ex_nlp8
 sh ctest.sh ex_nlp9_uc
 sh ctest.sh ex_port
-sh ctest.sh ex_pthread
+sh ctest.sh ex_pthread ../../data 3
 sh ctest.sh ex_qp_soc
 sh ctest.sh ex_samp1
 sh ctest.sh ex_samp2

@@ -408,7 +408,7 @@ Dim pEnv As Long
 
 Dim LicenseKey As String * LS_MAX_ERROR_MESSAGE_LENGTH
   
-nErr = LSloadLicenseString("..\..\..\license\lndapi130.lic", LicenseKey)
+nErr = LSloadLicenseString("..\..\..\license\lndapi140.lic", LicenseKey)
 Call CheckErr(pEnv, nErr)
 
   '>>> Step 1 <<<:  Create a LINDO environment.

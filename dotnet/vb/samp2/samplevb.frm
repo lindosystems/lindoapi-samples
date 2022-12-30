@@ -114,7 +114,7 @@ Private Sub Command1_Click()
   Dim LicenseKey As String * LS_MAX_ERROR_MESSAGE_LENGTH
   
     
-  errorcode = LSloadLicenseString("..\..\..\license\lndapi130.lic", LicenseKey)
+  errorcode = LSloadLicenseString("..\..\..\license\lndapi140.lic", LicenseKey)
   Call CheckErr(env, errorcode)
 
   '>>> Step 1 <<<:  Create a LINDO environment.

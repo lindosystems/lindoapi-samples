@@ -174,7 +174,7 @@ Public Class Form1
 
 
         ' read license key
-        errorcode = Lindo.LSloadLicenseString("..\\..\\..\\..\\..\\license\\lndapi130.lic", LicenseKey)
+        errorcode = Lindo.LSloadLicenseString("..\\..\\..\\..\\..\\license\\lndapi140.lic", LicenseKey)
         If (errorcode > 0) Then
             MsgBox("License file does not exist.")
             End

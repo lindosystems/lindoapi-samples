@@ -285,7 +285,7 @@ Public Class Form1
         '*****************************************************************
         '* Step 1: Create an environment and a model space
         '****************************************************************
-        errorcode = Lindo.LSloadLicenseString("../../../../../license/lndapi130.lic", LicenseKey)
+        errorcode = Lindo.LSloadLicenseString("../../../../../license/lndapi140.lic", LicenseKey)
         Call CheckErr(env, errorcode)
 
         env = Lindo.LScreateEnv(errorcode, LicenseKey.ToString())

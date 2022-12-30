@@ -233,7 +233,7 @@ class ex_mt1 {
 		NewThread t[] = new NewThread[maxThreads];
 
 		/* >>> Step 1 <<< Read license file and create a LINDO environment. */
-		nErrorCode[0] = Lindo.LSloadLicenseString("../../license/lndapi130.lic",cLicenseKey);
+		nErrorCode[0] = Lindo.LSloadLicenseString("../../license/lndapi140.lic",cLicenseKey);
 
 		APIVERSION();
 		pEnv= Lindo.LScreateEnv(nErrorCode, cLicenseKey.toString());

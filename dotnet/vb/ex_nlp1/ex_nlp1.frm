@@ -381,7 +381,7 @@ Private Sub Command1_Click()
 '*****************************************************************
 '* Step 1: Create an environment and a model space
 '*****************************************************************/
-errorcode = LSloadLicenseString("..\..\..\license\lndapi130.lic", LicenseKey)
+errorcode = LSloadLicenseString("..\..\..\license\lndapi140.lic", LicenseKey)
 Call CheckErr(env, errorcode)
 
 env = LScreateEnv(errorcode, LicenseKey)
