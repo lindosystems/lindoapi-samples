@@ -39,8 +39,8 @@
     ys: random yield per hectare of sorghum (in 100 Kgs)
 
   It is known that
-   - 100 kgs of maize contains 2.8 × 105 Kcal and 6.4 kg of protein
-   - 100 kgs of sorghum contains 2.8 × 105 Kcal and 8 kg of protein.;
+   - 100 kgs of maize contains 2.8 . 105 Kcal and 6.4 kg of protein
+   - 100 kgs of sorghum contains 2.8 . 105 Kcal and 8 kg of protein.;
 
   Objective: minimize total hectares  allocated for farming.
 
@@ -337,7 +337,7 @@ int main(int argc, char **argv)
      exit(1);
    }
 
-   errorcode = LSloadLicenseString("../../../license/lndapi130.lic",MY_LICENSE_KEY);
+   errorcode = LSloadLicenseString("../../../license/lndapi140.lic",MY_LICENSE_KEY);
    APIERRORCHECK;
 
    pEnv = LScreateEnv ( &errorcode, MY_LICENSE_KEY);

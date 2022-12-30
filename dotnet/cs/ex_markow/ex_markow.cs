@@ -136,7 +136,7 @@ public class ex_markow
         MY_LICENSE_KEY must be defined to be the license key
         shipped with your software. */
 
-        nErrorCode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi130.lic", LicenseKey);
+        nErrorCode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi140.lic", LicenseKey);
         APIErrorCheck(pEnv, nErrorCode);
 
 

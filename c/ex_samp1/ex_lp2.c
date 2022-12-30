@@ -89,7 +89,7 @@ int main()
   /*****************************************************************
    * Step 1: Create a model in the environment.
    *****************************************************************/
-   nErrorCode = LSloadLicenseString("../../../license/lndapi130.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadLicenseString("../../../license/lndapi140.lic",MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {
       printf( "Failed to load license key (error %d)\n",nErrorCode);
@@ -147,7 +147,7 @@ int main()
       double adB[4] = { 20., 20., 40., 10. };
 
 /* The constraint types */
-      char acConTypes[4] = {‘E’, ‘G’, ‘E’ , ‘G’ };
+      char acConTypes[4] = {'E', 'G', 'E' , 'G' };
 
 /* The number of nonzeros in the constraint matrix */
       int nNZ = 9;
