@@ -1,7 +1,7 @@
 
 # LINDO API  Sample Programs
 
-                      Copyright (c) 2020
+                      Copyright (c) 2022
 
          LINDO Systems, Inc.           312.988.7422
          1415 North Dayton St.         info@lindo.com
@@ -65,8 +65,8 @@ and type the following at command promt.
         DOS shell
 		c\> ntest.bat ex_mps filename
 
-## VB or F90 or Delphi applications
-VB, F90 and Delphi samples should be built and run using the associated IDE projects. 
+## VB6 or F90 or Delphi applications
+VB6, F90 and Delphi samples should be built and run using the associated IDE projects. 
 
 ## Python and R
 Refer to lindoapi/Python and lindoapi/R folders.
