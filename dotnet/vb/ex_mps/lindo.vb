@@ -1,13 +1,13 @@
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
  ''
- ''    LINDO API Version 13.0
- ''    Copyright (c) 2000-2018
+ ''    LINDO API Version 14.0
+ ''    Copyright (c) 2000-2022
  ''
  ''    LINDO Systems, Inc.            312.988.7422
  ''    1415 North Dayton St.          info@lindo.com
  ''    Chicago, IL 60622              http:www.lindo.com
  ''
- ''    $Id: lindo.h 2906 2020-01-11 23:47:51Z mka $
+ ''    $Id: lindo.vb 3042 2022-10-09 23:46:14Z mka $
  ''
  '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
@@ -19,25 +19,25 @@ Public Class lindo
 
 
  ' Version macros '
-  Public Const  LS_MAJOR_VER_NUMBER            As Integer =         13
+  Public Const  LS_MAJOR_VER_NUMBER            As Integer =         14
   Public Const  LS_MINOR_VER_NUMBER            As Integer =          0
-  Public Const  LS_REV_VER_NUMBER              As Integer =        109
-  Public Const  LS_VER_NUMBER                  As Integer =       1300
-  Public Const  LS_BUILD_VER_NUMBER            As Integer =       4099
+  Public Const  LS_REV_VER_NUMBER              As Integer =        192
+  Public Const  LS_VER_NUMBER                  As Integer =       1400
+  Public Const  LS_BUILD_VER_NUMBER            As Integer =       5099
   Public Const  LS_MIN                         As Integer =         +1
   Public Const  LS_MAX                         As Integer =         -1
-  Public Const LS_CONTYPE_GE As Integer = 71 'G'
-  Public Const LS_CONTYPE_LE As Integer = 76 'L'
-  Public Const LS_CONTYPE_EQ As Integer = 69 'E'
-  Public Const LS_CONTYPE_FR As Integer = 78 'N'
-  Public Const LS_CONETYPE_QUAD As Integer = 81 'Q'
-  Public Const LS_CONETYPE_RQUAD As Integer = 82 'R'
-  Public Const  LS_CONETYPE_PEXP               As Integer =        69 'E'
-  Public Const  LS_CONETYPE_PPOW               As Integer =        80 'P'
-  Public Const LS_VARTYPE_CONT As Integer = 67 'C'
-  Public Const LS_VARTYPE_BIN As Integer = 66 'B'
-  Public Const LS_VARTYPE_INT As Integer = 73 'I'
-  Public Const LS_VARTYPE_SC As Integer = 83 'S'
+  Public Const  LS_CONTYPE_GE                  As Integer =         71 'G'
+  Public Const  LS_CONTYPE_LE                  As Integer =         76 'L'
+  Public Const  LS_CONTYPE_EQ                  As Integer =         69 'E'
+  Public Const  LS_CONTYPE_FR                  As Integer =         78 'N'
+  Public Const  LS_CONETYPE_QUAD               As Integer =         81 'Q'
+  Public Const  LS_CONETYPE_RQUAD              As Integer =         82 'R'
+  Public Const  LS_CONETYPE_PEXP               As Integer =         69 'E'
+  Public Const  LS_CONETYPE_PPOW               As Integer =         80 'P'
+  Public Const  LS_VARTYPE_CONT                As Integer =         67 'C'
+  Public Const  LS_VARTYPE_BIN                 As Integer =         66 'B'
+  Public Const  LS_VARTYPE_INT                 As Integer =         73 'I'
+  Public Const  LS_VARTYPE_SC                  As Integer =         83 'S'
   Public Const  LS_INFINITY                    As Double  =    1.0E+30
   Public Const  LS_BASTYPE_BAS                 As Integer =          0
   Public Const  LS_BASTYPE_ATLO                As Integer =         -1
@@ -79,6 +79,10 @@ Public Class lindo
   Public Const  LS_TIME_COPY                   As Integer =          2
   Public Const  LS_STOC_COPY                   As Integer =          4
   Public Const  LS_SNGSTG_COPY                 As Integer =          8
+  Public Const  LS_LANG_C                      As Integer =          0
+  Public Const  LS_LANG_CS                     As Integer =          1
+  Public Const  LS_LANG_VB                     As Integer =          2
+  Public Const  LS_LANG_LUA                    As Integer =          3
 
  ' Time frames in seconds '
   Public Const  LSSEC01                        As Integer =          1
@@ -140,6 +144,26 @@ Public Class lindo
   Public Const  LS_XSOLVER_MSK                 As Integer =          9
   Public Const  LS_XSOLVER_COI                 As Integer =         10
   Public Const  LS_XSOLVER_SOP                 As Integer =         11
+  Public Const  LS_XSOLVER_CBC                 As Integer =         12
+  Public Const  LS_XSOLVER_XPR                 As Integer =         13
+  Public Const  LS_XSOLVER_HIGHS               As Integer =         14
+  Public Const  LS_XSOLVER_LUA                 As Integer =         98
+  Public Const  LS_XSOLVER_XLINDO              As Integer =         99
+
+ ' ref types '
+  Public Const  LS_REF_LOCFUN                  As Integer =         -1
+  Public Const  LS_REF_MIPFUN                  As Integer =         -2
+  Public Const  LS_REF_CBFUN                   As Integer =         -3
+  Public Const  LS_REF_FUNCALC                 As Integer =         -4
+  Public Const  LS_REF_GRADCALC                As Integer =         -5
+  Public Const  LS_REF_HESSCALC                As Integer =         -6
+  Public Const  LS_REF_LOCDATA                 As Integer =        -11
+  Public Const  LS_REF_MIPDATA                 As Integer =        -12
+  Public Const  LS_REF_CBDATA                  As Integer =        -13
+  Public Const  LS_REF_FDATA                   As Integer =        -14
+  Public Const  LS_REF_GDATA                   As Integer =        -15
+  Public Const  LS_REF_HDATA                   As Integer =        -16
+  Public Const  LS_REF_PREMODEL                As Integer =        -30
 
  ' Solution or model status (1-20) '
   Public Const  LS_STATUS_OPTIMAL              As Integer =          1
@@ -165,23 +189,12 @@ Public Class lindo
   Public Const  LS_IPARAM_CHECK_FOR_ERRORS     As Integer =       1025
   Public Const  LS_IPARAM_ALLOW_CNTRLBREAK     As Integer =       1026
   Public Const  LS_IPARAM_DECOMPOSITION_TYPE   As Integer =       1027
-  Public Const  LS_IPARAM_LP_SCALE             As Integer =       1029
-  Public Const  LS_IPARAM_LP_ITRLMT            As Integer =       1030
-  Public Const  LS_IPARAM_SPLEX_PPRICING       As Integer =       1031
-  Public Const  LS_IPARAM_SPLEX_REFACFRQ       As Integer =       1032
   Public Const  LS_IPARAM_BARRIER_SOLVER       As Integer =       1033
-  Public Const  LS_IPARAM_PROB_TO_SOLVE        As Integer =       1034
-  Public Const  LS_IPARAM_LP_PRINTLEVEL        As Integer =       1035
   Public Const  LS_IPARAM_MPS_OBJ_WRITESTYLE   As Integer =       1036
-  Public Const  LS_IPARAM_SPLEX_DPRICING       As Integer =       1037
   Public Const  LS_IPARAM_SOL_REPORT_STYLE     As Integer =       1038
   Public Const  LS_IPARAM_INSTRUCT_LOADTYPE    As Integer =       1039
-  Public Const  LS_IPARAM_SPLEX_DUAL_PHASE     As Integer =       1040
-  Public Const  LS_IPARAM_LP_PRELEVEL          As Integer =       1041
   Public Const  LS_IPARAM_STRING_LENLMT        As Integer =       1042
   Public Const  LS_IPARAM_USE_NAMEDATA         As Integer =       1043
-  Public Const  LS_IPARAM_SPLEX_USE_EXTERNAL   As Integer =       1044
-  Public Const  LS_DPARAM_LP_ITRLMT            As Integer =       1045
   Public Const  LS_IPARAM_COPY_MODE            As Integer =       1046
   Public Const  LS_IPARAM_SBD_NUM_THREADS      As Integer =       1047
   Public Const  LS_IPARAM_NUM_THREADS          As Integer =       1048
@@ -194,6 +207,7 @@ Public Class lindo
   Public Const  LS_IPARAM_FIND_SYMMETRY_LEVEL  As Integer =       1055
   Public Const  LS_IPARAM_FIND_SYMMETRY_PRINT_LEVEL As Integer =       1056
   Public Const  LS_IPARAM_TUNER_PRINT_LEVEL    As Integer =       1057
+  Public Const  LS_IPARAM_DEFAULT_SEED         As Integer =       1058
 
     ' Generic solver parameters (1251 - 1500) '
   Public Const  LS_IPARAM_SOLVER_IUSOL         As Integer =       1251
@@ -210,8 +224,21 @@ Public Class lindo
   Public Const  LS_DPARAM_SOLVER_PERT_FEASTOL  As Integer =       1262
   Public Const  LS_IPARAM_SOLVER_PARTIALSOL_LEVEL As Integer =       1263
   Public Const  LS_IPARAM_SOLVER_MODE          As Integer =       1264
+  Public Const  LS_IPARAM_SOLVER_METHOD        As Integer =       1265
+  Public Const  LS_IPARAM_SOLVER_DUALSOL       As Integer =       1266
 
     ' Advanced parameters for the simplex method (4000 - 41++) '
+  Public Const  LS_IPARAM_LP_SCALE             As Integer =       4029
+  Public Const  LS_IPARAM_LP_ITRLMT            As Integer =       4030
+  Public Const  LS_IPARAM_SPLEX_PPRICING       As Integer =       4031
+  Public Const  LS_IPARAM_SPLEX_REFACFRQ       As Integer =       4032
+  Public Const  LS_IPARAM_PROB_TO_SOLVE        As Integer =       4034
+  Public Const  LS_IPARAM_LP_PRINTLEVEL        As Integer =       4035
+  Public Const  LS_IPARAM_SPLEX_DPRICING       As Integer =       4037
+  Public Const  LS_IPARAM_SPLEX_DUAL_PHASE     As Integer =       4040
+  Public Const  LS_IPARAM_LP_PRELEVEL          As Integer =       4041
+  Public Const  LS_IPARAM_SPLEX_USE_EXTERNAL   As Integer =       4044
+  Public Const  LS_DPARAM_LP_ITRLMT            As Integer =       4045
   Public Const  LS_DPARAM_LP_MIN_FEASTOL       As Integer =       4060
   Public Const  LS_DPARAM_LP_MAX_FEASTOL       As Integer =       4061
   Public Const  LS_DPARAM_LP_MIN_OPTTOL        As Integer =       4062
@@ -234,7 +261,7 @@ Public Class lindo
   Public Const  LS_IPARAM_LP_PRTFG             As Integer =       4079
   Public Const  LS_IPARAM_LP_OPRFREE           As Integer =       4080
   Public Const  LS_IPARAM_LP_SPRINT_SUB        As Integer =       4081
-  Public Const  LS_IPARAM_LP_PERTMODE          As Integer =       4082
+  Public Const  LS_IPARAM_LP_XMODE             As Integer =       4082
   Public Const  LS_IPARAM_LP_PCOLAL_FACTOR     As Integer =       4083
   Public Const  LS_IPARAM_LP_MAXMERGE          As Integer =       4084
   Public Const  LS_DPARAM_LP_PERTFACT          As Integer =       4085
@@ -244,6 +271,10 @@ Public Class lindo
   Public Const  LS_IPARAM_LP_UMODE             As Integer =       4089
   Public Const  LS_IPARAM_LP_SPRINT_MAXPASS    As Integer =       4090
   Public Const  LS_IPARAM_LP_SPRINT_COLFACT    As Integer =       4091
+  Public Const  LS_IPARAM_LP_BASRECOV_METHOD   As Integer =       4092
+  Public Const  LS_IPARAM_LP_BASPOLISH_ITRLMT  As Integer =       4093
+  Public Const  LS_IPARAM_LP_BASPOLISH_DEPTH   As Integer =       4094
+  Public Const  LS_IPARAM_LP_BASPOLISH_MODE    As Integer =       4095
 
     ' Advanced parameters for LU decomposition (4800 - 4+++) '
   Public Const  LS_IPARAM_LU_NUM_CANDITS       As Integer =       4800
@@ -341,6 +372,7 @@ Public Class lindo
   Public Const  LS_DPARAM_NLP_CUTOFFOBJ        As Integer =       2553
   Public Const  LS_IPARAM_NLP_USECUTOFFOBJ     As Integer =       2554
   Public Const  	LS_IPARAM_NLP_CONIC_REFORM    As Integer =       2555
+  Public Const  LS_IPARAM_NLP_QP_REFORM_LEVEL  As Integer =       2556
 
     ' Mixed integer programming (MIP) parameters (5000 - 5+++) '
   Public Const  LS_IPARAM_MIP_TIMLIM           As Integer =       5300
@@ -454,6 +486,9 @@ Public Class lindo
   Public Const  LS_IPARAM_MIP_SYMMETRY_MODE    As Integer =       5418
   Public Const  LS_IPARAM_MIP_ALLDIFF_METHOD   As Integer =       5419
   Public Const  LS_IPARAM_MIP_SOLLIM           As Integer =       5420
+  Public Const  LS_IPARAM_MIP_FP_PROJECTION    As Integer =       5421
+  Public Const  LS_IPARAM_MIP_SYMMETRY_NONZ    As Integer =       5422
+  Public Const  LS_IPARAM_MIP_FIXINIT_ITRLIM   As Integer =       5423
 
     ' Global optimization (GOP) parameters (6000 - 6+++) '
   Public Const  LS_DPARAM_GOP_RELOPTTOL        As Integer =       6400
@@ -1039,6 +1074,10 @@ Public Class lindo
   Public Const  EP_ATAN2R                      As Integer =       1184
   Public Const  EP_XPOWDIVAB                   As Integer =       1185
   Public Const  EP_LOGABEXPX                   As Integer =       1186
+  Public Const  EP_LOGSUMEXP			       As Integer =       1187
+  Public Const  EP_LOGSUMAEXP                  As Integer =       1188
+  Public Const  EP_EXPMODIV                    As Integer =       1189
+  Public Const  EP_POWERUTILITY                As Integer =       1190
 
  ' Model statistics (11001-11199)'
   Public Const  LS_IINFO_NUM_NONZ_OBJ          As Integer =      11001
@@ -1111,6 +1150,14 @@ Public Class lindo
   Public Const  LS_IINFO_MAX_CNONZ             As Integer =      11068
   Public Const  LS_DINFO_AVG_RNONZ             As Integer =      11069
   Public Const  LS_DINFO_AVG_CNONZ             As Integer =      11070
+  Public Const  LS_IINFO_OBJIDX                As Integer =      11071
+  Public Const  LS_IINFO_SOLIDX                As Integer =      11072
+  Public Const  LS_DINFO_OBJRANK               As Integer =      11073
+  Public Const  LS_DINFO_OBJWEIGHT             As Integer =      11074
+  Public Const  LS_DINFO_OBJSENSE              As Integer =      11075
+  Public Const  LS_DINFO_OBJRELTOL             As Integer =      11076
+  Public Const  LS_DINFO_OBJABSTOL             As Integer =      11077
+  Public Const  LS_DINFO_OBJTIMLIM             As Integer =      11078
 
  ' LP and NLP related info (11200-11299)'
   Public Const  LS_IINFO_METHOD                As Integer =      11200
@@ -1157,6 +1204,7 @@ Public Class lindo
   Public Const  LS_IINFO_LPTOOL                As Integer =      11241
   Public Const  LS_SINFO_MODEL_TYPE            As Integer =      11242
   Public Const  LS_IINFO_NLP_LINEARITY         As Integer =      11243
+  Public Const  LS_DINFO_ALL_ITER              As Integer =      11244
 
  ' MIP and MINLP related info (11300-11400) '
   Public Const  LS_IINFO_MIP_STATUS            As Integer =      11300
@@ -1224,6 +1272,7 @@ Public Class lindo
   Public Const  LS_IINFO_MIP_LP_ROUND_CUTS     As Integer =      11372
   Public Const  LS_IINFO_MIP_PERSPECTIVE_CUTS  As Integer =      11373
   Public Const  LS_IINFO_MIP_STRATEGY_MASK     As Integer =      11374
+  Public Const  LS_DINFO_MIP_ALL_ITER          As Integer =      11375
 
  ' GOP related info (11601-11699) '
   Public Const  LS_DINFO_GOP_OBJ               As Integer =      11600
@@ -1261,6 +1310,7 @@ Public Class lindo
   Public Const  LS_SINFO_GOP_THREAD_LOAD       As Integer =      11632
   Public Const  LS_DINFO_GOP_ABSGAP            As Integer =      11633
   Public Const  LS_DINFO_GOP_RELGAP            As Integer =      11634
+  Public Const  LS_IINFO_GOP_WARNING           As Integer =      11635
 
     ' Progress info during callbacks '
   Public Const  LS_DINFO_SUB_OBJ               As Integer =      11700
@@ -1276,6 +1326,10 @@ Public Class lindo
   Public Const  LS_IINFO_CUR_MIP_COUNT         As Integer =      11710
   Public Const  LS_IINFO_CUR_CUT_COUNT         As Integer =      11711
   Public Const  LS_DINFO_CUR_ITER              As Integer =      11712
+  Public Const  LS_DINFO_CUR_TIME              As Integer =      11713
+  Public Const  LS_IINFO_CUR_OBJIDX            As Integer =      11714
+  Public Const  LS_IINFO_LAST_OBJIDX_SOL       As Integer =      11715
+  Public Const  LS_IINFO_LAST_OBJIDX_OPT       As Integer =      11716
 
  ' Model generation progress info (1800+)'
   Public Const  LS_DINFO_GEN_PERCENT           As Integer =      11800
@@ -1377,6 +1431,8 @@ Public Class lindo
   Public Const  LS_IINFO_NZRINDEX              As Integer =      12958
   Public Const  LS_IINFO_NZCRANK               As Integer =      12959
   Public Const  LS_IINFO_NZRRANK               As Integer =      12960
+  Public Const  LS_IINFO_NZCCOUNT              As Integer =      12961
+  Public Const  LS_IINFO_NZRCOUNT              As Integer =      12962
 
    '! Expected value of the objective function.  '
   Public Const  LS_DINFO_STOC_EVOBJ            As Integer =      13201
@@ -1874,6 +1930,9 @@ Public Class lindo
   Public Const  LSERR_SOLPOOL_FULL             As Integer =       2088
   Public Const  LSERR_SOL_LIMIT                As Integer =       2089
   Public Const  LSERR_TUNER_NOT_SETUP          As Integer =       2090
+  Public Const  LSERR_XSOLVER_NOT_SUPPORTED    As Integer =       2091
+  Public Const  LSERR_XSOLVER_INVALID_VERSION  As Integer =       2092
+  Public Const  LSERR_FDE_NOT_INSTALLED        As Integer =       2093
 
     ' Error in LDLt factorization '
   Public Const  LSERR_LDL_FACTORIZATION        As Integer =       2201
@@ -2211,7 +2270,7 @@ Public Class lindo
   Public Const  LSERR_SCRIPT                   As Integer =       2700
 
     '! @} '
-  Public Const  LSERR_LAST_ERROR               As Integer =       2598
+  Public Const  LSERR_LAST_ERROR               As Integer =       2751
 
  ' Callback locations '
   Public Const  LSLOC_PRIMAL                   As Integer =          0
@@ -2241,6 +2300,7 @@ Public Class lindo
   Public Const  LSLOC_SP_BENCH_START           As Integer =         24
   Public Const  LSLOC_SP_BENCH_END             As Integer =         25
   Public Const  LSLOC_BNP                      As Integer =         26
+  Public Const  LSLOC_OBJPOOL                  As Integer =         27
   Public Const  LS_METHOD_FREE                 As Integer =          0
   Public Const  LS_METHOD_PSIMPLEX             As Integer =          1
   Public Const  LS_METHOD_DSIMPLEX             As Integer =          2
@@ -2254,6 +2314,7 @@ Public Class lindo
   Public Const  LS_METHOD_SBD                  As Integer =         10
   Public Const  LS_METHOD_SPRINT               As Integer =         11
   Public Const  LS_METHOD_GA                   As Integer =         12
+  Public Const  LS_METHOD_FILELP               As Integer =         13
   Public Const  LS_STRATEGY_USER               As Integer =          0
   Public Const  LS_STRATEGY_PRIMIP             As Integer =          1
   Public Const  LS_STRATEGY_NODEMIP            As Integer =          2
@@ -2373,6 +2434,7 @@ Public Class lindo
   Public Const  LS_MIP_MODE_FAST_OPTIMALITY    As Integer =          8
   Public Const  LS_MIP_MODE_NO_BRANCH_CUTS     As Integer =         16
   Public Const  LS_MIP_MODE_NO_LP_BARRIER      As Integer =         32
+  Public Const  LS_MIP_MODE_NO_LSLVDP          As Integer =         64
 
  ' Bit mask for cut generation levels. Use sums to
  ' enable a collection of available cuts.
@@ -2391,6 +2453,8 @@ Public Class lindo
   Public Const  LS_MIP_BASIS_CUTS              As Integer =       4096
   Public Const  LS_MIP_CARDGUB_CUTS            As Integer =       8192
   Public Const  LS_MIP_DISJUN_CUTS             As Integer =      16384
+  Public Const  LS_MIP_SOFT_KNAP_CUTS          As Integer =      32768
+  Public Const  LS_MIP_LP_ROUND_CUTS           As Integer =      65536
 
  ' Bit masks for MIP preprocessing levels. Use sums
  ' to enable a collection of available levels.
@@ -2589,6 +2653,7 @@ Public Class lindo
   Public Const  LS_RANDGEN_MERSENNE            As Integer =          6
 
  ' NCM methods '
+  Public Const  LS_NCM_STD                     As Integer =          1
   Public Const  LS_NCM_GA                      As Integer =          2
   Public Const  LS_NCM_ALTP                    As Integer =          4
   Public Const  LS_NCM_L2NORM_CONE             As Integer =          8
@@ -2621,6 +2686,21 @@ Public Class lindo
 
    '! scan for integer basic solutions '
   Public Const  LS_SOLVER_MODE_INTBAS          As Integer =          4
+
+   '! don't scale lex objectives '
+  Public Const  LS_SOLVER_MODE_LEX_NOSCALE     As Integer =          8
+
+   '! relaxed lex-model '
+  Public Const  LS_SOLVER_MODE_LEX_RELAXED     As Integer =         16
+
+   '! export each lex-model '
+  Public Const  LS_SOLVER_MODE_LEX_EXPEACH     As Integer =         32
+
+   '! export failed lex-model '
+  Public Const  LS_SOLVER_MODE_LEX_EXPFAIL     As Integer =         64
+
+   '! resolve failed lex-model '
+  Public Const  LS_SOLVER_MODE_LEX_RESOLVEFAIL As Integer =        128
 
  ' Equivalences '
   Public Const  LS_IINFO_OBJSENSE              As Integer = LS_IPARAM_OBJSENSE
@@ -2727,55 +2807,55 @@ Public Class lindo
 
 
  Public Declare Function LScreateEnv _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef  pnErrorcode       As      Integer         , _
                                        ByVal  pszPassword       As       String         ) As Integer
 
 
  Public Declare Function LScreateModel _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByRef  pnErrorcode       As      Integer         ) As Integer
 
 
  Public Declare Function LSdeleteEnv _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef         pEnv       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSdeleteModel _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSloadLicenseString _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal     pszFname       As       String         , _
                                        ByVal  pachLicense       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetVersionInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal   pachVernum       As StringBuilder         , _
                                        ByVal pachBuildDate       As StringBuilder         ) As Integer
 
 
  Public Declare Function LScopyParam _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal  sourceModel       As      Integer         , _
                                        ByVal  targetModel       As      Integer         , _
                                        ByVal  mSolverType       As      Integer         ) As Integer
 
 
  Public Declare Function LSsetXSolverLibrary _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal    mVendorId       As      Integer         , _
                                        ByVal    szLibrary       As       String         ) As Integer
 
 
  Public Declare Function LSgetXSolverLibrary _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal    mVendorId       As      Integer         , _
                                        ByVal   szLibrary        As     StringBuilder) As Integer
@@ -2786,46 +2866,46 @@ Public Class lindo
 
 
  Public Declare Function LSreadMPSFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal      nFormat       As      Integer         ) As Integer
 
 
  Public Declare Function LSwriteMPSFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal      nFormat       As      Integer         ) As Integer
 
 
  Public Declare Function LSreadLINDOFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteLINDOFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSreadLINDOStream _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    pszStream       As       String         , _
                                        ByVal   nStreamLen       As      Integer         ) As Integer
 
 
  Public Declare Function LSwriteLINGOFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteDualMPSFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal      nFormat       As      Integer         , _
@@ -2833,130 +2913,130 @@ Public Class lindo
 
 
  Public Declare Function LSwriteDualLINDOFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal    nObjSense       As      Integer         ) As Integer
 
 
  Public Declare Function LSwriteSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteNLSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteSolutionOfType _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal      nFormat       As      Integer         ) As Integer
 
 
  Public Declare Function LSwriteIIS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteIUS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSreadMPIFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteMPIFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteMPXFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal        mMask       As      Integer         ) As Integer
 
 
  Public Declare Function LSwriteWithSetsAndSC _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal      nFormat       As      Integer         ) As Integer
 
 
  Public Declare Function LSreadBasis _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal      nFormat       As      Integer         ) As Integer
 
 
  Public Declare Function LSwriteBasis _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal      nFormat       As      Integer         ) As Integer
 
 
  Public Declare Function LSwriteVarPriorities _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByVal        nMode       As      Integer         ) As Integer
 
 
  Public Declare Function LSreadLPFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSreadLPStream _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    pszStream       As       String         , _
                                        ByVal   nStreamLen       As      Integer         ) As Integer
 
 
  Public Declare Function LSreadSDPAFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSreadCBFFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSreadMPXFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSreadMPXStream _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    pszStream       As       String         , _
                                        ByVal   nStreamLen       As      Integer         ) As Integer
 
 
  Public Declare Function LSreadNLFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
@@ -2966,21 +3046,21 @@ Public Class lindo
 
 
  Public Declare Function LSgetErrorMessage _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal   nErrorcode       As      Integer         , _
                                        ByVal  pachMessage       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetFileError _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef    pnLinenum       As      Integer         , _
                                        ByVal  pachLinetxt       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetErrorRowIndex _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef        piRow       As      Integer         ) As Integer
 
@@ -2990,148 +3070,148 @@ Public Class lindo
 
 
  Public Declare Function LSsetModelParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByVal      pvValue       As       Object         ) As Integer
 
 
  Public Declare Function LSgetModelParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByVal      pvValue       As       Object         ) As Integer
 
 
     Public Declare Function LSsetModelParameter _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pModel As IntPtr, _
                                           ByVal nParameter As Integer, _
                                           ByRef pvValue As Double) As Integer
 
 
     Public Declare Function LSgetModelParameter _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pModel As IntPtr, _
                                           ByVal nParameter As Integer, _
                                           ByRef pvValue As Double) As Integer
 
 
  Public Declare Function LSsetEnvParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                           ByRef pvValue As Integer) As Integer
 
 
     Public Declare Function LSgetEnvParameter _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pEnv As IntPtr, _
                                           ByVal nParameter As Integer, _
                                           ByRef pvValue As Integer) As Integer
 
     Public Declare Function LSsetEnvParameter _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pEnv As IntPtr, _
                                           ByVal nParameter As Integer, _
                                           ByRef pvValue As Double) As Integer
 
 
  Public Declare Function LSgetEnvParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                           ByRef pvValue As Double) As Integer
 
 
  Public Declare Function LSsetModelDouParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByVal         dVal       As       Double         ) As Integer
 
 
  Public Declare Function LSgetModelDouParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByRef        pdVal       As       Double         ) As Integer
 
 
  Public Declare Function LSsetModelIntParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByVal         nVal       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetModelIntParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByRef        pnVal       As      Integer         ) As Integer
 
 
  Public Declare Function LSsetEnvDouParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByVal         dVal       As       Double         ) As Integer
 
 
  Public Declare Function LSgetEnvDouParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByRef        pdVal       As       Double         ) As Integer
 
 
  Public Declare Function LSsetEnvIntParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByVal         nVal       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetEnvIntParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByRef        pnVal       As      Integer         ) As Integer
 
 
  Public Declare Function LSreadModelParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSreadEnvParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteModelParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteEnvParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteParameterAsciiDoc _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal  pszFileName       As       String         ) As Integer
 
 
  Public Declare Function LSgetIntParameterRange _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByRef     pnValMIN       As      Integer         , _
@@ -3139,7 +3219,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetDouParameterRange _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   nParameter       As      Integer         , _
                                        ByRef     pdValMIN       As       Double         , _
@@ -3147,28 +3227,28 @@ Public Class lindo
 
 
  Public Declare Function LSgetParamShortDesc _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal       nParam       As      Integer         , _
                                        ByVal pachDescription       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetParamLongDesc _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal       nParam       As      Integer         , _
                                        ByVal pachDescription       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetParamMacroName _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal       nParam       As      Integer         , _
                                        ByVal    pachParam       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetParamMacroID _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal      szParam       As       String         , _
                                        ByRef  pnParamType       As      Integer         , _
@@ -3176,12 +3256,12 @@ Public Class lindo
 
 
  Public Declare Function LSgetQCEigs _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iRow       As      Integer         , _
                                        ByVal    pachWhich       As StringBuilder         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padEigval       As       Double ()      , _
-                                       ByRef   *padEigvec       As       Double         , _
+    <MarshalAs(UnmanagedType.LPArray)> ByRef    padEigvec       As       Double ()      , _
                                        ByVal      nEigval       As      Integer         , _
                                        ByVal          ncv       As      Integer         , _
                                        ByVal         dTol       As       Double         , _
@@ -3189,7 +3269,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetEigs _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         nDim       As      Integer         , _
                                           ByVal chUL As Byte, _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
@@ -3199,7 +3279,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetEigg _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         nDim       As      Integer         , _
                                           ByVal chJOBV As Byte, _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
@@ -3213,7 +3293,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixTranspose _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nRows       As      Integer         , _
                                        ByVal        nCols       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
@@ -3221,7 +3301,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixInverse _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nRows       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padAinv       As       Double ()      , _
@@ -3229,7 +3309,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixInverseSY _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nRows       As      Integer         , _
                                           ByVal chUpLo As Byte, _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
@@ -3238,7 +3318,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixLUFactor _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nRows       As      Integer         , _
                                        ByVal        nCols       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
@@ -3249,7 +3329,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixQRFactor _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nRows       As      Integer         , _
                                        ByVal        nCols       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
@@ -3259,7 +3339,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixDeterminant _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nRows       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal       padDet       As       Double ()      , _
@@ -3267,7 +3347,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixCholFactor _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nRows       As      Integer         , _
                                           ByVal chUpLo As Byte, _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
@@ -3276,7 +3356,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixSVDFactor _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nRows       As      Integer         , _
                                        ByVal        nCols       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padA       As       Double ()      , _
@@ -3287,7 +3367,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixFSolve _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       szuplo       As       String         , _
                                        ByVal      sztrans       As       String         , _
                                        ByVal       szdiag       As       String         , _
@@ -3299,7 +3379,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixBSolve _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       szuplo       As       String         , _
                                        ByVal      sztrans       As       String         , _
                                        ByVal       szdiag       As       String         , _
@@ -3311,7 +3391,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMatrixSolve _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       szside       As       String         , _
                                        ByVal       szuplo       As       String         , _
                                        ByVal      sztrans       As       String         , _
@@ -3331,7 +3411,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadLPData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
                                        ByVal        nVars       As      Integer         , _
@@ -3350,7 +3430,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadQCData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nQCnnz       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    paiQCrows       As      Integer ()      , _
@@ -3360,7 +3440,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadConeData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCone       As      Integer         , _
                                        ByVal pszConeTypes       As       String         , _
@@ -3370,7 +3450,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadPOSDData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nPOSD       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   paiPOSDdim       As      Integer ()      , _
@@ -3381,7 +3461,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadALLDIFFData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     nALLDIFF       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal paiAlldiffDim       As      Integer ()      , _
@@ -3392,7 +3472,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadSETSData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nSETS       As      Integer         , _
                                        ByVal  pszSETStype       As       String         , _
@@ -3402,7 +3482,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadSemiContData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      nSCVars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiVars       As      Integer ()      , _
@@ -3411,13 +3491,13 @@ Public Class lindo
 
 
  Public Declare Function LSloadVarType _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  pszVarTypes       As       String         ) As Integer
 
 
  Public Declare Function LSloadNameData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszTitle       As       String         , _
                                        ByVal   pszObjName       As       String         , _
@@ -3429,8 +3509,17 @@ Public Class lindo
     <MarshalAs(UnmanagedType.LPArray)> ByVal paszConeNames       As       String ()      ) As Integer
 
 
+ Public Declare Function LSloadIndData _
+ Lib "lindo14_0.dll" _
+   (                                   ByVal       pModel       As       IntPtr         , _
+                                       ByVal   nIndicRows       As      Integer         , _
+    <MarshalAs(UnmanagedType.LPArray)> ByVal paiIndicRows       As      Integer ()      , _
+    <MarshalAs(UnmanagedType.LPArray)> ByVal paiIndicCols       As      Integer ()      , _
+    <MarshalAs(UnmanagedType.LPArray)> ByVal paiIndicVals       As      Integer ()      ) As Integer
+
+
  Public Declare Function LSloadNLPData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   paiNLPcols       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   panNLPcols       As      Integer ()      , _
@@ -3442,7 +3531,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadNLPDense _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
                                        ByVal        nVars       As      Integer         , _
@@ -3455,7 +3544,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadInstruct _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
                                        ByVal        nObjs       As      Integer         , _
@@ -3478,7 +3567,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddInstruct _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
                                        ByVal        nObjs       As      Integer         , _
@@ -3501,102 +3590,102 @@ Public Class lindo
 
 
  Public Declare Function LSloadStringData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     nStrings       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal paszStringData       As       String ()      ) As Integer
 
 
  Public Declare Function LSloadString _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    pszString       As       String         ) As Integer
 
 
  Public Declare Function LSbuildStringData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSdeleteStringData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSdeleteString _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSgetStringValue _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      iString       As      Integer         , _
                                        ByRef      pdValue       As       Double         ) As Integer
 
 
  Public Declare Function LSgetConstraintProperty _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      ndxCons       As      Integer         , _
                                        ByRef   pnConptype       As      Integer         ) As Integer
 
 
  Public Declare Function LSsetConstraintProperty _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      ndxCons       As      Integer         , _
                                        ByVal    nConptype       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetGOPVariablePriority _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       ndxVar       As      Integer         , _
                                        ByRef   pnPriority       As      Integer         ) As Integer
 
 
  Public Declare Function LSsetGOPVariablePriority _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       ndxVar       As      Integer         , _
                                        ByVal    nPriority       As      Integer         ) As Integer
 
 
  Public Declare Function LSloadMultiStartSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nIndex       As      Integer         ) As Integer
 
 
  Public Declare Function LSloadGASolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nIndex       As      Integer         ) As Integer
 
 
  Public Declare Function LSaddQCShift _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iRow       As      Integer         , _
                                        ByVal       dShift       As       Double         ) As Integer
 
 
  Public Declare Function LSgetQCShift _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iRow       As      Integer         , _
                                        ByRef      pdShift       As       Double         ) As Integer
 
 
  Public Declare Function LSresetQCShift _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iRow       As      Integer         ) As Integer
 
 
  Public Declare Function LSaddObjPool _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padC       As       Double ()      , _
                                        ByVal    mObjSense       As      Integer         , _
@@ -3605,29 +3694,44 @@ Public Class lindo
 
 
  Public Declare Function LSremObjPool _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    nObjIndex       As      Integer         ) As Integer
 
 
  Public Declare Function LSfreeObjPool _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
- Public Declare Function LSsetObjPoolInfo _
- Lib "lindo12_0.dll" _
+ Public Declare Function LSsetObjPoolParam _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    nObjIndex       As      Integer         , _
                                        ByVal        mInfo       As      Integer         , _
                                        ByVal       dValue       As       Double         ) As Integer
 
 
+ Public Declare Function LSgetObjPoolParam _
+ Lib "lindo14_0.dll" _
+   (                                   ByVal       pModel       As       IntPtr         , _
+                                       ByVal    nObjIndex       As      Integer         , _
+                                       ByVal        mInfo       As      Integer         , _
+                                       ByRef      pdValue       As       Double         ) As Integer
+
+
  Public Declare Function LSgetObjPoolNumSol _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    nObjIndex       As      Integer         , _
                                        ByRef      pNumSol       As      Integer         ) As Integer
+
+
+ Public Declare Function LSsetObjPoolName _
+ Lib "lindo14_0.dll" _
+   (                                   ByVal       pModel       As       IntPtr         , _
+                                       ByVal    nObjIndex       As      Integer         , _
+                                       ByVal    szObjName       As       String         ) As Integer
 
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
  ' Solver Initialization Routines (6)                                 '
@@ -3635,32 +3739,32 @@ Public Class lindo
 
 
  Public Declare Function LSloadBasis _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   panCstatus       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   panRstatus       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSloadVarPriorities _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    panCprior       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSreadVarPriorities _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSloadVarStartPoint _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      ) As Integer
 
 
  Public Declare Function LSloadVarStartPointPartial _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCols       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCols       As      Integer ()      , _
@@ -3668,13 +3772,13 @@ Public Class lindo
 
 
  Public Declare Function LSloadMIPVarStartPoint _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      ) As Integer
 
 
  Public Declare Function LSloadMIPVarStartPointPartial _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCols       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCols       As      Integer ()      , _
@@ -3682,13 +3786,13 @@ Public Class lindo
 
 
  Public Declare Function LSreadVarStartPoint _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSloadBlockStructure _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nBlock       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    panRblock       As      Integer ()      , _
@@ -3697,14 +3801,14 @@ Public Class lindo
 
 
  Public Declare Function LSloadIISPriorities _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    panRprior       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    panCprior       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSloadSolutionAt _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    nObjIndex       As      Integer         , _
                                        ByVal    nSolIndex       As      Integer         ) As Integer
@@ -3715,37 +3819,37 @@ Public Class lindo
 
 
  Public Declare Function LSoptimize _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      nMethod       As      Integer         , _
                                        ByRef  pnSolStatus       As      Integer         ) As Integer
 
 
  Public Declare Function LSsolveMIP _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef pnMIPSolStatus       As      Integer         ) As Integer
 
 
  Public Declare Function LSsolveGOP _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef pnGOPSolStatus       As      Integer         ) As Integer
 
 
  Public Declare Function LSoptimizeQP _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef pnQPSolStatus       As      Integer         ) As Integer
 
 
  Public Declare Function LScheckConvexity _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSsolveSBD _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      nStages       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal  panRowStage       As      Integer ()      , _
@@ -3754,7 +3858,7 @@ Public Class lindo
 
 
  Public Declare Function LSsolveMipBnp _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nBlock       As      Integer         , _
                                        ByVal     pszFname       As       String         , _
@@ -3764,20 +3868,20 @@ Public Class lindo
 
 
  Public Declare Function LSgetInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nQuery       As      Integer         , _
                                           ByRef pvResult As Integer) As Integer
 
     Public Declare Function LSgetInfo _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pModel As IntPtr, _
                                           ByVal nQuery As Integer, _
                                           ByRef pvResult As Double) As Integer
 
 
  Public Declare Function LSgetProfilerInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     mContext       As      Integer         , _
                                        ByRef      pnCalls       As      Integer         , _
@@ -3785,7 +3889,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetProfilerContext _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     mContext       As      Integer         ) As Integer
 
@@ -3793,51 +3897,51 @@ Public Class lindo
 
 
  Public Declare Function LSgetPrimalSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetDualSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padDual       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetReducedCosts _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal  padRedcosts       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetReducedCostsCone _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal  padRedcosts       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetSlacks _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padSlacks       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetBasis _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   panCstatus       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   panRstatus       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSgetSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nWhich       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal       padVal       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetNextBestSol _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef  pnModStatus       As      Integer         ) As Integer
 
@@ -3845,44 +3949,44 @@ Public Class lindo
 
 
  Public Declare Function LSgetMIPPrimalSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetMIPDualSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padDual       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetMIPReducedCosts _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal  padRedcosts       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetMIPSlacks _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padSlacks       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetMIPBasis _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   panCstatus       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   panRstatus       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSgetNextBestMIPSol _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef pnIntModStatus       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetKBestMIPSols _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         , _
                                        ByRef pfMIPCallback       As      Integer         , _
@@ -3895,7 +3999,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetLPData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef   pdObjSense       As      Integer         , _
                                        ByRef   pdObjConst       As       Double         , _
@@ -3911,7 +4015,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetQCData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    paiQCrows       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   paiQCcols1       As      Integer ()      , _
@@ -3920,7 +4024,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetQCDatai _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iCon       As      Integer         , _
                                        ByRef      pnQCnnz       As      Integer         , _
@@ -3930,19 +4034,19 @@ Public Class lindo
 
 
  Public Declare Function LSgetVarType _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal pachVarTypes       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetVarStartPoint _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetVarStartPointPartial _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      panCols       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCols       As      Integer ()      , _
@@ -3950,7 +4054,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMIPVarStartPointPartial _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      panCols       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCols       As      Integer ()      , _
@@ -3958,13 +4062,13 @@ Public Class lindo
 
 
  Public Declare Function LSgetMIPVarStartPoint _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetSETSData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef      piNsets       As      Integer         , _
                                        ByRef       piNtnz       As      Integer         , _
@@ -3976,7 +4080,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetSETSDatai _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iSet       As      Integer         , _
                                        ByVal  pachSETType       As StringBuilder         , _
@@ -3986,14 +4090,14 @@ Public Class lindo
 
 
  Public Declare Function LSsetSETSStatei _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iSet       As      Integer         , _
                                        ByVal       mState       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetSemiContData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef      piNvars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    paiVarndx       As      Integer ()      , _
@@ -4002,7 +4106,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetALLDIFFData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef   pinALLDIFF       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal paiAlldiffDim       As      Integer ()      , _
@@ -4013,7 +4117,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetALLDIFFDatai _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     iALLDIFF       As      Integer         , _
                                        ByRef piAlldiffDim       As      Integer         , _
@@ -4023,7 +4127,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetPOSDData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef      pinPOSD       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   paiPOSDdim       As      Integer ()      , _
@@ -4035,7 +4139,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetPOSDDatai _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        iPOSD       As      Integer         , _
                                        ByRef    piPOSDdim       As      Integer         , _
@@ -4046,7 +4150,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetNameData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    pachTitle       As StringBuilder         , _
                                        ByVal  pachObjName       As StringBuilder         , _
@@ -4060,7 +4164,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetLPVariableDataj _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iVar       As      Integer         , _
                                        ByVal  pachVartype       As StringBuilder         , _
@@ -4073,35 +4177,35 @@ Public Class lindo
 
 
  Public Declare Function LSgetVariableNamej _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iVar       As      Integer         , _
                                        ByVal  pachVarName       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetVariableIndex _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   pszVarName       As       String         , _
                                        ByRef        piVar       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetConstraintNamei _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iCon       As      Integer         , _
                                        ByVal  pachConName       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetConstraintIndex _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   pszConName       As       String         , _
                                        ByRef        piCon       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetConstraintDatai _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iCon       As      Integer         , _
                                        ByVal  pachConType       As StringBuilder         , _
@@ -4110,7 +4214,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetLPConstraintDatai _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iCon       As      Integer         , _
                                        ByVal  pachConType       As StringBuilder         , _
@@ -4121,21 +4225,21 @@ Public Class lindo
 
 
  Public Declare Function LSgetConeNamei _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        iCone       As      Integer         , _
                                        ByVal pachConeName       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetConeIndex _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  pszConeName       As       String         , _
                                        ByRef       piCone       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetConeDatai _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        iCone       As      Integer         , _
                                        ByVal pachConeType       As StringBuilder         , _
@@ -4145,7 +4249,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetNLPData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   paiNLPcols       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   panNLPcols       As      Integer ()      , _
@@ -4158,7 +4262,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetNLPConstraintDatai _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iCon       As      Integer         , _
                                        ByRef        pnNnz       As      Integer         , _
@@ -4167,7 +4271,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetNLPVariableDataj _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iVar       As      Integer         , _
                                        ByRef        pnNnz       As      Integer         , _
@@ -4176,7 +4280,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetNLPObjectiveData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef  pnNLPobjnnz       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    paiNLPobj       As      Integer ()      , _
@@ -4184,13 +4288,13 @@ Public Class lindo
 
 
  Public Declare Function LSgetDualModel _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   pDualModel       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetInstruct _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef   pnObjSense       As      Integer         , _
                                        ByVal  pachConType       As StringBuilder         , _
@@ -4207,7 +4311,7 @@ Public Class lindo
 
 
  Public Declare Function LScalinfeasMIPsolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef   pdIntPfeas       As       Double         , _
                                        ByRef  pbConsPfeas       As       Double         , _
@@ -4215,7 +4319,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetRoundMIPsolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal padPrimalRound       As       Double ()      , _
@@ -4226,7 +4330,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetDuplicateColumns _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal   nCheckVals       As      Integer         , _
                                        ByRef       pnSets       As      Integer         , _
@@ -4235,13 +4339,13 @@ Public Class lindo
 
 
  Public Declare Function LSgetRangeData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padR       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetJac _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef  pnJnonzeros       As      Integer         , _
                                        ByRef    pnJobjnnz       As      Integer         , _
@@ -4252,7 +4356,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetHess _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef  pnHnonzeros       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     paiHrows       As      Integer ()      , _
@@ -4267,7 +4371,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddConstraints _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  nNumaddcons       As      Integer         , _
                                        ByVal  pszConTypes       As       String         , _
@@ -4279,7 +4383,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddVariables _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  nNumaddvars       As      Integer         , _
                                        ByVal  pszVarTypes       As       String         , _
@@ -4294,7 +4398,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddCones _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCone       As      Integer         , _
                                        ByVal pszConeTypes       As       String         , _
@@ -4305,7 +4409,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddSETS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nSETS       As      Integer         , _
                                        ByVal  pszSETStype       As       String         , _
@@ -4315,7 +4419,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddQCterms _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  nQCnonzeros       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal  paiQCconndx       As      Integer ()      , _
@@ -4325,49 +4429,55 @@ Public Class lindo
 
 
  Public Declare Function LSdeleteConstraints _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCons       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSdeleteCones _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nCones       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     paiCones       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSdeleteSETS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nSETS       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiSETS       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSdeleteSemiContVars _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      nSCVars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    paiSCVars       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSdeleteVariables _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nVars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiVars       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSdeleteQCterms _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
+   (                                   ByVal       pModel       As       IntPtr         , _
+                                       ByVal        nCons       As      Integer         , _
+    <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCons       As      Integer ()      ) As Integer
+
+ Public Declare Function LSdeleteIndConstraints _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCons       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSdeleteAj _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        iVar1       As      Integer         , _
                                        ByVal        nRows       As      Integer         , _
@@ -4375,7 +4485,7 @@ Public Class lindo
 
 
  Public Declare Function LSmodifyLowerBounds _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nVars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiVars       As      Integer ()      , _
@@ -4383,7 +4493,7 @@ Public Class lindo
 
 
  Public Declare Function LSmodifyUpperBounds _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nVars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiVars       As      Integer ()      , _
@@ -4391,7 +4501,7 @@ Public Class lindo
 
 
  Public Declare Function LSmodifyRHS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCons       As      Integer ()      , _
@@ -4399,7 +4509,7 @@ Public Class lindo
 
 
  Public Declare Function LSmodifyObjective _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nVars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiVars       As      Integer ()      , _
@@ -4407,13 +4517,13 @@ Public Class lindo
 
 
  Public Declare Function LSmodifyObjConstant _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    dObjConst       As       Double         ) As Integer
 
 
  Public Declare Function LSmodifyAj _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        iVar1       As      Integer         , _
                                        ByVal        nRows       As      Integer         , _
@@ -4422,7 +4532,7 @@ Public Class lindo
 
 
  Public Declare Function LSmodifyCone _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    cConeType       As      String          , _
                                        ByVal     iConeNum       As      Integer         , _
@@ -4432,7 +4542,7 @@ Public Class lindo
 
 
  Public Declare Function LSmodifySET _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     cSETtype       As      String          , _
                                        ByVal      iSETnum       As      Integer         , _
@@ -4441,7 +4551,7 @@ Public Class lindo
 
 
  Public Declare Function LSmodifySemiContVars _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      nSCVars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    paiSCVars       As      Integer ()      , _
@@ -4450,7 +4560,7 @@ Public Class lindo
 
 
  Public Declare Function LSmodifyConstraintType _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCons       As      Integer ()      , _
@@ -4458,7 +4568,7 @@ Public Class lindo
 
 
  Public Declare Function LSmodifyVariableType _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nVars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiVars       As      Integer ()      , _
@@ -4466,7 +4576,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddNLPAj _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        iVar1       As      Integer         , _
                                        ByVal        nRows       As      Integer         , _
@@ -4475,7 +4585,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddNLPobj _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCols       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCols       As      Integer ()      , _
@@ -4483,7 +4593,7 @@ Public Class lindo
 
 
  Public Declare Function LSdeleteNLPobj _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCols       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCols       As      Integer ()      ) As Integer
@@ -4494,54 +4604,54 @@ Public Class lindo
 
 
  Public Declare Function LSgetConstraintRanges _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal       padDec       As       Double ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal       padInc       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetObjectiveRanges _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal       padDec       As       Double ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal       padInc       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetBoundRanges _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal       padDec       As       Double ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal       padInc       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetBestBounds _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     padBestL       As       Double ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     padBestU       As       Double ()      ) As Integer
 
 
  Public Declare Function LSfindIIS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nLevel       As      Integer         ) As Integer
 
 
  Public Declare Function LSfindIUS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nLevel       As      Integer         ) As Integer
 
 
  Public Declare Function LSfindBlockStructure _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nBlock       As      Integer         , _
                                        ByVal        nType       As      Integer         ) As Integer
 
 
  Public Declare Function LSdisplayBlockStructure _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef      pnBlock       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal panNewColIdx       As      Integer ()      , _
@@ -4551,7 +4661,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetIIS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef      pnSuf_r       As      Integer         , _
                                        ByRef      pnIIS_r       As      Integer         , _
@@ -4563,7 +4673,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetIISInts _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef    pnSuf_int       As      Integer         , _
                                        ByRef    pnIIS_int       As      Integer         , _
@@ -4571,7 +4681,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetIISSETs _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef    pnSuf_set       As      Integer         , _
                                        ByRef    pnIIS_set       As      Integer         , _
@@ -4579,7 +4689,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetIUS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef        pnSuf       As      Integer         , _
                                        ByRef        pnIUS       As      Integer         , _
@@ -4587,7 +4697,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetBlockStructure _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef      pnBlock       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    panRblock       As      Integer ()      , _
@@ -4596,18 +4706,18 @@ Public Class lindo
 
 
  Public Declare Function LSfindSymmetry _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                           ByRef pnerrorcode As Integer) As IntPtr
 
 
  Public Declare Function LSdeleteSymmetry _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
       (ByRef pSymInfo As IntPtr) As Integer
 
 
  Public Declare Function LSgetOrbitInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
       (ByVal pSymInfo As IntPtr, _
                                        ByRef pnNumGenerators       As      Integer         , _
                                        ByRef pnNumOfOrbits       As      Integer         , _
@@ -4620,7 +4730,7 @@ Public Class lindo
 
 
  Public Declare Function LSdoBTRAN _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef        pcYnz       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         paiY       As      Integer ()      , _
@@ -4631,7 +4741,7 @@ Public Class lindo
 
 
  Public Declare Function LSdoFTRAN _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef        pcYnz       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         paiY       As      Integer ()      , _
@@ -4644,14 +4754,14 @@ Public Class lindo
 
 
  Public Declare Function LScalcObjFunc _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      , _
                                        ByRef     pdObjval       As       Double         ) As Integer
 
 
  Public Declare Function LScalcConFunc _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iRow       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      , _
@@ -4659,7 +4769,7 @@ Public Class lindo
 
 
  Public Declare Function LScalcObjGrad _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      , _
                                        ByVal     nParList       As      Integer         , _
@@ -4668,7 +4778,7 @@ Public Class lindo
 
 
  Public Declare Function LScalcConGrad _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         irow       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      , _
@@ -4678,7 +4788,7 @@ Public Class lindo
 
 
  Public Declare Function LScheckQterms _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCons       As      Integer ()      , _
@@ -4686,7 +4796,7 @@ Public Class lindo
 
 
  Public Declare Function LSrepairQterms _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        nCons       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      paiCons       As      Integer ()      , _
@@ -4694,14 +4804,14 @@ Public Class lindo
 
 
  Public Declare Function LScomputeFunction _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         inst       As      Integer         , _
                                        ByRef      pdInput       As       Double         , _
                                        ByRef     pdOutput       As       Double         ) As Integer
 
 
  Public Declare Function LSfindLtf _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal panNewColIdx       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal panNewRowIdx       As      Integer ()      , _
@@ -4710,7 +4820,7 @@ Public Class lindo
 
 
  Public Declare Function LSapplyLtf _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal panNewColIdx       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal panNewRowIdx       As      Integer ()      , _
@@ -4795,61 +4905,61 @@ Public Class lindo
 
     ' set various callback                      
     Public Declare Function LSsetCallback _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfCallback As typCallback, _
                         ByRef nvCbData As Object) As Integer
 
 
  Public Declare Function LSsetCallback _
-       Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+       Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                            ByVal nfCallback As typCallback, _
                            ByVal nvCbData As IntPtr) As Integer
 
     Public Declare Function LSsetMIPCCStrategy _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfCallback As typStrategy, _
                         ByRef nvCbData As Object) As Integer
 
     Public Declare Function LSsetMIPCallback _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfMIPCallback As typMIPCallback, _
                         ByRef nvCbData As Object) As Integer
 
 
  Public Declare Function LSsetMIPCallback _
-       Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+       Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                            ByVal nfMIPCallback As typMIPCallback, _
                            ByVal nvCbData As IntPtr) As Integer
 
     Public Declare Function LSsetEnvLogfunc _
-    Lib "lindo12_0.dll" (ByVal nEnv As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nEnv As IntPtr, _
                        ByVal locFunc As typPrintEnvLog, _
                        ByRef nvPrData As Object) As Integer
 
     Public Declare Function LSsetEnvLogfunc _
-    Lib "lindo12_0.dll" (ByVal nEnv As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nEnv As IntPtr, _
                        ByVal locFunc As typPrintEnvLog, _
                        ByVal nvPrData As IntPtr) As Integer
 
     Public Declare Function LSsetEnvLogfunc _
-    Lib "lindo12_0.dll" (ByVal nEnv As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nEnv As IntPtr, _
                        ByVal locFunc As typPrintEnvLog, _
                        ByVal nvPrData As Integer) As Integer
 
 
     Public Declare Function LSsetModelLogfunc _
-    Lib "lindo12_0.dll" (ByVal nEnv As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nEnv As IntPtr, _
                        ByVal locFunc As typPrintModelLog, _
                        ByRef nvPrData As Object) As Integer
 
     Public Declare Function LSsetModelLogfunc _
-    Lib "lindo12_0.dll" (ByVal nEnv As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nEnv As IntPtr, _
                        ByVal locFunc As typPrintModelLog, _
                        ByVal nvPrData As IntPtr) As Integer
 
 
     Public Declare Function LSgetCallbackInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                           ByVal nLocation As Integer, _
                                           ByVal nQuery As Integer, _
@@ -4857,28 +4967,28 @@ Public Class lindo
 
 
     Public Declare Function LSgetCallbackInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                           ByVal nLocation As Integer, _
                                           ByVal nQuery As Integer, _
                                           ByRef nvValue As Integer) As Integer
 
     Public Declare Function LSgetMIPCallbackInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                           ByVal nQuery As Integer, _
                                           ByRef nvValue As Double) As Integer
 
 
     Public Declare Function LSgetMIPCallbackInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                           ByVal nQuery As Integer, _
                                           ByRef nvValue As Integer) As Integer
 
 
     Public Declare Function LSgetProgressInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    nLocation       As      Integer         , _
                                        ByVal       nQuery       As      Integer         , _
@@ -4886,7 +4996,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetProgressInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    nLocation       As      Integer         , _
                                        ByVal       nQuery       As      Integer         , _
@@ -4896,7 +5006,7 @@ Public Class lindo
 
     ' overloaded set of LSsetGradcalc
     Public Declare Function LSsetGradcalc _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfGrad_func As typGradcalc, _
                         ByRef nvUserData As Object, _
                         ByVal nLenUseGrad As Integer, _
@@ -4904,7 +5014,7 @@ Public Class lindo
 
 
  Public Declare Function LSsetGradcalc _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfGrad_func As typGradcalc, _
                         ByVal nvCbData As IntPtr, _
                                        ByVal  nLenUseGrad       As      Integer         , _
@@ -4915,50 +5025,50 @@ Public Class lindo
 
 
  Public Declare Function LSsetFuncalc _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfFunc As typFuncalc, _
                         ByRef nvFData As Object) As Integer
 
     Public Declare Function LSsetFuncalc _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfFunc As typFuncalc, _
                         ByVal nvCbData As IntPtr) As Integer
 
 
     ' overloaded set of LSsetUsercalc
     Public Declare Function LSsetUsercalc _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfFunc As typUsercalc, _
                         ByRef nvFData As Object) As Integer
 
 
  Public Declare Function LSsetUsercalc _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfFunc As typUsercalc, _
                         ByVal nvCbData As IntPtr) As Integer
 
 
     Public Declare Function LSsetEnvExitFunc _
-    Lib "lindo12_0.dll" (ByVal nEnv As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nEnv As IntPtr, _
                         ByVal pfExitFunc As Object, _
                         ByVal nvCbData As Object) As Integer
 
 
  Public Declare Function LSsetEnvExitFunc _
-    Lib "lindo12_0.dll" (ByVal nEnv As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nEnv As IntPtr, _
                         ByVal pfExitFunc As Object, _
                         ByVal nvCbData As IntPtr) As Integer
 
 
 
     Public Declare Function LSsetGOPCallback _
-    Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+    Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                         ByVal nfMIPCallback As typGOPCallback, _
                         ByRef nvCbData As Object) As Integer
 
 
  Public Declare Function LSsetGOPCallback _
-       Lib "lindo12_0.dll" (ByVal nModel As IntPtr, _
+       Lib "lindo14_0.dll" (ByVal nModel As IntPtr, _
                            ByVal nfMIPCallback As typGOPCallback, _
                            ByVal nvCbData As IntPtr) As Integer
 
@@ -4968,32 +5078,32 @@ Public Class lindo
 
 
  Public Declare Function LSfreeSolverMemory _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSfreeHashMemory _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSfreeSolutionMemory _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSfreeMIPSolutionMemory _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSfreeGOPSolutionMemory _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSsetProbAllocSizes _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal n_vars_alloc       As      Integer         , _
                                        ByVal n_cons_alloc       As      Integer         , _
@@ -5004,20 +5114,20 @@ Public Class lindo
 
 
  Public Declare Function LSsetProbNameAllocSizes _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal n_varname_alloc       As      Integer         , _
                                        ByVal n_rowname_alloc       As      Integer         ) As Integer
 
 
  Public Declare Function LSaddEmptySpacesAcolumns _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    paiColnnz       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSaddEmptySpacesNLPAcolumns _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    paiColnnz       As      Integer ()      ) As Integer
 
@@ -5031,7 +5141,7 @@ Public Class lindo
 
 
  Public Declare Function LSwriteDeteqMPSFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  pszFilename       As       String         , _
                                        ByVal      nFormat       As      Integer         , _
@@ -5039,14 +5149,14 @@ Public Class lindo
 
 
  Public Declare Function LSwriteDeteqLINDOFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  pszFilename       As       String         , _
                                        ByVal        iType       As      Integer         ) As Integer
 
 
  Public Declare Function LSwriteSMPSFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  pszCorefile       As       String         , _
                                        ByVal  pszTimefile       As       String         , _
@@ -5055,7 +5165,7 @@ Public Class lindo
 
 
  Public Declare Function LSreadSMPSFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  pszCorefile       As       String         , _
                                        ByVal  pszTimefile       As       String         , _
@@ -5064,7 +5174,7 @@ Public Class lindo
 
 
  Public Declare Function LSwriteSMPIFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  pszCorefile       As       String         , _
                                        ByVal  pszTimefile       As       String         , _
@@ -5072,7 +5182,7 @@ Public Class lindo
 
 
  Public Declare Function LSreadSMPIFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal  pszCorefile       As       String         , _
                                        ByVal  pszTimefile       As       String         , _
@@ -5080,14 +5190,14 @@ Public Class lindo
 
 
  Public Declare Function LSwriteScenarioSolutionFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteNodeSolutionFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal       iStage       As      Integer         , _
@@ -5095,14 +5205,14 @@ Public Class lindo
 
 
  Public Declare Function LSwriteScenarioMPIFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
 
  Public Declare Function LSwriteScenarioMPSFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal     pszFname       As       String         , _
@@ -5110,7 +5220,7 @@ Public Class lindo
 
 
  Public Declare Function LSwriteScenarioLINDOFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal     pszFname       As       String         ) As Integer
@@ -5119,28 +5229,28 @@ Public Class lindo
 
 
  Public Declare Function LSsetModelStocDouParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iPar       As      Integer         , _
                                        ByVal         dVal       As       Double         ) As Integer
 
 
  Public Declare Function LSgetModelStocDouParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iPar       As      Integer         , _
                                        ByRef        pdVal       As       Double         ) As Integer
 
 
  Public Declare Function LSsetModelStocIntParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iPar       As      Integer         , _
                                        ByVal         iVal       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetModelStocIntParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iPar       As      Integer         , _
                                        ByRef        piVal       As      Integer         ) As Integer
@@ -5149,56 +5259,56 @@ Public Class lindo
 
 
  Public Declare Function LSgetScenarioIndex _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      pszName       As       String         , _
                                        ByRef      pnIndex       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetStageIndex _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      pszName       As       String         , _
                                        ByRef      pnIndex       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetStocParIndex _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      pszName       As       String         , _
                                        ByRef      pnIndex       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetStocParName _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nIndex       As      Integer         , _
                                        ByVal     pachName       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetScenarioName _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nIndex       As      Integer         , _
                                        ByVal     pachName       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetStageName _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nIndex       As      Integer         , _
                                        ByVal     pachName       As StringBuilder         ) As Integer
 
 
  Public Declare Function LSgetStocInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nQuery       As      Integer         , _
                                        ByVal       nParam       As      Integer         , _
                                           ByRef pResult As Double) As Integer
 
     Public Declare Function LSgetStocInfo _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pModel As IntPtr, _
                                           ByVal nQuery As Integer, _
                                           ByVal nParam As Integer, _
@@ -5206,7 +5316,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetStocCCPInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nQuery       As      Integer         , _
                                        ByVal nScenarioIndex       As      Integer         , _
@@ -5215,7 +5325,7 @@ Public Class lindo
 
 
     Public Declare Function LSgetStocCCPInfo _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pModel As IntPtr, _
                                           ByVal nQuery As Integer, _
                                           ByVal nScenarioIndex As Integer, _
@@ -5224,25 +5334,25 @@ Public Class lindo
 
 
  Public Declare Function LSloadSampleSizes _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal panSampleSize       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSloadConstraintStages _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     panStage       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSloadVariableStages _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     panStage       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSloadStageData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    numStages       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    panRstage       As      Integer ()      , _
@@ -5250,42 +5360,42 @@ Public Class lindo
 
 
  Public Declare Function LSloadStocParData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal panSparStage       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal padSparValue       As       Double ()      ) As Integer
 
 
  Public Declare Function LSloadStocParNames _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nSvars       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal paszSVarNames       As       String ()      ) As Integer
 
 
  Public Declare Function LSgetDeteqModel _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     iDeqType       As      Integer         , _
                                        ByRef  pnErrorCode       As      Integer         ) As Integer
 
 
  Public Declare Function LSaggregateStages _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    panScheme       As      Integer ()      , _
                                        ByVal      nLength       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetStageAggScheme _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    panScheme       As      Integer ()      , _
                                        ByRef     pnLength       As      Integer         ) As Integer
 
 
  Public Declare Function LSdeduceStages _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    nMaxStage       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal panRowStagse       As      Integer ()      , _
@@ -5296,13 +5406,13 @@ Public Class lindo
 
 
  Public Declare Function LSsolveSP _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef     pnStatus       As      Integer         ) As Integer
 
 
  Public Declare Function LSsolveHS _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal nSearchMethod       As      Integer         , _
                                        ByRef     pnStatus       As      Integer         ) As Integer
@@ -5311,14 +5421,14 @@ Public Class lindo
 
 
  Public Declare Function LSgetScenarioObjective _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByRef         pObj       As       Double         ) As Integer
 
 
  Public Declare Function LSgetNodePrimalSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal       iStage       As      Integer         , _
@@ -5326,7 +5436,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetNodeDualSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal       iStage       As      Integer         , _
@@ -5334,7 +5444,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetNodeReducedCost _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal       iStage       As      Integer         , _
@@ -5342,7 +5452,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetNodeSlacks _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal       iStage       As      Integer         , _
@@ -5350,7 +5460,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetScenarioPrimalSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padX       As       Double ()      , _
@@ -5358,28 +5468,28 @@ Public Class lindo
 
 
  Public Declare Function LSgetScenarioReducedCost _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padD       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetScenarioDualSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padY       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetScenarioSlacks _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padS       As       Double ()      ) As Integer
 
 
  Public Declare Function LSgetNodeListByScenario _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     paiNodes       As      Integer ()      , _
@@ -5387,21 +5497,21 @@ Public Class lindo
 
 
  Public Declare Function LSgetProbabilityByScenario _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByRef       pdProb       As       Double         ) As Integer
 
 
  Public Declare Function LSgetProbabilityByNode _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        iNode       As      Integer         , _
                                        ByRef       pdProb       As       Double         ) As Integer
 
 
  Public Declare Function LSgetStocParData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    paiStages       As      Integer ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padVals       As       Double ()      ) As Integer
@@ -5410,7 +5520,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddDiscreteBlocks _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       iStage       As      Integer         , _
                                        ByVal  nRealzBlock       As      Integer         , _
@@ -5424,7 +5534,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddScenario _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByVal  iParentScen       As      Integer         , _
@@ -5439,7 +5549,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddDiscreteIndep _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iRow       As      Integer         , _
                                        ByVal         jCol       As      Integer         , _
@@ -5451,7 +5561,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddParamDistIndep _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iRow       As      Integer         , _
                                        ByVal         jCol       As      Integer         , _
@@ -5463,7 +5573,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddUserDist _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iRow       As      Integer         , _
                                        ByVal         jCol       As      Integer         , _
@@ -5476,7 +5586,7 @@ Public Class lindo
 
 
  Public Declare Function LSaddChanceConstraint _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       iSense       As      Integer         , _
                                        ByVal        nCons       As      Integer         , _
@@ -5486,13 +5596,13 @@ Public Class lindo
 
 
  Public Declare Function LSsetNumStages _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    numStages       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetStocParOutcomes _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padVals       As       Double ()      , _
@@ -5500,7 +5610,7 @@ Public Class lindo
 
 
  Public Declare Function LSloadCorrelationMatrix _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         nDim       As      Integer         , _
                                        ByVal    nCorrType       As      Integer         , _
@@ -5511,7 +5621,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetCorrelationMatrix _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        iFlag       As      Integer         , _
                                        ByVal    nCorrType       As      Integer         , _
@@ -5522,7 +5632,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetStocParSample _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iStv       As      Integer         , _
                                        ByVal         iRow       As      Integer         , _
@@ -5531,7 +5641,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetDiscreteBlocks _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       iEvent       As      Integer         , _
                                        ByRef    nDistType       As      Integer         , _
@@ -5542,7 +5652,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetDiscreteBlockOutcomes _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       iEvent       As      Integer         , _
                                        ByVal       iRealz       As      Integer         , _
@@ -5554,7 +5664,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetDiscreteIndep _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       iEvent       As      Integer         , _
                                        ByRef    nDistType       As      Integer         , _
@@ -5569,7 +5679,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetParamDistIndep _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       iEvent       As      Integer         , _
                                        ByRef    nDistType       As      Integer         , _
@@ -5583,7 +5693,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetScenario _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                        ByRef  iParentScen       As      Integer         , _
@@ -5598,7 +5708,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetChanceConstraint _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      iChance       As      Integer         , _
                                        ByRef      piSense       As      Integer         , _
@@ -5609,31 +5719,31 @@ Public Class lindo
 
 
  Public Declare Function LSgetSampleSizes _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal panSampleSize       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSgetConstraintStages _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     panStage       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSgetVariableStages _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     panStage       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSgetStocRowIndices _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal     paiSrows       As      Integer ()      ) As Integer
 
 
  Public Declare Function LSsetStocParRG _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal         iStv       As      Integer         , _
                                        ByVal         iRow       As      Integer         , _
@@ -5642,7 +5752,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetScenarioModel _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    jScenario       As      Integer         , _
                                           ByRef pnErrorcode As Integer) As IntPtr
@@ -5651,52 +5761,52 @@ Public Class lindo
 
 
  Public Declare Function LSfreeStocMemory _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSfreeStocHashMemory _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 
  ' stochastic parameter routines '
 
 
  Public Declare Function LSgetModelStocParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nQuery       As      Integer         , _
                                           ByRef pvResult As Integer) As Integer
 
 
     Public Declare Function LSgetModelStocParameter _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pModel As IntPtr, _
                                           ByVal nQuery As Integer, _
                                           ByRef pvResult As Double) As Integer
 
 
  Public Declare Function LSsetModelStocParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal       nQuery       As      Integer         , _
                                           ByRef pvResult As Integer) As Integer
 
     Public Declare Function LSsetModelStocParameter _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pModel As IntPtr, _
                                           ByVal nQuery As Integer, _
                                           ByRef pvResult As Double) As Integer
 
 
  Public Declare Function LSsetEnvStocParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                           ByVal nQuery As Integer, _
                                           ByRef pvResult As Integer) As Integer
 
     Public Declare Function LSsetEnvStocParameter _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                           ByVal nQuery As Integer, _
                                           ByRef pvResult As Double) As Integer
@@ -5705,46 +5815,46 @@ Public Class lindo
 
 
  Public Declare Function LSsampCreate _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal    nDistType       As      Integer         , _
                                           ByRef nErrorCode As Integer) As IntPtr
 
 
  Public Declare Function LSsampDelete _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef      pSample       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSsampSetUserDistr _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                           ByVal pUserFunc As typUserPdf, _
                                           ByVal pUserData As IntPtr) As Integer
 
     Public Declare Function LSsampSetUserDistr _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pSample As IntPtr, _
                                           ByVal pUserFunc As typUserPdf, _
                                           ByVal pUserData As Object) As Integer
 
 
  Public Declare Function LSsampSetDistrParam _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal       nIndex       As      Integer         , _
                                        ByVal       dValue       As       Double         ) As Integer
 
 
  Public Declare Function LSsampGetDistrParam _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal       nIndex       As      Integer         , _
                                        ByRef      pdValue       As       Double         ) As Integer
 
 
  Public Declare Function LSsampEvalDistr _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal    nFuncType       As      Integer         , _
                                        ByVal        dXval       As       Double         , _
@@ -5752,7 +5862,7 @@ Public Class lindo
 
 
  Public Declare Function LSsampEvalDistrLI _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal    nFuncType       As      Integer         , _
                                        ByVal        dXval       As       Double         , _
@@ -5760,7 +5870,7 @@ Public Class lindo
 
 
  Public Declare Function LSsampEvalUserDistr _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal    nFuncType       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padXval       As       Double ()      , _
@@ -5769,55 +5879,55 @@ Public Class lindo
 
 
  Public Declare Function LSsampSetRG _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                           ByVal pRG As IntPtr) As Integer
 
 
  Public Declare Function LSsampGenerate _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal      nMethod       As      Integer         , _
                                        ByVal        nSize       As      Integer         ) As Integer
 
 
  Public Declare Function LSsampGetPointsPtr _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByRef   pnSampSize       As      Integer         , _
                                           ByRef pdXval As IntPtr) As Integer
 
 
  Public Declare Function LSsampGetPoints _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByRef   pnSampSize       As      Integer         , _
        <MarshalAs(UnmanagedType.LPArray)> ByVal pdXval As Double()) As Integer
 
 
  Public Declare Function LSsampLoadPoints _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal    nSampSize       As      Integer         , _
        <MarshalAs(UnmanagedType.LPArray)> ByVal pdXval As Double()) As Integer
 
 
  Public Declare Function LSsampGetCIPointsPtr _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByRef   pnSampSize       As      Integer         , _
                                           ByRef pdXval As IntPtr) As Integer
 
 
  Public Declare Function LSsampGetCIPoints _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByRef   pnSampSize       As      Integer         , _
        <MarshalAs(UnmanagedType.LPArray)> ByVal pdXval As Double()) As Integer
 
 
  Public Declare Function LSsampInduceCorrelation _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef     paSample       As      Integer         , _
                                        ByVal         nDim       As      Integer         , _
                                        ByVal    nCorrType       As      Integer         , _
@@ -5828,7 +5938,7 @@ Public Class lindo
 
 
  Public Declare Function LSsampGetCorrelationMatrix _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef     paSample       As      Integer         , _
                                        ByVal         nDim       As      Integer         , _
                                        ByVal        iFlag       As      Integer         , _
@@ -5840,7 +5950,7 @@ Public Class lindo
 
 
  Public Declare Function LSsampLoadDiscretePdfTable _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal         nLen       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padProb       As       Double ()      , _
@@ -5848,7 +5958,7 @@ Public Class lindo
 
 
  Public Declare Function LSsampGetDiscretePdfTable _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByRef        pnLen       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padProb       As       Double ()      , _
@@ -5856,26 +5966,26 @@ Public Class lindo
 
 
  Public Declare Function LSsampGetInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal       nQuery       As      Integer         , _
                                           ByRef pResult As Double) As Integer
 
     Public Declare Function LSsampGetInfo _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pSample As IntPtr, _
                                           ByVal nQuery As Integer, _
                                           ByRef pResult As Integer) As Integer
 
 
  Public Declare Function LSsampAddUserFuncArg _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal      pSample       As       IntPtr         , _
                                        ByVal pSampleSource       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSregress _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nNdim       As      Integer         , _
                                        ByVal        nPdim       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal         padU       As       Double ()      , _
@@ -5889,82 +5999,82 @@ Public Class lindo
 
 
  Public Declare Function LScreateRG _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal      nMethod       As      Integer         ) As Integer
 
 
  Public Declare Function LScreateRGMT _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal      nMethod       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetDoubleRV _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
       (ByVal pRG As IntPtr) As Double
 
 
  Public Declare Function LSgetInt32RV _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          pRG       As       IntPtr         , _
                                        ByVal         iLow       As      Integer         , _
                                        ByVal        iHigh       As      Integer         ) As Integer
 
 
  Public Declare Function LSsetRGSeed _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          pRG       As       IntPtr         , _
                                        ByVal        nSeed       As      Integer         ) As Integer
 
 
  Public Declare Function LSdisposeRG _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef         ppRG       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSsetDistrParamRG _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          pRG       As       IntPtr         , _
                                        ByVal       iParam       As      Integer         , _
                                        ByVal       dParam       As       Double         ) As Integer
 
 
  Public Declare Function LSsetDistrRG _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          pRG       As       IntPtr         , _
                                        ByVal    nDistType       As      Integer         ) As Integer
 
 
  Public Declare Function LSgetDistrRV _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          pRG       As       IntPtr         , _
                                           ByRef pResult As Double) As Integer
 
     Public Declare Function LSgetDistrRV _
-    Lib "lindo12_0.dll" _
+    Lib "lindo14_0.dll" _
       (ByVal pRG As IntPtr, _
                                           ByRef pResult As Integer) As Integer
 
 
  Public Declare Function LSgetInitSeed _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          pRG       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSgetRGNumThreads _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          pRG       As       IntPtr         , _
                                        ByRef    pnThreads       As      Integer         ) As Integer
 
 
  Public Declare Function LSfillRGBuffer _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          pRG       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSgetRGBufferPtr _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          pRG       As       IntPtr         , _
                                        ByRef  pnBufferLen       As      Integer         ) As Integer
 
@@ -5973,7 +6083,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetHistogram _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal    nSampSize       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padVals       As       Double ()      , _
@@ -5990,7 +6100,7 @@ Public Class lindo
 
 
  Public Declare Function LSsampGetCorrDiff _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef     paSample       As      Integer         , _
                                        ByVal         nDim       As      Integer         , _
@@ -6001,7 +6111,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetNnzData _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal        mStat       As      Integer         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    panOutput       As      Integer ()      ) As Integer
@@ -6010,7 +6120,7 @@ Public Class lindo
 
 
  Public Declare Function LSsolveFileLP _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal szFileNameMPS       As       String         , _
                                        ByVal szFileNameSol       As       String         , _
@@ -6024,7 +6134,7 @@ Public Class lindo
 
 
  Public Declare Function LSreadSolutionFileLP _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal szFileNameSol       As       String         , _
                                        ByVal  nFileFormat       As      Integer         , _
                                        ByVal nBeginIndexPrimalSol       As      Integer         , _
@@ -6043,7 +6153,7 @@ Public Class lindo
 
 
  Public Declare Function LSdateDiffSecs _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         nYr1       As      Integer         , _
                                        ByVal        nMon1       As      Integer         , _
                                        ByVal        nDay1       As      Integer         , _
@@ -6060,7 +6170,7 @@ Public Class lindo
 
 
  Public Declare Function LSdateYmdhms _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal     dSecdiff       As       Double         , _
                                        ByVal         nYr1       As      Integer         , _
                                        ByVal        nMon1       As      Integer         , _
@@ -6078,7 +6188,7 @@ Public Class lindo
 
 
  Public Declare Function LSdateToday _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef        pnYr1       As      Integer         , _
                                        ByRef       pnMon1       As      Integer         , _
                                        ByRef       pnDay1       As      Integer         , _
@@ -6091,80 +6201,80 @@ Public Class lindo
 
 
  Public Declare Function LSdateMakeDate _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nYYYY       As      Integer         , _
                                        ByVal          nMM       As      Integer         , _
                                        ByVal          nDD       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateMakeTime _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal          nHH       As      Integer         , _
                                        ByVal          nMM       As      Integer         , _
                                        ByVal          dSS       As       Double         ) As Integer
 
 
  Public Declare Function LSdateSetBaseDate _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nYYYY       As      Integer         , _
                                        ByVal          nMM       As      Integer         , _
                                        ByVal          nDD       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateScalarSec _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         , _
                                        ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateScalarSecInverse _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        dSSEC       As       Double         , _
                                        ByRef       pnDate       As      Integer         , _
                                        ByRef       pdTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateScalarHour _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         , _
                                        ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateScalarHourInverse _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       dSHOUR       As       Double         , _
                                        ByRef       pnDate       As      Integer         , _
                                        ByRef       pdTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateJulianSec _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         , _
                                        ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateJulianSecInverse _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        dJSEC       As       Double         , _
                                        ByRef       pnDate       As      Integer         , _
                                        ByRef       pdTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateJulianHour _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         , _
                                        ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateJulianHourInverse _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       dJHOUR       As       Double         , _
                                        ByRef       pnDate       As      Integer         , _
                                        ByRef       pdTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateDiff _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       nDate1       As      Integer         , _
                                        ByVal       dTime1       As       Double         , _
                                        ByVal       nDate2       As      Integer         , _
@@ -6174,78 +6284,78 @@ Public Class lindo
 
 
  Public Declare Function LSdateNow _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef       pnDate       As      Integer         , _
                                        ByRef       pdTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateIsLeapYear _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nYear       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateJulianDay _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateDayOfWeek _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateWeekOfYear _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateQuarterOfYear _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateDayOfYear _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateNextWeekDay _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdatePrevWeekDay _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateNextMonth _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateDateToDays _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateDaysToDate _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDays       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateTimeToSecs _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateSecsToTime _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        dSecs       As       Double         ) As Integer
 
 
  Public Declare Function LSdateFutureDate _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef       pnDate       As      Integer         , _
                                        ByRef       pdTime       As       Double         , _
                                        ByVal        nDays       As      Integer         , _
@@ -6253,7 +6363,7 @@ Public Class lindo
 
 
  Public Declare Function LSdatePastDate _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByRef       pnDate       As      Integer         , _
                                        ByRef       pdTime       As       Double         , _
                                        ByVal        nDays       As      Integer         , _
@@ -6261,74 +6371,74 @@ Public Class lindo
 
 
  Public Declare Function LSdateIsValidDate _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateIsValidTime _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateIsDateFuture _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         , _
                                        ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateIsDatePast _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         , _
                                        ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateYear _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateMonth _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateDay _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateHour _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateMinute _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateSecond _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        dTime       As       Double         ) As Integer
 
 
  Public Declare Function LSdateWeekOfMonth _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateLocalTimeStamp _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal szTimeBuffer       As       String         ) As Integer
 
 
  Public Declare Function LSdateDateNum _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nDate       As      Integer         ) As Integer
 
 
  Public Declare Function LSdateMakeDateNum _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal        nYYYY       As      Integer         , _
                                        ByVal          nMM       As      Integer         , _
                                        ByVal          nDD       As      Integer         ) As Integer
@@ -6337,78 +6447,92 @@ Public Class lindo
  ''
  ''    Tuner Functions
  ''
- ''    LINDO API Version 13.0
+ ''    LINDO API Version 14.0
  ''    Copyright (c) 2019-2020
  ''
  ''    LINDO Systems, Inc.            312.988.7422
  ''    1415 North Dayton St.          info@lindo.com
  ''    Chicago, IL 60622              http:www.lindo.com
  ''
- ''    $Id: lindo.h 2906 2020-01-11 23:47:51Z mka $
+ ''    $Id: lindo.vb 3034 2022-07-09 13:21:24Z mka $
  ''
  '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
  Public Declare Function LSrunTuner _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSrunTunerFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal   szJsonFile       As       String         ) As Integer
 
 
  Public Declare Function LSrunTunerString _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal szJsonString       As       String         ) As Integer
 
 
  Public Declare Function LSloadTunerConfigString _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal szJsonString       As       String         ) As Integer
 
 
  Public Declare Function LSloadTunerConfigFile _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal   szJsonFile       As       String         ) As Integer
 
 
  Public Declare Function LSclearTuner _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSresetTuner _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSprintTuner _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         ) As Integer
 
 
  Public Declare Function LSsetTunerOption _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal        szKey       As       String         , _
                                        ByVal         dval       As       Double         ) As Integer
 
 
  Public Declare Function LSgetTunerOption _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal        szkey       As       String         , _
                                        ByRef        pdval       As       Double         ) As Integer
 
 
+ Public Declare Function LSsetTunerStrOption _
+ Lib "lindo14_0.dll" _
+   (                                   ByVal         pEnv       As       IntPtr         , _
+                                       ByVal        szKey       As       String         , _
+                                       ByVal        szval       As       String         ) As Integer
+
+
+ Public Declare Function LSgetTunerStrOption _
+ Lib "lindo14_0.dll" _
+   (                                   ByVal         pEnv       As       IntPtr         , _
+                                       ByVal        szkey       As       String         , _
+                                       ByVal        szval       As       String         ) As Integer
+
+
  Public Declare Function LSgetTunerResult _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal        szkey       As       String         , _
                                        ByVal    jInstance       As      Integer         , _
@@ -6417,27 +6541,27 @@ Public Class lindo
 
 
  Public Declare Function LSgetTunerSpace _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal   panParamId       As      Integer ()      , _
                                        ByRef     numParam       As      Integer         ) As Integer
 
 
  Public Declare Function LSwriteTunerConfigString _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal szJsonString       As       String         , _
                                        ByVal   szJsonFile       As       String         ) As Integer
 
 
  Public Declare Function LSgetTunerConfigString _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal szJsonString       As       String         ) As Integer
 
 
  Public Declare Function LSwriteTunerParameters _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal       szFile       As       String         , _
                                        ByVal    jInstance       As      Integer         , _
@@ -6445,13 +6569,20 @@ Public Class lindo
 
 
  Public Declare Function LSaddTunerInstance _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal       szFile       As       String         ) As Integer
 
 
+ Public Declare Function LSaddTunerModelInstance _
+ Lib "lindo14_0.dll" _
+   (                                   ByVal         pEnv       As       IntPtr         , _
+                                       ByVal        szKey       As       String         , _
+                                       ByVal       pModel       As       IntPtr         ) As Integer
+
+
  Public Declare Function LSaddTunerZStatic _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal     jGroupId       As      Integer         , _
                                        ByVal       iParam       As      Integer         , _
@@ -6459,27 +6590,33 @@ Public Class lindo
 
 
  Public Declare Function LSaddTunerZDynamic _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal       iParam       As      Integer         ) As Integer
 
 
  Public Declare Function LSaddTunerOption _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal        szKey       As       String         , _
                                        ByVal       dValue       As       Double         ) As Integer
 
+ Public Declare Function LSaddTunerStrOption _
+ Lib "lindo14_0.dll" _
+   (                                   ByVal         pEnv       As       IntPtr         , _
+                                       ByVal        szKey       As       String         , _
+                                       ByVal      szValue       As       String         ) As Integer
+
 
  Public Declare Function LSdisplayTunerResults _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         ) As Integer
 
   ' Deprecated,  use LSgetInfo() '
 
 
  Public Declare Function LSgetLicenseInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef    pnMaxcons       As      Integer         , _
                                        ByRef    pnMaxvars       As      Integer         , _
@@ -6498,7 +6635,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetDimensions _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef       pnVars       As      Integer         , _
                                        ByRef       pnCons       As      Integer         , _
@@ -6516,7 +6653,7 @@ Public Class lindo
 
 
  Public Declare Function LSbnbSolve _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal     pszFname       As       String         ) As Integer
 
@@ -6524,7 +6661,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetDualMIPsolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal      padDual       As       Double ()      , _
@@ -6536,7 +6673,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMIPSolutionStatus _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef     pnStatus       As      Integer         ) As Integer
 
@@ -6544,7 +6681,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetSolutionStatus _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef      nStatus       As      Integer         ) As Integer
 
@@ -6552,7 +6689,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetObjective _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef     pdObjval       As       Double         ) As Integer
 
@@ -6560,7 +6697,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetSolutionInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef     pnMethod       As      Integer         , _
                                        ByRef    pnElapsed       As      Integer         , _
@@ -6579,7 +6716,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetMIPSolution _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef    pdPobjval       As       Double         , _
     <MarshalAs(UnmanagedType.LPArray)> ByVal    padPrimal       As       Double ()      ) As Integer
@@ -6588,7 +6725,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetCurrentMIPSolutionInfo _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByRef  pnMIPstatus       As      Integer         , _
                                        ByRef  pdMIPobjval       As       Double         , _
@@ -6620,7 +6757,7 @@ Public Class lindo
 
 
  Public Declare Function LSgetCLOpt _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByVal        nArgc       As      Integer         , _
                                           ByVal pszArgv As String, _
@@ -6628,19 +6765,19 @@ Public Class lindo
 
 
  Public Declare Function LSgetCLOptArg _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                           ByVal pszOptArg As String) As Integer
 
 
  Public Declare Function LSgetCLOptInd _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal         pEnv       As       IntPtr         , _
                                        ByRef     pnOptInd       As      Integer         ) As Integer
 
 
  Public Declare Function LSsolveExternally _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         , _
                                        ByVal      mSolver       As      Integer         , _
                                        ByVal      nMethod       As      Integer         , _
@@ -6649,6 +6786,6 @@ Public Class lindo
 
 
  Public Declare Function LSgetMasterModel _
- Lib "lindo12_0.dll" _
+ Lib "lindo14_0.dll" _
    (                                   ByVal       pModel       As       IntPtr         ) As Integer
 End Class

@@ -360,7 +360,7 @@ Public Class Form1
 
         ' Load the nonlinear structure 
         errorcode = lindo.LSloadNLPData(Model, Abegcol, Alencol, _
-          Nothing, Arowndx, Nnlobj, Nobjndx, Nothing)
+          0, Arowndx, Nnlobj, Nobjndx, 0)
         Call CheckErr(env, errorcode)
 
         '*****************************************************************

@@ -160,5 +160,4 @@ Public Class App
         Call Lindo.LSdeleteEnv(env)
 
      End Sub
-    
-End Class
+    End Class
