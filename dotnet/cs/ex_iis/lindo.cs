@@ -1,13 +1,13 @@
 /*********************************************************************
  **
- **    LINDO API Version 13.0
- **    Copyright (c) 2000-2020
+ **    LINDO API Version 14.0
+ **    Copyright (c) 2000-2022
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: lindo.cs 2908 2020-01-15 17:51:57Z mka $
+ **    $Id: lindo.h 3042 2022-10-09 23:46:14Z mka $
  **
  *********************************************************************/
 
@@ -22,19 +22,19 @@ public class lindo
   */
  
 #if LSWIN64
-  public const string   LINDO_DLL                         = "lindo64_13_0.dll";
+  public const string   LINDO_DLL                         = "lindo64_14_0.dll";
 #else  
-  public const string   LINDO_DLL                         = "lindo13_0.dll";
+  public const string   LINDO_DLL                         = "lindo14_0.dll";
 #endif  
 
  /*********************************************************************
  *                        Constant Definitions                       *
  *********************************************************************/
-       public const int    LS_MAJOR_VER_NUMBER            =         13;
+       public const int    LS_MAJOR_VER_NUMBER            =         14;
        public const int    LS_MINOR_VER_NUMBER            =          0;
-       public const int    LS_REV_VER_NUMBER              =        108;
-       public const int    LS_VER_NUMBER                  =       1300;
-       public const int    LS_BUILD_VER_NUMBER            =       4099;
+       public const int    LS_REV_VER_NUMBER              =        192;
+       public const int    LS_VER_NUMBER                  =       1400;
+       public const int    LS_BUILD_VER_NUMBER            =       5099;
        public const int    LS_MIN                         =         +1;
        public const int    LS_MAX                         =         -1;
        public const int    LS_CONTYPE_GE                  =        'G';
@@ -90,6 +90,10 @@ public class lindo
        public const int    LS_TIME_COPY                   =          2;
        public const int    LS_STOC_COPY                   =          4;
        public const int    LS_SNGSTG_COPY                 =          8;
+       public const int    LS_LANG_C                      =          0;
+       public const int    LS_LANG_CS                     =          1;
+       public const int    LS_LANG_VB                     =          2;
+       public const int    LS_LANG_LUA                    =          3;
 
  /* Time frames in seconds */
        public const int    LSSEC01                        =          1;
@@ -151,6 +155,26 @@ public class lindo
        public const int    LS_XSOLVER_MSK                 =          9;
        public const int    LS_XSOLVER_COI                 =         10;
        public const int    LS_XSOLVER_SOP                 =         11;
+       public const int    LS_XSOLVER_CBC                 =         12;
+       public const int    LS_XSOLVER_XPR                 =         13;
+       public const int    LS_XSOLVER_HIGHS               =         14;
+       public const int    LS_XSOLVER_LUA                 =         98;
+       public const int    LS_XSOLVER_XLINDO              =         99;
+
+ /* ref types */
+       public const int    LS_REF_LOCFUN                  =         -1;
+       public const int    LS_REF_MIPFUN                  =         -2;
+       public const int    LS_REF_CBFUN                   =         -3;
+       public const int    LS_REF_FUNCALC                 =         -4;
+       public const int    LS_REF_GRADCALC                =         -5;
+       public const int    LS_REF_HESSCALC                =         -6;
+       public const int    LS_REF_LOCDATA                 =        -11;
+       public const int    LS_REF_MIPDATA                 =        -12;
+       public const int    LS_REF_CBDATA                  =        -13;
+       public const int    LS_REF_FDATA                   =        -14;
+       public const int    LS_REF_GDATA                   =        -15;
+       public const int    LS_REF_HDATA                   =        -16;
+       public const int    LS_REF_PREMODEL                =        -30;
 
  /* Solution or model status (1-20) */
        public const int    LS_STATUS_OPTIMAL              =          1;
@@ -176,23 +200,12 @@ public class lindo
        public const int    LS_IPARAM_CHECK_FOR_ERRORS     =       1025;
        public const int    LS_IPARAM_ALLOW_CNTRLBREAK     =       1026;
        public const int    LS_IPARAM_DECOMPOSITION_TYPE   =       1027;
-       public const int    LS_IPARAM_LP_SCALE             =       1029;
-       public const int    LS_IPARAM_LP_ITRLMT            =       1030;
-       public const int    LS_IPARAM_SPLEX_PPRICING       =       1031;
-       public const int    LS_IPARAM_SPLEX_REFACFRQ       =       1032;
        public const int    LS_IPARAM_BARRIER_SOLVER       =       1033;
-       public const int    LS_IPARAM_PROB_TO_SOLVE        =       1034;
-       public const int    LS_IPARAM_LP_PRINTLEVEL        =       1035;
        public const int    LS_IPARAM_MPS_OBJ_WRITESTYLE   =       1036;
-       public const int    LS_IPARAM_SPLEX_DPRICING       =       1037;
        public const int    LS_IPARAM_SOL_REPORT_STYLE     =       1038;
        public const int    LS_IPARAM_INSTRUCT_LOADTYPE    =       1039;
-       public const int    LS_IPARAM_SPLEX_DUAL_PHASE     =       1040;
-       public const int    LS_IPARAM_LP_PRELEVEL          =       1041;
        public const int    LS_IPARAM_STRING_LENLMT        =       1042;
        public const int    LS_IPARAM_USE_NAMEDATA         =       1043;
-       public const int    LS_IPARAM_SPLEX_USE_EXTERNAL   =       1044;
-       public const int    LS_DPARAM_LP_ITRLMT            =       1045;
        public const int    LS_IPARAM_COPY_MODE            =       1046;
        public const int    LS_IPARAM_SBD_NUM_THREADS      =       1047;
        public const int    LS_IPARAM_NUM_THREADS          =       1048;
@@ -205,6 +218,7 @@ public class lindo
        public const int    LS_IPARAM_FIND_SYMMETRY_LEVEL  =       1055;
        public const int    LS_IPARAM_FIND_SYMMETRY_PRINT_LEVEL =       1056;
        public const int    LS_IPARAM_TUNER_PRINT_LEVEL    =       1057;
+       public const int    LS_IPARAM_DEFAULT_SEED         =       1058;
 
     /* Generic solver parameters (1251 - 1500) */
        public const int    LS_IPARAM_SOLVER_IUSOL         =       1251;
@@ -221,8 +235,21 @@ public class lindo
        public const int    LS_DPARAM_SOLVER_PERT_FEASTOL  =       1262;
        public const int    LS_IPARAM_SOLVER_PARTIALSOL_LEVEL =       1263;
        public const int    LS_IPARAM_SOLVER_MODE          =       1264;
+       public const int    LS_IPARAM_SOLVER_METHOD        =       1265;
+       public const int    LS_IPARAM_SOLVER_DUALSOL       =       1266;
 
     /* Advanced parameters for the simplex method (4000 - 41++) */
+       public const int    LS_IPARAM_LP_SCALE             =       4029;
+       public const int    LS_IPARAM_LP_ITRLMT            =       4030;
+       public const int    LS_IPARAM_SPLEX_PPRICING       =       4031;
+       public const int    LS_IPARAM_SPLEX_REFACFRQ       =       4032;
+       public const int    LS_IPARAM_PROB_TO_SOLVE        =       4034;
+       public const int    LS_IPARAM_LP_PRINTLEVEL        =       4035;
+       public const int    LS_IPARAM_SPLEX_DPRICING       =       4037;
+       public const int    LS_IPARAM_SPLEX_DUAL_PHASE     =       4040;
+       public const int    LS_IPARAM_LP_PRELEVEL          =       4041;
+       public const int    LS_IPARAM_SPLEX_USE_EXTERNAL   =       4044;
+       public const int    LS_DPARAM_LP_ITRLMT            =       4045;
        public const int    LS_DPARAM_LP_MIN_FEASTOL       =       4060;
        public const int    LS_DPARAM_LP_MAX_FEASTOL       =       4061;
        public const int    LS_DPARAM_LP_MIN_OPTTOL        =       4062;
@@ -245,7 +272,7 @@ public class lindo
        public const int    LS_IPARAM_LP_PRTFG             =       4079;
        public const int    LS_IPARAM_LP_OPRFREE           =       4080;
        public const int    LS_IPARAM_LP_SPRINT_SUB        =       4081;
-       public const int    LS_IPARAM_LP_PERTMODE          =       4082;
+       public const int    LS_IPARAM_LP_XMODE             =       4082;
        public const int    LS_IPARAM_LP_PCOLAL_FACTOR     =       4083;
        public const int    LS_IPARAM_LP_MAXMERGE          =       4084;
        public const int    LS_DPARAM_LP_PERTFACT          =       4085;
@@ -255,6 +282,10 @@ public class lindo
        public const int    LS_IPARAM_LP_UMODE             =       4089;
        public const int    LS_IPARAM_LP_SPRINT_MAXPASS    =       4090;
        public const int    LS_IPARAM_LP_SPRINT_COLFACT    =       4091;
+       public const int    LS_IPARAM_LP_BASRECOV_METHOD   =       4092;
+       public const int    LS_IPARAM_LP_BASPOLISH_ITRLMT  =       4093;
+       public const int    LS_IPARAM_LP_BASPOLISH_DEPTH   =       4094;
+       public const int    LS_IPARAM_LP_BASPOLISH_MODE    =       4095;
 
     /* Advanced parameters for LU decomposition (4800 - 4+++) */
        public const int    LS_IPARAM_LU_NUM_CANDITS       =       4800;
@@ -352,6 +383,7 @@ public class lindo
        public const int    LS_DPARAM_NLP_CUTOFFOBJ        =       2553;
        public const int    LS_IPARAM_NLP_USECUTOFFOBJ     =       2554;
        public const int    	LS_IPARAM_NLP_CONIC_REFORM    =       2555;
+       public const int    LS_IPARAM_NLP_QP_REFORM_LEVEL  =       2556;
 
     /* Mixed integer programming (MIP) parameters (5000 - 5+++) */
        public const int    LS_IPARAM_MIP_TIMLIM           =       5300;
@@ -465,6 +497,9 @@ public class lindo
        public const int    LS_IPARAM_MIP_SYMMETRY_MODE    =       5418;
        public const int    LS_IPARAM_MIP_ALLDIFF_METHOD   =       5419;
        public const int    LS_IPARAM_MIP_SOLLIM           =       5420;
+       public const int    LS_IPARAM_MIP_FP_PROJECTION    =       5421;
+       public const int    LS_IPARAM_MIP_SYMMETRY_NONZ    =       5422;
+       public const int    LS_IPARAM_MIP_FIXINIT_ITRLIM   =       5423;
 
     /* Global optimization (GOP) parameters (6000 - 6+++) */
        public const int    LS_DPARAM_GOP_RELOPTTOL        =       6400;
@@ -1049,7 +1084,11 @@ public class lindo
        public const int    EP_QUADPROD                    =       1183;
        public const int    EP_ATAN2R                      =       1184;
        public const int    EP_XPOWDIVAB                   =       1185;
-       public const int    	EP_LOGABEXPX									         =       1186;
+       public const int    EP_LOGABEXPX					  =       1186;
+       public const int    EP_LOGSUMEXP					  =       1187;
+       public const int    EP_LOGSUMAEXP                  =       1188;
+       public const int    EP_EXPMODIV                    =       1189;
+       public const int    EP_POWERUTILITY                =       1190;
 
  /* Model statistics (11001-11199)*/
        public const int    LS_IINFO_NUM_NONZ_OBJ          =      11001;
@@ -1122,6 +1161,14 @@ public class lindo
        public const int    LS_IINFO_MAX_CNONZ             =      11068;
        public const int    LS_DINFO_AVG_RNONZ             =      11069;
        public const int    LS_DINFO_AVG_CNONZ             =      11070;
+       public const int    LS_IINFO_OBJIDX                =      11071;
+       public const int    LS_IINFO_SOLIDX                =      11072;
+       public const int    LS_DINFO_OBJRANK               =      11073;
+       public const int    LS_DINFO_OBJWEIGHT             =      11074;
+       public const int    LS_DINFO_OBJSENSE              =      11075;
+       public const int    LS_DINFO_OBJRELTOL             =      11076;
+       public const int    LS_DINFO_OBJABSTOL             =      11077;
+       public const int    LS_DINFO_OBJTIMLIM             =      11078;
 
  /* LP and NLP related info (11200-11299)*/
        public const int    LS_IINFO_METHOD                =      11200;
@@ -1168,6 +1215,7 @@ public class lindo
        public const int    LS_IINFO_LPTOOL                =      11241;
        public const int    LS_SINFO_MODEL_TYPE            =      11242;
        public const int    LS_IINFO_NLP_LINEARITY         =      11243;
+       public const int    LS_DINFO_ALL_ITER              =      11244;
 
  /* MIP and MINLP related info (11300-11400) */
        public const int    LS_IINFO_MIP_STATUS            =      11300;
@@ -1235,6 +1283,7 @@ public class lindo
        public const int    LS_IINFO_MIP_LP_ROUND_CUTS     =      11372;
        public const int    LS_IINFO_MIP_PERSPECTIVE_CUTS  =      11373;
        public const int    LS_IINFO_MIP_STRATEGY_MASK     =      11374;
+       public const int    LS_DINFO_MIP_ALL_ITER          =      11375;
 
  /* GOP related info (11601-11699) */
        public const int    LS_DINFO_GOP_OBJ               =      11600;
@@ -1272,6 +1321,7 @@ public class lindo
        public const int    LS_SINFO_GOP_THREAD_LOAD       =      11632;
        public const int    LS_DINFO_GOP_ABSGAP            =      11633;
        public const int    LS_DINFO_GOP_RELGAP            =      11634;
+       public const int    LS_IINFO_GOP_WARNING           =      11635;
 
     /* Progress info during callbacks */
        public const int    LS_DINFO_SUB_OBJ               =      11700;
@@ -1287,6 +1337,10 @@ public class lindo
        public const int    LS_IINFO_CUR_MIP_COUNT         =      11710;
        public const int    LS_IINFO_CUR_CUT_COUNT         =      11711;
        public const int    LS_DINFO_CUR_ITER              =      11712;
+       public const int    LS_DINFO_CUR_TIME              =      11713;
+       public const int    LS_IINFO_CUR_OBJIDX            =      11714;
+       public const int    LS_IINFO_LAST_OBJIDX_SOL       =      11715;
+       public const int    LS_IINFO_LAST_OBJIDX_OPT       =      11716;
 
  /* Model generation progress info (1800+)*/
        public const int    LS_DINFO_GEN_PERCENT           =      11800;
@@ -1388,6 +1442,8 @@ public class lindo
        public const int    LS_IINFO_NZRINDEX              =      12958;
        public const int    LS_IINFO_NZCRANK               =      12959;
        public const int    LS_IINFO_NZRRANK               =      12960;
+       public const int    LS_IINFO_NZCCOUNT              =      12961;
+       public const int    LS_IINFO_NZRCOUNT              =      12962;
 
    /*! Expected value of the objective function.  */
        public const int    LS_DINFO_STOC_EVOBJ            =      13201;
@@ -1885,6 +1941,9 @@ public class lindo
        public const int    LSERR_SOLPOOL_FULL             =       2088;
        public const int    LSERR_SOL_LIMIT                =       2089;
        public const int    LSERR_TUNER_NOT_SETUP          =       2090;
+       public const int    LSERR_XSOLVER_NOT_SUPPORTED    =       2091;
+       public const int    LSERR_XSOLVER_INVALID_VERSION  =       2092;
+       public const int    LSERR_FDE_NOT_INSTALLED        =       2093;
 
     /* Error in LDLt factorization */
        public const int    LSERR_LDL_FACTORIZATION        =       2201;
@@ -2222,7 +2281,7 @@ public class lindo
        public const int    LSERR_SCRIPT                   =       2700;
 
     /*! @} */
-       public const int    LSERR_LAST_ERROR               =       2598;
+       public const int    LSERR_LAST_ERROR               =       2751;
 
  /* Callback locations */
        public const int    LSLOC_PRIMAL                   =          0;
@@ -2252,6 +2311,7 @@ public class lindo
        public const int    LSLOC_SP_BENCH_START           =         24;
        public const int    LSLOC_SP_BENCH_END             =         25;
        public const int    LSLOC_BNP                      =         26;
+       public const int    LSLOC_OBJPOOL                  =         27;
        public const int    LS_METHOD_FREE                 =          0;
        public const int    LS_METHOD_PSIMPLEX             =          1;
        public const int    LS_METHOD_DSIMPLEX             =          2;
@@ -2265,6 +2325,7 @@ public class lindo
        public const int    LS_METHOD_SBD                  =         10;
        public const int    LS_METHOD_SPRINT               =         11;
        public const int    LS_METHOD_GA                   =         12;
+       public const int    LS_METHOD_FILELP               =         13;
        public const int    LS_STRATEGY_USER               =          0;
        public const int    LS_STRATEGY_PRIMIP             =          1;
        public const int    LS_STRATEGY_NODEMIP            =          2;
@@ -2384,6 +2445,7 @@ public class lindo
        public const int    LS_MIP_MODE_FAST_OPTIMALITY    =          8;
        public const int    LS_MIP_MODE_NO_BRANCH_CUTS     =         16;
        public const int    LS_MIP_MODE_NO_LP_BARRIER      =         32;
+       public const int    LS_MIP_MODE_NO_LSLVDP          =         64;
 
  /* Bit mask for cut generation levels. Use sums to
  * enable a collection of available cuts.
@@ -2402,6 +2464,8 @@ public class lindo
        public const int    LS_MIP_BASIS_CUTS              =       4096;
        public const int    LS_MIP_CARDGUB_CUTS            =       8192;
        public const int    LS_MIP_DISJUN_CUTS             =      16384;
+       public const int    LS_MIP_SOFT_KNAP_CUTS          =      32768;
+       public const int    LS_MIP_LP_ROUND_CUTS           =      65536;
 
  /* Bit masks for MIP preprocessing levels. Use sums
  * to enable a collection of available levels.
@@ -2600,6 +2664,7 @@ public class lindo
        public const int    LS_RANDGEN_MERSENNE            =          6;
 
  /* NCM methods */
+       public const int    LS_NCM_STD                     =          1;
        public const int    LS_NCM_GA                      =          2;
        public const int    LS_NCM_ALTP                    =          4;
        public const int    LS_NCM_L2NORM_CONE             =          8;
@@ -2632,6 +2697,21 @@ public class lindo
 
    /*! scan for integer basic solutions */
        public const int    LS_SOLVER_MODE_INTBAS          =          4;
+
+   /*! don't scale lex objectives */
+       public const int    LS_SOLVER_MODE_LEX_NOSCALE     =          8;
+
+   /*! relaxed lex-model */
+       public const int    LS_SOLVER_MODE_LEX_RELAXED     =         16;
+
+   /*! export each lex-model */
+       public const int    LS_SOLVER_MODE_LEX_EXPEACH     =         32;
+
+   /*! export failed lex-model */
+       public const int    LS_SOLVER_MODE_LEX_EXPFAIL     =         64;
+
+   /*! resolve failed lex-model */
+       public const int    LS_SOLVER_MODE_LEX_RESOLVEFAIL =        128;
 
  /* Equivalences */
        public const int    LS_IINFO_OBJSENSE              = LS_IPARAM_OBJSENSE;
@@ -3539,6 +3619,16 @@ public class lindo
 
 
       [DllImport(LINDO_DLL,
+      EntryPoint="LSloadIndData")]
+      public static extern int LSloadIndData 
+      (                                               IntPtr             pModel         ,
+                                                         int         nIndicRows         ,
+             [MarshalAs(UnmanagedType.LPArray)]          int    [] paiIndicRows         ,
+             [MarshalAs(UnmanagedType.LPArray)]          int    [] paiIndicCols         ,
+             [MarshalAs(UnmanagedType.LPArray)]          int    [] paiIndicVals         );
+
+
+      [DllImport(LINDO_DLL,
       EntryPoint="LSloadNLPData")]
       public static extern int LSloadNLPData 
       (                                               IntPtr             pModel         ,
@@ -3747,12 +3837,21 @@ public class lindo
 
 
       [DllImport(LINDO_DLL,
-      EntryPoint="LSsetObjPoolInfo")]
-      public static extern int LSsetObjPoolInfo 
+      EntryPoint="LSsetObjPoolParam")]
+      public static extern int LSsetObjPoolParam 
       (                                               IntPtr             pModel         ,
                                                          int          nObjIndex         ,
                                                          int              mInfo         ,
                                                       double             dValue         );
+
+
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSgetObjPoolParam")]
+      public static extern int LSgetObjPoolParam 
+      (                                               IntPtr             pModel         ,
+                                                         int          nObjIndex         ,
+                                                         int              mInfo         ,
+                                            ref       double            pdValue         );
 
 
       [DllImport(LINDO_DLL,
@@ -3761,6 +3860,14 @@ public class lindo
       (                                               IntPtr             pModel         ,
                                                          int          nObjIndex         ,
                                             ref          int            pNumSol         );
+
+
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSsetObjPoolName")]
+      public static extern int LSsetObjPoolName 
+      (                                               IntPtr             pModel         ,
+                                                         int          nObjIndex         ,
+                                                      string          szObjName         );
 
  /**********************************************************************
  * Solver Initialization Routines (6)                                 *
@@ -3826,6 +3933,15 @@ public class lindo
       public static extern int LSreadVarStartPoint 
       (                                               IntPtr             pModel         ,
                                                       string           pszFname         );
+
+
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSloadPrimalStartPoint")]
+      public static extern int LSloadPrimalStartPoint 
+      (                                               IntPtr             pModel         ,
+                                                         int              nCols         ,
+             [MarshalAs(UnmanagedType.LPArray)]          int    []      paiCols         ,
+             [MarshalAs(UnmanagedType.LPArray)]       double    []    padPrimal         );
 
 
       [DllImport(LINDO_DLL,
@@ -3927,6 +4043,21 @@ public class lindo
       (                                               IntPtr             pModel         ,
                                                          int             nQuery         ,
                                             ref       double           pvResult         );
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSgetIntInfo")]
+      public static extern int LSgetIntInfo 
+      (                                               IntPtr             pModel         ,
+                                                         int             nQuery         ,
+                                            ref          int           pnResult         );
+
+
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSgetDouInfo")]
+      public static extern int LSgetDouInfo 
+      (                                               IntPtr             pModel         ,
+                                                         int             nQuery         ,
+                                            ref       double           pdResult         );
+
       [DllImport(LINDO_DLL,
       EntryPoint="LSgetProfilerInfo")]
       public static extern int LSgetProfilerInfo 
@@ -4579,6 +4710,14 @@ public class lindo
       [DllImport(LINDO_DLL,
       EntryPoint="LSdeleteQCterms")]
       public static extern int LSdeleteQCterms 
+      (                                               IntPtr             pModel         ,
+                                                         int              nCons         ,
+             [MarshalAs(UnmanagedType.LPArray)]          int    []      paiCons         );
+
+
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSdeleteIndConstraints")]
+      public static extern int LSdeleteIndConstraints 
       (                                               IntPtr             pModel         ,
                                                          int              nCons         ,
              [MarshalAs(UnmanagedType.LPArray)]          int    []      paiCons         );
@@ -5332,14 +5471,14 @@ public class lindo
  **
  **    Stochastic Programming Interface
  **
- **    LINDO API Version 13.0
+ **    LINDO API Version 14.0
  **    Copyright (c) 2006-2017
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: lindo.cs 2908 2020-01-15 17:51:57Z mka $
+ **    $Id: lindo.cs 3034 2022-07-09 13:21:24Z mka $
  **
  *********************************************************************/
 
@@ -6797,14 +6936,14 @@ public class lindo
  **
  **    Tuner Functions
  **
- **    LINDO API Version 13.0
+ **    LINDO API Version 14.0
  **    Copyright (c) 2019-2020
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: lindo.cs 2908 2020-01-15 17:51:57Z mka $
+ **    $Id: lindo.cs 3034 2022-07-09 13:21:24Z mka $
  **
  *********************************************************************/
 
@@ -6878,6 +7017,22 @@ public class lindo
 
 
       [DllImport(LINDO_DLL,
+      EntryPoint="LSsetTunerStrOption")]
+      public static extern int LSsetTunerStrOption 
+      (                                               IntPtr               pEnv         ,
+                                                      string              szKey         ,
+                                                      string              szval         );
+
+
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSgetTunerStrOption")]
+      public static extern int LSgetTunerStrOption 
+      (                                               IntPtr               pEnv         ,
+                                                      string              szkey         ,
+                                                      string              szval         );
+
+
+      [DllImport(LINDO_DLL,
       EntryPoint="LSgetTunerResult")]
       public static extern int LSgetTunerResult 
       (                                               IntPtr               pEnv         ,
@@ -6907,7 +7062,7 @@ public class lindo
       EntryPoint="LSgetTunerConfigString")]
       public static extern int LSgetTunerConfigString 
       (                                               IntPtr               pEnv         ,
-                                                      string       szJsonString         );
+                                               StringBuilder       szJsonString         );
 
 
       [DllImport(LINDO_DLL,
@@ -6924,6 +7079,14 @@ public class lindo
       public static extern int LSaddTunerInstance 
       (                                               IntPtr               pEnv         ,
                                                       string             szFile         );
+
+
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSaddTunerModelInstance")]
+      public static extern int LSaddTunerModelInstance 
+      (                                               IntPtr               pEnv         ,
+                                                      string              szKey         ,
+                                                      IntPtr             pModel         );
 
 
       [DllImport(LINDO_DLL,
@@ -6948,6 +7111,14 @@ public class lindo
       (                                               IntPtr               pEnv         ,
                                                       string              szKey         ,
                                                       double             dValue         );
+
+
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSaddTunerStrOption")]
+      public static extern int LSaddTunerStrOption 
+      (                                               IntPtr               pEnv         ,
+                                                      string              szKey         ,
+                                                      string            szValue         );
 
 
       [DllImport(LINDO_DLL,
