@@ -194,8 +194,13 @@ int main()
    nErrorCode = LSsetModelIntParameter(pModel, LS_IPARAM_BARRIER_SOLVER,
                                        LS_BAR_METHOD_FREE);
 
+   if (0>1) {
+   	nErrorCode = LSoptimize( pModel, 0, &nSolStatus);
+   } else {
+
    nErrorCode = LSoptimizeQP( pModel, &nSolStatus);
    APIERRORCHECK;
+   }
 
   /*****************************************************************
    * Step 6: Retrieve the solution

@@ -1,7 +1,7 @@
 
                     LINDO API  Java Native Interface (JNI)
 
-                      Copyright (c) 2000-2022
+                      Copyright (c) 2000-2023
 
          LINDO Systems, Inc.           312.988.7422
          1415 North Dayton St.         info@lindo.com
