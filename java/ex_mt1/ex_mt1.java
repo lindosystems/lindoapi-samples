@@ -125,6 +125,13 @@ class NewThread extends Thread {
 		pModel = Lindo.LScreateModel ( _pEnv, nErrorCode);
 		ReturnOnError(_pEnv);
 
+		//Lindo.LSsetModelIntParameter(_pEnv, Lindo.LS_IPARAM_NUM_THREADS, 4);
+		if (0>1) {
+			nErrorCode[0] = Lindo.LSsetModelIntParameter(pModel, 1059, 14);
+			nErrorCode[0] = Lindo.LSsetModelIntParameter(pModel,Lindo.LS_IPARAM_SPLEX_USE_EXTERNAL,14);
+			ReturnOnError(_pEnv);
+		}
+
 
 		// choose reader based on extension
 		{
@@ -238,6 +245,11 @@ class ex_mt1 {
 		APIVERSION();
 		pEnv= Lindo.LScreateEnv(nErrorCode, cLicenseKey.toString());
 		APIErrorCheck(pEnv);
+
+        if (0>1) {
+			nErrorCode[0] = Lindo.LSsetXSolverLibrary(pEnv,14,"liblindohighs.dll");
+			APIErrorCheck(pEnv);
+        }
 
 		/* callback at every iteration */
 		//Lindo.LSsetEnvDouParameter(pEnv, Lindo.LS_DPARAM_CALLBACKFREQ, 0.5);

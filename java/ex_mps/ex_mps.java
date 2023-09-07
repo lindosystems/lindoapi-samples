@@ -248,6 +248,12 @@ public class ex_mps extends Lindo
             {
                 System.out.printf("..Failed\nReading %s as MPI file.",args[0]);
                 nErrorCode[0] = ls.LSreadMPIFile( pModel, args[0]);
+				if (nErrorCode[0] != LSERR_NO_ERROR)
+				{
+					System.out.printf("..Failed\nReading %s as MPX file.",args[0]);
+					nErrorCode[0] = ls.LSreadMPXFile( pModel, args[0]);
+					APIErrorCheck(pEnv);
+				}
                 APIErrorCheck(pEnv);
             }
         }

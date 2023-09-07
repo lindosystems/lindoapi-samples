@@ -22,6 +22,11 @@ class NewThread extends Thread {
     private double pinf[] = new double[1];
     private int nStatus[] = new int[1];
 
+    private static void jLogback(Object pMod, String szMessage, Object pls)
+    {
+        System.out.print(szMessage);
+    }
+
 
     private static int jCallback(Object pMod, int nLoc, Object pls)
     {
@@ -75,7 +80,7 @@ class NewThread extends Thread {
         {
             if (iter[0] % 10 == 0)
             {
-                System.out.printf("Thread%03d: Obj:%13.5e, Bound:%13.5e, Gap:%.3e, Iters:%6d\n",
+                System.out.printf("\nThread%03d: Obj:%13.5e, Bound:%13.5e, Gap:%.3e, Iters:%6d",
                     threadId,pobj[0],bestbound[0],Math.abs(pobj[0]-bestbound[0]),iter[0]+niter[0]);
 
             }
@@ -129,12 +134,31 @@ class NewThread extends Thread {
 
         pEnv= Lindo.LScreateEnv(nErrorCode, cLicenseKey.toString());
         ReturnOnError(pEnv);
+        
+        if (0>1) {
+            // Optionally load an external solver
+			nErrorCode[0] = Lindo.LSsetXSolverLibrary(pEnv,14,"liblindohighs.dll");
+			ReturnOnError(pEnv);
+			//nErrorCode[0] = Lindo.LSsetXSolverLibrary(pEnv,15,"Ipopt311.dll");
+			//ReturnOnError(pEnv);
+			//nErrorCode[0] = Lindo.LSsetXSolverLibrary(pEnv,99,"lindo64_13_0.dll");
+			//ReturnOnError(pEnv);
+        }
 
         /* callback at every iteration */
         //Lindo.LSsetEnvDouParameter(pEnv, Lindo.LS_DPARAM_CALLBACKFREQ, 0.5);
 
         pModel = Lindo.LScreateModel ( pEnv, nErrorCode);
         ReturnOnError(pEnv);
+
+		if (0>1) {
+            // Designated the external solver as the active solver,
+			int solverId = 14;
+			nErrorCode[0] = Lindo.LSsetModelIntParameter(pModel, 1059, solverId);
+			nErrorCode[0] = Lindo.LSsetModelIntParameter(pModel,Lindo.LS_IPARAM_SPLEX_USE_EXTERNAL,solverId);
+			ReturnOnError(pEnv);
+			nErrorCode[0] = Lindo.LSsetModelLogfunc(pModel,"jLogback",this);
+		}
 
 
         // choose reader based on extension
@@ -153,6 +177,11 @@ class NewThread extends Thread {
             {
                 System.out.println(t + " reading in MPI format");
                 nErrorCode[0] = Lindo.LSreadMPIFile( pModel, inputFileName);
+            }
+            else if (inputFileName.lastIndexOf(".mpx")>0)
+            {
+                System.out.println(t + " reading in MPX format");
+                nErrorCode[0] = Lindo.LSreadMPXFile( pModel, inputFileName);
             }
             else
             {
@@ -192,8 +221,19 @@ class NewThread extends Thread {
             ReturnOnError(pEnv);
         }
 
-        System.out.printf("Thread%03d: Obj:%13.5f, Bound:%13.5f, Gap:%.3e, Iters:%6d, Status:%4d\n",
+        System.out.printf("\nThread%03d: Obj:%13.5f, Bound:%13.5f, Gap:%.3e, Iters:%6d, Status:%4d\n",
             mydata.threadId,pobj[0],bestbound[0],Math.abs(pobj[0]-bestbound[0]),iter[0]+niter[0],nStatus[0]);
+
+        if (0>1) {
+			// Optionally get a pseudo MIP dual-solution
+
+        int m[] = new int[1];
+        nErrorCode[0] = Lindo.LSgetInfo(pModel, Lindo.LS_IINFO_NUM_CONS,m);
+        ReturnOnError(pEnv);
+        double ady[] = new double[m[0]];
+        nErrorCode[0] = Lindo.LSgetMIPDualSolution(pModel,ady);
+        ReturnOnError(pEnv);
+        }
 
         nErrorCode[0] = Lindo.LSdeleteModel( pModel);
         ReturnOnError(pEnv);
