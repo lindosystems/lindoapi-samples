@@ -648,7 +648,7 @@ Private Sub Command1_Click()
   'Step 0: init global variables and retrieve license string
   iEnv = 0
   iModel = 0
-  errorcode = LSloadLicenseString("..\..\..\license\lndapi140.lic", LicenseKey)
+  errorcode = LSloadLicenseString("..\..\..\license\lndapi150.lic", LicenseKey)
   If (errorcode > 0) Then
       Call CheckErr(iEnv, errorcode)
       End

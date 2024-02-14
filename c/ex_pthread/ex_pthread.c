@@ -114,10 +114,10 @@ int main(int argc, char **argv)
   /*
    *      Create a LINDO Environment.
    */
-  nErrorCode = LSloadLicenseString("../../../license/lndapi140.lic",MY_LICENSE_KEY);
+  nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {
-      nErrorCode = LSloadLicenseString("../../../../license/lndapi140.lic",MY_LICENSE_KEY);
+      nErrorCode = LSloadLicenseString("../../../../license/lndapi150.lic",MY_LICENSE_KEY);
       if ( nErrorCode != LSERR_NO_ERROR)
       {
         printf( "Failed to load license key (error %d)\n",nErrorCode);

@@ -186,7 +186,7 @@ int main(int argc, char **argv)
      exit(1);
    }
 
-   nErrorCode = LSloadLicenseString("../../../license/lndapi140.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
    APIERRORCHECK;
 
    pEnv = LScreateEnv ( &nErrorCode, MY_LICENSE_KEY);

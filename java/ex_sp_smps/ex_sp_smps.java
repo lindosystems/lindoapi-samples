@@ -210,7 +210,7 @@ public class ex_sp_smps extends Lindo
 		ex_sp_smps ls = new ex_sp_smps();
 
 		// Read license file and create a LINDO environment.
-		nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi140.lic",cLicenseKey);
+		nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi150.lic",cLicenseKey);
 		APIErrorCheck(pEnv);
 
 		APIVERSION();

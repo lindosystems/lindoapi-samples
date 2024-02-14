@@ -133,7 +133,7 @@ Private Sub Command1_Click()
    
   
   '>>> Step 1 <<<:  Create a LINDO environment.
-  errorcode = LSloadLicenseString("..\..\..\license\lndapi140.lic", LicenseKey)
+  errorcode = LSloadLicenseString("..\..\..\license\lndapi150.lic", LicenseKey)
   Call CheckErr(env, errorcode)
 
   env = LScreateEnv(errorcode, LicenseKey)

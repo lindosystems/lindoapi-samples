@@ -154,10 +154,10 @@ public class ex_mps
 
 
         // Read license key from file
-        errorcode = lindo.LSloadLicenseString("..\\..\\..\\..\\..\\..\\license\\lndapi140.lic", LicenseKey);
+        errorcode = lindo.LSloadLicenseString("..\\..\\..\\..\\..\\..\\license\\lndapi150.lic", LicenseKey);
         if (errorcode > 0) {        
            CheckErr(env, errorcode);
-           errorcode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi140.lic", LicenseKey);
+           errorcode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi150.lic", LicenseKey);
            if (errorcode > 0) { CheckErr(env, errorcode); return;}
         }
 

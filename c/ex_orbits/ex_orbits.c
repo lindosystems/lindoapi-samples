@@ -70,7 +70,7 @@ int main(int argc, char **argv)
   /****************************************************************
    * Step 1: Create a LINDO environment.
    ****************************************************************/
-   nErrorCode = LSloadLicenseString("../../../license/lndapi140.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {
       printf( "Failed to load license key (error %d)\n",nErrorCode);

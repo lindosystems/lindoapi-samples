@@ -129,7 +129,7 @@ class NewThread extends Thread {
         int modelType[] = new int[1];
 
         /* >>> Step 1 <<< Read license file and create a LINDO environment. */
-        nErrorCode[0] = Lindo.LSloadLicenseString("../../license/lndapi140.lic",cLicenseKey);
+        nErrorCode[0] = Lindo.LSloadLicenseString("../../license/lndapi150.lic",cLicenseKey);
         ReturnOnError(pEnv);
 
         pEnv= Lindo.LScreateEnv(nErrorCode, cLicenseKey.toString());

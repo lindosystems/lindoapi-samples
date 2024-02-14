@@ -234,7 +234,7 @@ public class ex_user extends Lindo
 
 
 		/* >>> Step 1 <<< Read license file and create a LINDO environment. */
-		nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi140.lic",cLicenseKey);
+		nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi150.lic",cLicenseKey);
 		APIErrorCheck(pEnv);
 
 		APIVERSION();

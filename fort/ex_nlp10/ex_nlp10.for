@@ -56,7 +56,7 @@ c
 
       DATA NULL /0/
 c
-      LICENSEFILE = '../../../license/lndapi140.LIC' // char(0)
+      LICENSEFILE = '../../../license/lndapi150.LIC' // char(0)
 c
       NERR = LSLOADLICENSESTRING(LOC(LICENSEFILE), LOC(LICENSEKEY))
       IF ( NERR .NE. 0) GO TO 9001
