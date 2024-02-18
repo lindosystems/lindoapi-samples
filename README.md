@@ -1,7 +1,7 @@
 
 # LINDO API  Sample Programs
 
-                      Copyright (c) 2022
+                      Copyright (c) 2024
 
          LINDO Systems, Inc.           312.988.7422
          1415 North Dayton St.         info@lindo.com

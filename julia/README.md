@@ -1,5 +1,9 @@
-﻿# Lindo API in Julia 
+# Lindo API in Julia 
+                      Copyright (c) 2024
 
+         LINDO Systems, Inc.           312.988.7422
+         1415 North Dayton St.         info@lindo.com
+         Chicago, IL 60622             http://www.lindo.com
 
 
 ## Introduction
@@ -305,16 +309,16 @@ To make an array of `n` constraints use `[i = 1:n]` before the constraint expres
 @NLconstraint(
 	model,
 	con2[i = 1:(n - 1)],
-	θ[i] - θ[i+1] <= 0
+	?[i] - ?[i+1] <= 0
 )
 ```
 
-**Note:**  `@NLconstraint` does not support matrix and vector operations, and the `sum` function will have to be used instead. Here is an example of `w'Σ*w` using a double `sum`.
+**Note:**  `@NLconstraint` does not support matrix and vector operations, and the `sum` function will have to be used instead. Here is an example of `w'?*w` using a double `sum`.
 
 ```julia
 @NLconstraint(
 	model,
-	sum(w[i] * sum(Σ[i,j] * w[j]
+	sum(w[i] * sum(?[i,j] * w[j]
 		for j in 1:n) for i in 1:n)  <= K
 )
 ```
@@ -597,8 +601,8 @@ julia> solution_summary(model)
 julia> println(model)
 Max x + z
 Subject to
-x ≥ 0.0
-z ≥ 0.0
+x ? 0.0
+z ? 0.0
 (x ^ 2.0 + z ^ 2.0) - 4.0 = 0
 ```
 
