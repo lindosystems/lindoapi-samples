@@ -141,7 +141,7 @@ class NewThread extends Thread {
 			ReturnOnError(pEnv);
 			//nErrorCode[0] = Lindo.LSsetXSolverLibrary(pEnv,15,"Ipopt311.dll");
 			//ReturnOnError(pEnv);
-			//nErrorCode[0] = Lindo.LSsetXSolverLibrary(pEnv,99,"lindo64_13_0.dll");
+			//nErrorCode[0] = Lindo.LSsetXSolverLibrary(pEnv,99,"lindo64_15_0.dll");
 			//ReturnOnError(pEnv);
         }
 

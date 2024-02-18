@@ -72,7 +72,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\..\lib\win32\lindo13_0.lib"
+				AdditionalDependencies="..\..\..\lib\win32\lindo15_0.lib"
 				OutputFile="ex_multis.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"

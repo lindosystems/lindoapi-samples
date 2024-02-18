@@ -8,8 +8,18 @@
 
 EXAMPLE= Form1
 
-all : $(EXAMPLE).exe
+PLATFORM= x64
 
-$(EXAMPLE).exe : $(EXAMPLE).vb ..\..\..\..\include\lindo.vb 
-	vbc $(EXAMPLE).vb ..\..\..\..\include\lindo.vb /platform:x86
+!IF "$(PLATFORM)" == "x64"
+VBC_PLATFORM= /platform:x64
+DEFINES= /define:LSWIN64
+!ELSE
+VBC_PLATFORM= /platform:x86
+DEFINES=
+!ENDIF
+
+all: $(EXAMPLE).exe
+
+$(EXAMPLE).exe : $(EXAMPLE).vb ..\..\..\..\include\lindo.vb
+	vbc $(DEFINES) $(EXAMPLE).vb ..\..\..\..\include\lindo.vb $(VBC_PLATFORM)
  

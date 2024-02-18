@@ -20,7 +20,7 @@ C!
 C!    a, b, c are integer
 c!    x,y,z are continuous
 C!    
-c!  $ ifort  ex_nlp7.for /4L132 ..\..\..\lib\win32\lindo13_0.lib /iface:cvf
+c!  $ ifort  ex_nlp7.for /4L132 ..\..\..\lib\win32\lindo15_0.lib /iface:cvf
 c!***********************************************************************
 c      
       IMPLICIT NONE

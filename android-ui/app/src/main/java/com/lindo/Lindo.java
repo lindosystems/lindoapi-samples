@@ -13,7 +13,7 @@
 package com.lindo;
 
 
-/** @dll.import("LINDO14_0.DLL")
+/** @dll.import("LINDO15_0.DLL")
 */
 
 

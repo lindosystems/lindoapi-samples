@@ -7,9 +7,18 @@
 ###########################################################################
 
 EXAMPLE= ex_port
+PLATFORM= x64
 
-all : $(EXAMPLE).exe
+!IF "$(PLATFORM)" == "x64"
+VBC_PLATFORM= /platform:x64
+DEFINES= /define:LSWIN64
+!ELSE
+VBC_PLATFORM= /platform:x86
+DEFINES=
+!ENDIF
+
+all: $(EXAMPLE).exe
 
 $(EXAMPLE).exe : $(EXAMPLE).vb ..\..\..\..\include\lindo.vb
-	vbc $(EXAMPLE).vb ..\..\..\..\include\lindo.vb /platform:x86
+	vbc $(DEFINES) $(EXAMPLE).vb ..\..\..\..\include\lindo.vb $(VBC_PLATFORM)
  

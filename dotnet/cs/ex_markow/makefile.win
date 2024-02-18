@@ -7,8 +7,17 @@
 ###########################################################################
 
 EXAMPLE= ex_markow
+PLATFORM= x64
 
-all : $(EXAMPLE).exe
+!IF "$(PLATFORM)" == "x64"
+CSC_PLATFORM= /platform:x64
+DEFINES= /define:LSWIN64
+!ELSE
+CSC_PLATFORM= /platform:x86
+DEFINES=
+!ENDIF
 
-$(EXAMPLE).exe : $(EXAMPLE).cs ..\..\..\..\include\lindo.cs
-	csc $(EXAMPLE).cs ..\..\..\..\include\lindo.cs /platform:x86
+all: $(EXAMPLE).exe
+
+$(EXAMPLE).exe: $(EXAMPLE).cs ..\..\..\..\include\lindo.cs
+    csc $(DEFINES) $(EXAMPLE).cs ..\..\..\..\include\lindo.cs $(CSC_PLATFORM)

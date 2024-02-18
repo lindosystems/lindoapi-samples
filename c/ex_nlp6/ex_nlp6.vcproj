@@ -74,7 +74,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\..\lib\win32\lindo13_0.lib"
+				AdditionalDependencies="..\..\..\lib\win32\lindo15_0.lib"
 				OutputFile="ex_nlp6.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -167,7 +167,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\..\lib\win64\lindo64_13_0.lib"
+				AdditionalDependencies="..\..\..\lib\win64\lindo64_15_0.lib"
 				OutputFile="ex_nlp6.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -348,7 +348,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\..\lib\win64\lindo64_13_0.lib"
+				AdditionalDependencies="..\..\..\lib\win64\lindo64_15_0.lib"
 				OutputFile="$(OutDir)\ex_nlp6.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"

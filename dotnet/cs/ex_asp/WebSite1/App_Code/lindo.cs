@@ -1,13 +1,13 @@
 /*********************************************************************
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2000-2022
+ **    LINDO API Version 15.0
+ **    Copyright (c) 2000-2024
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: lindo.h 3042 2022-10-09 23:46:14Z mka $
+ **    $Id: lindo.cs 3311 2024-02-15 05:05:29Z mka $
  **
  *********************************************************************/
 
@@ -22,19 +22,19 @@ public class lindo
   */
  
 #if LSWIN64
-  public const string   LINDO_DLL                         = "lindo64_14_0.dll";
+  public const string   LINDO_DLL                         = "lindo64_15_0.dll";
 #else  
-  public const string   LINDO_DLL                         = "lindo14_0.dll";
+  public const string   LINDO_DLL                         = "lindo15_0.dll";
 #endif  
 
  /*********************************************************************
  *                        Constant Definitions                       *
  *********************************************************************/
-       public const int    LS_MAJOR_VER_NUMBER            =         14;
+       public const int    LS_MAJOR_VER_NUMBER            =         15;
        public const int    LS_MINOR_VER_NUMBER            =          0;
-       public const int    LS_REV_VER_NUMBER              =        192;
-       public const int    LS_VER_NUMBER                  =       1400;
-       public const int    LS_BUILD_VER_NUMBER            =       5099;
+       public const int    LS_REV_VER_NUMBER              =        124;
+       public const int    LS_VER_NUMBER                  =       1500;
+       public const int    LS_BUILD_VER_NUMBER            =       6099;
        public const int    LS_MIN                         =         +1;
        public const int    LS_MAX                         =         -1;
        public const int    LS_CONTYPE_GE                  =        'G';
@@ -158,6 +158,10 @@ public class lindo
        public const int    LS_XSOLVER_CBC                 =         12;
        public const int    LS_XSOLVER_XPR                 =         13;
        public const int    LS_XSOLVER_HIGHS               =         14;
+       public const int    LS_XSOLVER_IPOPT               =         15;
+       public const int    LS_XSOLVER_TABOX               =         95;
+       public const int    LS_XSOLVER_MUMPS               =         96;
+       public const int    LS_XSOLVER_MUPARSER            =         97;
        public const int    LS_XSOLVER_LUA                 =         98;
        public const int    LS_XSOLVER_XLINDO              =         99;
 
@@ -219,6 +223,7 @@ public class lindo
        public const int    LS_IPARAM_FIND_SYMMETRY_PRINT_LEVEL =       1056;
        public const int    LS_IPARAM_TUNER_PRINT_LEVEL    =       1057;
        public const int    LS_IPARAM_DEFAULT_SEED         =       1058;
+       public const int    LS_IPARAM_XSOLVER_LOG_LEVEL    =       1059;
 
     /* Generic solver parameters (1251 - 1500) */
        public const int    LS_IPARAM_SOLVER_IUSOL         =       1251;
@@ -382,7 +387,7 @@ public class lindo
        public const int    LS_IPARAM_NLP_LINEARZ_WB_CONSISTENT =       2552;
        public const int    LS_DPARAM_NLP_CUTOFFOBJ        =       2553;
        public const int    LS_IPARAM_NLP_USECUTOFFOBJ     =       2554;
-       public const int    	LS_IPARAM_NLP_CONIC_REFORM    =       2555;
+       public const int     LS_IPARAM_NLP_CONIC_REFORM    =       2555;
        public const int    LS_IPARAM_NLP_QP_REFORM_LEVEL  =       2556;
 
     /* Mixed integer programming (MIP) parameters (5000 - 5+++) */
@@ -546,7 +551,7 @@ public class lindo
        public const int    LS_IPARAM_GOP_QUAD_METHOD      =       6441;
        public const int    LS_IPARAM_GOP_SOLLIM           =       6442;
        public const int    LS_IPARAM_GOP_CMINLP           =       6443;
-       public const int    LS_IPARAM_GOP_CONIC_REFORM	  =       6444;
+       public const int    LS_IPARAM_GOP_CONIC_REFORM     =       6444;
 
     /* License information parameters */
        public const int    LS_IPARAM_LIC_CONSTRAINTS      =        500;
@@ -1084,12 +1089,14 @@ public class lindo
        public const int    EP_QUADPROD                    =       1183;
        public const int    EP_ATAN2R                      =       1184;
        public const int    EP_XPOWDIVAB                   =       1185;
-       public const int    EP_LOGABEXPX					  =       1186;
-       public const int    EP_LOGSUMEXP					  =       1187;
+       public const int    EP_LOGABEXPX                   =       1186;
+       public const int    EP_LOGSUMEXP                   =       1187;
        public const int    EP_LOGSUMAEXP                  =       1188;
        public const int    EP_EXPMODIV                    =       1189;
        public const int    EP_POWERUTILITY                =       1190;
-
+       public const int    EP_POLYNOMIAL                  =       1191;
+       public const int    EP_CENSOR                      =       1192;
+       
  /* Model statistics (11001-11199)*/
        public const int    LS_IINFO_NUM_NONZ_OBJ          =      11001;
        public const int    LS_IINFO_NUM_SEMICONT          =      11002;
@@ -1169,6 +1176,7 @@ public class lindo
        public const int    LS_DINFO_OBJRELTOL             =      11076;
        public const int    LS_DINFO_OBJABSTOL             =      11077;
        public const int    LS_DINFO_OBJTIMLIM             =      11078;
+       public const int    LS_IINFO_NUM_NLP_COUNT         =      11079;
 
  /* LP and NLP related info (11200-11299)*/
        public const int    LS_IINFO_METHOD                =      11200;
@@ -1944,6 +1952,8 @@ public class lindo
        public const int    LSERR_XSOLVER_NOT_SUPPORTED    =       2091;
        public const int    LSERR_XSOLVER_INVALID_VERSION  =       2092;
        public const int    LSERR_FDE_NOT_INSTALLED        =       2093;
+       public const int    LSERR_MODEL_NOT_SUPPORTED_XSOLVER   =       2094;
+       
 
     /* Error in LDLt factorization */
        public const int    LSERR_LDL_FACTORIZATION        =       2201;
@@ -2688,6 +2698,26 @@ public class lindo
        public const int    LS_SPRINT_OUTPUT_FILE_FREE     =          0;
        public const int    LS_SPRINT_OUTPUT_FILE_BIN      =          1;
        public const int    LS_SPRINT_OUTPUT_FILE_TXT      =          2;
+       
+       
+       public const int    LS_MSW_MODE_TRUNCATE_FREE      =     1;
+       public const int    LS_MSW_MODE_SCALE_REFSET       =     2;
+       public const int    LS_MSW_MODE_EXPAND_RADIUS      =     4;
+       public const int    LS_MSW_MODE_SKEWED_SAMPLE      =     8;
+       public const int    LS_MSW_MODE_BEST_LOCAL_BND     =     16;
+       public const int    LS_MSW_MODE_BEST_GLOBAL_BND    =     32;
+       public const int    LS_MSW_MODE_SAMPLE_FREEVARS    =     64;
+       public const int    LS_MSW_MODE_PRECOLLECT         =     128;
+       public const int    LS_MSW_MODE_POWER_SOLVE        =     256;
+       public const int    LS_MSW_MODE_SHARE_STACK        =     512;
+
+
+       public const int    LS_GA_CROSS_SBX                =     101;
+       public const int    LS_GA_CROSS_BLXA               =     102;
+       public const int    LS_GA_CROSS_BLXAB              =     103;
+       public const int    LS_GA_CROSS_HEU                =     104;
+       public const int    LS_GA_CROSS_ONEPOINT           =     201;
+       public const int    LS_GA_CROSS_TWOPOINT           =     202;
 
    /*! scan for basic solutions for pool */
        public const int    LS_SOLVER_MODE_POOLBAS         =          1;
@@ -2712,6 +2742,10 @@ public class lindo
 
    /*! resolve failed lex-model */
        public const int    LS_SOLVER_MODE_LEX_RESOLVEFAIL =        128;
+       
+       public const int    LS_SOLVER_MODE_FULL_AGGR       =        256;
+       public const int    LS_SOLVER_MODE_ADD_PM1_SQR     =        512;
+       public const int    LS_SOLVER_MODE_ADD_PM1_ABS     =        1024;
 
  /* Equivalences */
        public const int    LS_IINFO_OBJSENSE              = LS_IPARAM_OBJSENSE;
@@ -4091,6 +4125,14 @@ public class lindo
 
 
       [DllImport(LINDO_DLL,
+      EntryPoint="LSgetSDPSolution")]
+      public static extern int LSgetSDPSolution 
+      (                                               IntPtr             pModel         ,
+             [MarshalAs(UnmanagedType.LPArray)]       double    [] padSDPPrimal         ,
+             [MarshalAs(UnmanagedType.LPArray)]       double    []   padSDPDual         );
+
+
+      [DllImport(LINDO_DLL,
       EntryPoint="LSgetReducedCosts")]
       public static extern int LSgetReducedCosts 
       (                                               IntPtr             pModel         ,
@@ -4170,6 +4212,14 @@ public class lindo
       (                                               IntPtr             pModel         ,
              [MarshalAs(UnmanagedType.LPArray)]          int    []   panCstatus         ,
              [MarshalAs(UnmanagedType.LPArray)]          int    []   panRstatus         );
+
+
+      [DllImport(LINDO_DLL,
+      EntryPoint="LSgetMIPSDPSolution")]
+      public static extern int LSgetMIPSDPSolution 
+      (                                               IntPtr             pModel         ,
+             [MarshalAs(UnmanagedType.LPArray)]       double    [] padSDPPrimal         ,
+             [MarshalAs(UnmanagedType.LPArray)]       double    []   padSDPDual         );
 
 
       [DllImport(LINDO_DLL,
@@ -5471,14 +5521,14 @@ public class lindo
  **
  **    Stochastic Programming Interface
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2006-2017
+ **    LINDO API Version 15.0
+ **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: lindo.cs 3034 2022-07-09 13:21:24Z mka $
+ **    $Id: lindo.cs 3311 2024-02-15 05:05:29Z mka $
  **
  *********************************************************************/
 
@@ -6936,14 +6986,14 @@ public class lindo
  **
  **    Tuner Functions
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2019-2020
+ **    LINDO API Version 15.0
+ **    Copyright (c) 2019-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: lindo.cs 3034 2022-07-09 13:21:24Z mka $
+ **    $Id: lindo.cs 3311 2024-02-15 05:05:29Z mka $
  **
  *********************************************************************/
 
