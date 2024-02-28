@@ -24,18 +24,20 @@ Integrating the LINDO API into a web service enables you to serve optimization p
 
 7. **Secure Your Web Service:**  
    Implement security measures such as HTTPS to protect your web service from unauthorized access.
+   
+## Licensing Considerations and Compliance
 
-## Potential Issues
+- **Licensing:** It's essential to thoroughly examine the LINDO API licensing terms to ensure that your usage aligns with the requirements for a web service context. Typically, you'll require a minimum of one development license for creating your application and one server license for deploying the service. Make sure to obtain the appropriate licenses based on your specific deployment scenario. 
+
+- **Virtualization:** Additionally, if you are considering deploying your web service using containerization with Docker or virtualization with VMware, you must verify that your licensing model accounts for such environments. Licenses for virtualized or containerized services may differ from those for physical servers, so it's important to consult with LINDO Systems or your software licensing provider to obtain the correct licenses for these use cases.
+
+## Technical Considerations
 
 - **Performance:** Optimization can be resource-intensive. Ensure your server is equipped to handle the load and consider load balancing if necessary.
 
 - **Concurrency:** Make sure the LINDO API calls are thread-safe and the server can handle concurrent executions.
 
 - **Error Handling:** Provide meaningful error messages for exceptions like infeasible problems or convergence issues.
-
-- **Licensing:** It's essential to thoroughly examine the LINDO API licensing terms to ensure that your usage aligns with the requirements for a web service context. Typically, you'll require a minimum of one development license for creating your application and one server license for deploying the service. Make sure to obtain the appropriate licenses based on your specific deployment scenario. 
-
-- **Virtualization:** Additionally, if you are considering deploying your web service using containerization with Docker or virtualization with VMware, you must verify that your licensing model accounts for such environments. Licenses for virtualized or containerized services may differ from those for physical servers, so it's important to consult with LINDO Systems or your software licensing provider to obtain the correct licenses for these use cases.
 
 - **Security:** Implement robust security measures to protect sensitive data and maintain the integrity of the optimization process.
 
