@@ -51,7 +51,7 @@ Integrating the LINDO API into a web service enables you to serve optimization p
 
 - **Testing:** Conduct thorough testing with various optimization problems to ensure service reliability.
 
-- **Logging and Monitoring:** Implement logging and use monitoring tools to track service usage and performance. This will help you identify and address issues quickly, and maintain a high level of service reliability.
+- **Logging and Monitoring:** Implement comprehensive logging and utilize monitoring tools to meticulously track your web service's usage and performance metrics. Maintaining detailed logs is not only crucial for promptly identifying and resolving issues but also plays a vital role in ensuring consistent service reliability. Moreover, in the event that you need to request support from LINDO, having access to these logs can be invaluable, as they provide the support team with the necessary context to diagnose and troubleshoot any problems effectively. See the Lindo API user manual on `callback` to see how logging channels are set up.
 
 - **Scalability:** Architect your web service to handle growth in user demand. This may involve adding more servers (horizontal scaling) or upgrading existing servers (vertical scaling).
 
