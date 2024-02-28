@@ -8,7 +8,7 @@ Integrating the LINDO API into a web service enables you to serve optimization p
    Select a programming language that is compatible with LINDO API for your server-side development. LINDO API supports languages like C, C++, C#, and Java.
 
 2. **Set Up the Server Environment:**  
-   Ensure that the LINDO API is installed and properly configured on the server that will host the web service.
+   Ensure that the LINDO API is installed and properly configured on the server that will host the web service. Verify the installation by running the sample applications provided in the lindoapi/samples directory, specifically focusing on the samples written in the programming language you have chosen for your web service. Successfully executing these samples is a good indication that the LINDO API environment is set up correctly and is ready for integration with your web service.
 
 3. **Create a Web Service Endpoint:**  
    Develop endpoints that accept optimization problem data from clients and convert it into a format that the LINDO API can process.
