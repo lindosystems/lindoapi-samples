@@ -16,8 +16,8 @@ Integrating the LINDO API into a web service enables you to serve optimization p
 4. **Develop the Optimization Logic:**  
    Implement the logic to define and solve optimization problems using the LINDO API functions. While utilizing LINDO API functions to set up models programmatically is the recommended approach for maximum flexibility and control, you also have the option to load optimization models directly into the LINDO API via files or strings. The API supports various file formats, including MPI, MPS, or LTX. This can be particularly useful for clients who already have their models defined in these standard formats and prefer to upload the entire model file for processing. For detailed information on supported formats and loading methods, refer to the appendices in the LINDO API user manual, which provide comprehensive guidance on these capabilities.
 
-5. **Execute LINDO API Calls:**  
-   Solve the optimization problem using the LINDO API and handle any errors or exceptions that occur.
+5. **Execute LINDO API Optimization Calls:**  
+   Address the optimization problem by employing the appropriate solver functions provided by the LINDO API, and be vigilant in managing any errors or exceptions that arise during the process. It's important to recognize that various problem types necessitate distinct solver functions for executing the optimization. Additionally, retrieving the solution vectors, when they are available, may also require the use of specific functions tailored to the problem at hand. Ensure that you are familiar with the different function calls necessary for the types of optimization problems your service will handle.
 
 6. **Return Results:**  
    Format the optimization results and send them back to the client in a structured format like JSON or XML.
