@@ -1,7 +1,9 @@
-# Ignoring
-
+# backups
 *.bak
 *.c~
 
 # Solution files
 *.sol
+
+# Parameter files
+*.par
