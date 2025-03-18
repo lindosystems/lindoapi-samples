@@ -46,7 +46,7 @@ public struct CallbackData
 public class ex_mt2
 {    
 	public static int NMODELS=96;
-	public static string NETLIB_PATH = "../../../data/netlib";
+    public static string NETLIB_PATH = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\samples\\data\\netlib";
     public static string[] models = new string[96] 
 	{
 		"25fv47.mps","boeing1.mps","e226.mps","greenbeb.mps","pilot.mps","scagr25.mps","sctap3.mps","stair.mps",
@@ -250,12 +250,12 @@ public class ex_mt2
 
 
         // Read license key from file
-        errorcode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi150.lic", LicenseKey);
-        if (errorcode > 0)
-        {
-            //CheckErr(env, errorcode);
-            errorcode = lindo.LSloadLicenseString("..\\..\\..\\license\\lndapi150.lic", LicenseKey);
-            if (errorcode > 0) { CheckErr(env, errorcode); return; }
+        string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi150.lic";
+        
+        errorcode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
+        if (errorcode > 0) {        
+           CheckErr(env, errorcode);
+           return;
         }
 
         // Create a LINDO environment.

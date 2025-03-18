@@ -209,12 +209,12 @@ public class ex_mt1
 
 
         // Read license key from file
-        errorcode = lindo.LSloadLicenseString("../../../../../../license/lndapi150.lic", LicenseKey);
-        if (errorcode > 0)
-        {
-            //CheckErr(env, errorcode);
-            errorcode = lindo.LSloadLicenseString("../../../../license/lndapi150.lic", LicenseKey);
-            if (errorcode > 0) { CheckErr(env, errorcode); return; }
+        string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi150.lic";
+        
+        errorcode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
+        if (errorcode > 0) {        
+           CheckErr(env, errorcode);
+           return;
         }
 
         // Create a LINDO environment.

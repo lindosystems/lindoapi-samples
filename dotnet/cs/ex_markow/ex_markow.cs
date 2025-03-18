@@ -136,8 +136,10 @@ public class ex_markow
         MY_LICENSE_KEY must be defined to be the license key
         shipped with your software. */
 
-        nErrorCode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi150.lic", LicenseKey);
-        APIErrorCheck(pEnv, nErrorCode);
+        string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi150.lic";
+        
+        nErrorCode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
+        APIErrorCheck(pEnv,nErrorCode);
 
 
         pEnv = lindo.LScreateEnv(ref nErrorCode, LicenseKey.ToString());

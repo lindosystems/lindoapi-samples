@@ -134,7 +134,9 @@ public class ex_lp1
 		MY_LICENSE_KEY must be defined to be the license key
 		shipped with your software. */
 
-        nErrorCode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi150.lic", LicenseKey);        
+        string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi150.lic";
+        
+        nErrorCode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
 		APIErrorCheck(pEnv,nErrorCode);
         
 		DisplayVersionInfo();

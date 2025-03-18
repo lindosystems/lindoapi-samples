@@ -32,6 +32,25 @@ public class ex_mps
     public static int n_cons=0;
 
 	public static int n_vars=0;
+    
+    public static int MyCallbackLog(IntPtr pMod, string Msg, IntPtr myData)
+    {
+        int iter = 0;
+        double pinf = 0, pobj = 0;
+
+        // copy the user data in the unmanaged code into a local structure
+        CallbackData cb = (CallbackData)Marshal.PtrToStructure(myData, typeof(CallbackData));
+
+        // increment the number of calls to the callback function
+        cb.calls++;
+
+        Console.Write("{0}", Msg.ToString());
+
+        // copy the user data in the local structure back to the unmanaged code
+        Marshal.StructureToPtr(cb, myData, false);
+
+        return 0;
+    }    
 
 	public static int MyCallbackCount(IntPtr pMod, int nLoc,  IntPtr  myData)  
 	{
@@ -154,11 +173,12 @@ public class ex_mps
 
 
         // Read license key from file
-        errorcode = lindo.LSloadLicenseString("..\\..\\..\\..\\..\\..\\license\\lndapi150.lic", LicenseKey);
+        string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi150.lic";
+        
+        errorcode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
         if (errorcode > 0) {        
            CheckErr(env, errorcode);
-           errorcode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi150.lic", LicenseKey);
-           if (errorcode > 0) { CheckErr(env, errorcode); return;}
+           return;
         }
 
         // Create a LINDO environment.
@@ -201,20 +221,28 @@ public class ex_mps
 		IntPtr myData = Marshal.AllocHGlobal(Marshal.SizeOf(cbData));
 		Marshal.StructureToPtr(cbData, myData, true);
 
+        lindo.typModelLOG cbLog = new lindo.typModelLOG(ex_mps.MyCallbackLog);
+
 		// if all variables are continous call LP optimizer, ...
 		if (ncont == n)
 		{
 			// Declare callback function
-			lindo.typCallback cbFunc = new lindo.typCallback(ex_mps.MyCallbackCount);
+			lindo.typCallback cbFunc = new lindo.typCallback(ex_mps.MyCallbackCount);                        
 
 			// set callback function and pass user data
-			errorcode = lindo.LSsetCallback(prob, cbFunc,  myData);
-			CheckErr(env, errorcode);
+            if (0>1) {
+                errorcode = lindo.LSsetCallback(prob, cbFunc,  myData);
+                CheckErr(env, errorcode);
+            } else {
+                errorcode = lindo.LSsetModelLogfunc(prob, cbLog, myData);
+                CheckErr(env, errorcode);
+            }
 
 			// Perform the optimization.
 			Console.WriteLine("Solving...");        
 			errorcode = lindo.LSoptimize(prob, lindo.LS_METHOD_FREE, ref nStatus);
 			CheckErr(env, errorcode);
+			//errorcode = lindo.LSsolveGOP(prob, ref nStatus);
 
 			// Retrieve the solution and print
 			errorcode = lindo.LSgetInfo(prob, lindo.LS_DINFO_POBJ, ref obj);
@@ -233,8 +261,13 @@ public class ex_mps
 			lindo.typMIPCallback mcbFunc = new lindo.typMIPCallback(ex_mps.MyMipCallback);
 
 			// set callback function and pass user data
-			errorcode = lindo.LSsetMIPCallback(prob, mcbFunc,  myData);
-			CheckErr(env, errorcode);
+            if (0>1) {
+                errorcode = lindo.LSsetMIPCallback(prob, mcbFunc,  myData);
+                CheckErr(env, errorcode);
+            } else {
+                errorcode = lindo.LSsetModelLogfunc(prob, cbLog, myData);
+                CheckErr(env, errorcode);                
+            }
 
 			// Perform the optimization.
 			Console.WriteLine("Solving...");        
@@ -259,6 +292,8 @@ public class ex_mps
 
         Console.WriteLine();
         Console.WriteLine("Objective value = {0} ",obj);         
+		Console.WriteLine();
+		Console.WriteLine("Status: {0}",nStatus);
         
         StringBuilder StrName  = new StringBuilder(256);;
         

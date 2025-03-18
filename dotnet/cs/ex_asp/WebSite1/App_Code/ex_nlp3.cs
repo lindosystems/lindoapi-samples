@@ -171,12 +171,13 @@ namespace ex_nlp3
             StringBuilder LicenseKey = new StringBuilder(lindo.LS_MAX_ERROR_MESSAGE_LENGTH);
 
             /* >>> Step 1 <<< Create a LINDO environment. */
-            nErrorCode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi110.lic", LicenseKey);
-            if ( nErrorCode != lindo.LSERR_NO_ERROR)  
-            {
-                Console.WriteLine("Invalid License Key!\n");
-                //nErrorCode = lindo.LSloadLicenseString("..\\..\\..\\..\\license\\lndapi110.lic", LicenseKey);
-                if ( nErrorCode != lindo.LSERR_NO_ERROR)  return;
+            // Read license key from file
+            string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi150.lic";
+
+            nErrorCode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
+            if (nErrorCode > 0) {        
+               CheckErr(env, nErrorCode);
+               return;
             }               
             pEnv = lindo.LScreateEnv(ref nErrorCode, LicenseKey.ToString());            
             APIErrorCheck(pEnv,nErrorCode);
