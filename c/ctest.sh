@@ -4,7 +4,7 @@
 APIPATH=../..
 if [ ! -z $LINDOAPI_HOME ]; then
 	APIPATH=$LINDOAPI_HOME
-fi	
+fi
 . $APIPATH/include/platform.inc
 
 # Optionally, update environment variables
