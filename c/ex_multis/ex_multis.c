@@ -18,7 +18,7 @@
 #include <string.h>
 /* LINDO API header file */
 #include "lindo.h"
-
+#include "../common/commonutils.c"
 /* Define a macro to declare variables for
     error checking */
 #define APIERRORSETUP  \
@@ -68,7 +68,7 @@ int  LS_CALLTYPE print_log(pLSmodel model,int iLoc, void *cbData)
     printf("Iters=%6d \tObj=%11.5e \tStatus=%d\n",siter,pobj,status);
   }
   return 0;
-} /*print_log*/ 
+} /*print_log*/
 
 int main(int argc, char **argv)
 {
@@ -86,7 +86,7 @@ int main(int argc, char **argv)
  /*****************************************************************
   * Step 1: Create a model in the environment.
   *****************************************************************/
-  nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+  nErrorCode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
   APIERRORCHECK;
 
   APIVERSION;

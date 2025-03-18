@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
+#include "lindo.h"
 
 /* Define a macro to declare variables for
     error checking */

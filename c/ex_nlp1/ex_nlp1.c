@@ -25,7 +25,7 @@
 #include <math.h>
 #include <string.h>
 #include "lindo.h"
-
+#include "../common/commonutils.c"
 #define APIERRORCHECK  \
   if (nErrorCode) \
    { \
@@ -218,7 +218,7 @@ int main(int argc, char **argv)
  /*****************************************************************
   * Step 1: Create a model in the environment.
   *****************************************************************/
-  nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+  nErrorCode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {
       printf( "Failed to load license key (error %d)\n",nErrorCode);

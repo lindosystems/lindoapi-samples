@@ -27,6 +27,7 @@
 #define csv(a) printf("%d\n",(int)a)
 /* LINDO API header file */
 #include "lindo.h"
+#include "../common/commonutils.c"
 #define APIVERSION \
 {\
     char szVersion[255], szBuild[255];\

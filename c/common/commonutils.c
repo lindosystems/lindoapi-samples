@@ -245,3 +245,37 @@ static void LS_CALLTYPE print_file_log(char     *fname,
 } /*print_file_log*/
 
 
+int LSloadDefaultLicenseString(char* MY_LICENSE_KEY) {
+  int nErrorCode=LSERR_NO_ERROR;
+  char* str = NULL;
+  char MY_LICENSE_FILE[1024];
+  int major = LS_MAJOR_VER_NUMBER, minor=LS_MINOR_VER_NUMBER;
+
+  // relative path to the loader app
+  sprintf(MY_LICENSE_FILE, "../../../license/lndapi%d%d.lic", major, minor);
+  nErrorCode = LSloadLicenseString(MY_LICENSE_FILE, MY_LICENSE_KEY);
+  if (!nErrorCode) return nErrorCode;
+
+  // try environment variable for license file
+  str = getenv("LINDOAPI_LICENSE_FILE");
+  if (str) {
+    nErrorCode = LSloadLicenseString(str, MY_LICENSE_KEY);
+    if (!nErrorCode) return nErrorCode;
+  }
+  else {
+    printf("Warning: LINDOAPI_LICENSE_HOME not set\n");
+  }
+
+  // try LINDOAPI_HOME
+  str = getenv("LINDOAPI_HOME");
+  if (str) {
+    sprintf(MY_LICENSE_FILE, "%s/license/lndapi%d%d.lic", str, major, minor);
+    nErrorCode = LSloadLicenseString(MY_LICENSE_FILE, MY_LICENSE_KEY);
+    if (!nErrorCode) return nErrorCode;
+  }
+  else {
+    printf("Warning: LINDOAPI_HOME not set\n");
+  }
+
+  return nErrorCode;
+}

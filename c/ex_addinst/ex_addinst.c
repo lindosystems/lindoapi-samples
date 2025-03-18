@@ -30,7 +30,7 @@
 #include <stdlib.h>
 /* LINDO API header file */
 #include "lindo.h"
-
+#include "../common/commonutils.c"
  int LS_CALLTYPE LSwriteMPIFile(pLSmodel pModel,
                              char     *pszFname);
 
@@ -74,7 +74,7 @@ int main()
  /*****************************************************************
   * Step 1: Create a model in the environment.
   *****************************************************************/
-   nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {
       printf( "Failed to load license key (error %d)\n",nErrorCode);

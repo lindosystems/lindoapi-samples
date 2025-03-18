@@ -260,7 +260,7 @@ void CStafflndDlg::OnSolve()
    char MY_LICENSE_KEY[1024];
 
 // >>> Step 1 <<< Create an environment
-   nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
    APIERRORCHECK;
 
    pEnv = LScreateEnv( &nErrorCode, MY_LICENSE_KEY);

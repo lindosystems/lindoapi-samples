@@ -29,7 +29,7 @@
 #include <math.h>
 #include <string.h>
 #include "lindo.h"
-
+#include "../common/commonutils.c"
 /* the summands of the objective function */
 #define  f1(x,y,z) ( 20*x*y*z - pow((x-y),3)  )
 #define  f2(x,y,z) ( 2*x*z + 3*pow(x,2)       )
@@ -149,7 +149,7 @@ int main(int argc, char **argv)
  /*****************************************************************
   * Step 1: Create a model in the environment.
   *****************************************************************/
-  nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+  nErrorCode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {
       printf( "Failed to load license key (error %d)\n",nErrorCode);

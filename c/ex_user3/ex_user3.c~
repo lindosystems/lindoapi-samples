@@ -170,7 +170,7 @@ int main()
     * >>> Step 1 <<< Create a LINDO environment.
     */
 
-    nErrorCode = LSloadLicenseString(
+    nErrorCode = LSloadDefaultLicenseString(
       "../../../license/lndapi120.lic",MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {

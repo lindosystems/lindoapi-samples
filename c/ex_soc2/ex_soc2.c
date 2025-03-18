@@ -44,7 +44,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "lindo.h"
-
+#include "../common/commonutils.c"
 /* Define a macro to declare variables for error checking */
 #define APIERRORSETUP  \
    int nErrorCode; \
@@ -94,7 +94,7 @@ int main()
    * Step 1: Create a model in the environment.
    *****************************************************************/
   // Load the license into MY_LICENSE_KEY
-   nErrorCode = LSloadLicenseString( "../../../license/lndapi150.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadDefaultLicenseString( MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {
       printf( "Failed to load license key (error %d)\n",nErrorCode);

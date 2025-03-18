@@ -1,11 +1,11 @@
 * -----------------------------------------------------------------
 *                    SOLUTION REPORT                               
-* 
-* LINDO API Version 13.0.4099.113 (DEBUG) built on Jan 24 2020 13:00:18
-* Barrier Solver Version 9.1.011, Nonlinear Solver Version 3.15P
-* Platform Windows 32x86 (W)
+*                    20250318:211156.901                                    
+* LINDO API Version 15.0.6099.225 built on Mar 15 2025 06:32:58
+* Barrier Solver Version 0.0.000, Nonlinear Solver Version 3.17L
+* Platform Windows 64x86 (B)
 *
-* Copyright (c) 2020 by LINDO Systems, Inc. Licensed material,
+* Copyright (c) 2024 by LINDO Systems, Inc. Licensed material,
 * all rights reserved. Copying except as authorized in license 
 * agreement is prohibited.
 * -----------------------------------------------------------------
@@ -37,12 +37,12 @@
 * 
 *   OBJECTIVE FUNCTION VALUE
 * 
-*    1)                29.999999937
+*    1)                29.999999938
 * 
 *                              XMATRIX                  ZMATRIX     MATRIX    MATRIX    MATRIX
 * VARIABLES                     VALUE             REDUCED COST      BLOCK       ROW    COLUMN
 
-  X11                      3.999999960              0.000000000          0         0         0
+  X11                      3.999999959              0.000000000          0         0         0
   X12                      0.000000000              0.000000000          0         1         0
   X22                      5.999999989              0.000000000          0         1         1
   X33                      2.000000000              0.000000000          1         0         0
@@ -56,13 +56,13 @@
 
 * XMATRIX    I     J        	  PRIMAL                   DUAL
 
-       0     0     0            0.000000000            0.000000000
-       0     1     0            0.000000000            0.000000000
-       0     1     1            0.000000000            0.000000000
+       0     0     0            4.000000000           -0.000000000
+       0     1     0            0.000000000           -0.000000000
+       0     1     1            6.000000000            0.000000000
 
-       1     0     0            0.000000000            0.000000000
-       1     1     0            0.000000000            0.000000000
-       1     1     1            0.000000000            0.000000000
+       1     0     0            2.000000000           -1.541420922
+       1     1     0           -2.000000000           -1.541420922
+       1     1     1            2.000000000           -1.541420922
 
 
 * END OF REPORT
