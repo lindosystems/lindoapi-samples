@@ -30,7 +30,7 @@ public class ex_qp2
             StringBuilder LibBuilded = new StringBuilder(lindo.LS_MAX_ERROR_MESSAGE_LENGTH);
 
             // Read license key from file
-            string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi150.lic";
+            string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi160.lic";
 
             errorcode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
             if (errorcode > 0) {        

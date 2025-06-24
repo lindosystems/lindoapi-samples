@@ -221,7 +221,7 @@ public class ex_mps extends Lindo
         ex_mps ls = new ex_mps();
 
         // Read license file and create a LINDO environment.
-        nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi150.lic",cLicenseKey);
+        nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi160.lic",cLicenseKey);
         APIErrorCheck(pEnv);
 
         APIVERSION();

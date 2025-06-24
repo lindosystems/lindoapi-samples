@@ -63,7 +63,7 @@ public class LindoSolver extends Lindo
 
         /* >>> Step 1 <<< Read license file and create a LINDO environment. */
 		cLicenseKey.setLength(0);
-        nErrorCode[0] = LSloadLicenseString("../../license/lndapi150.lic",cLicenseKey);
+        nErrorCode[0] = LSloadLicenseString("../../license/lndapi160.lic",cLicenseKey);
         try { APIErrorCheck(pEnv); } catch (Exception ex) { throw (ex);}
 
         APIVERSION();
@@ -209,7 +209,7 @@ public class LindoSolver extends Lindo
 
 		// Read license file and create a LINDO environment.
 		cLicenseKey.setLength(0);
-        nErrorCode[0] = LSloadLicenseString("d:/usr/Lindoapi/8.0/license/lndapi150.lic",cLicenseKey);
+        nErrorCode[0] = LSloadLicenseString("d:/usr/Lindoapi/8.0/license/lndapi160.lic",cLicenseKey);
 		try { APIErrorCheck(pEnv); } catch (Exception ex) { throw (ex);}
 
 		APIVERSION();

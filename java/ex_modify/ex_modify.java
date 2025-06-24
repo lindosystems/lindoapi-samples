@@ -98,7 +98,7 @@ public class ex_modify extends Lindo
       // initializer when it loads the class.
 
       System.loadLibrary("lindojni");
-      nErrorCode[0] = LSloadLicenseString("../../license/lndapi150.lic", cLicenseKey);
+      nErrorCode[0] = LSloadLicenseString("../../license/lndapi160.lic", cLicenseKey);
       APIErrorCheck(pEnv);
 
       pEnv = LScreateEnv(nErrorCode, cLicenseKey.toString());

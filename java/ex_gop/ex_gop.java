@@ -156,7 +156,7 @@ public class ex_gop extends Lindo
 		ex_gop ls = new ex_gop();
 
 		// Read license file and create a LINDO environment.
-		nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi150.lic",cLicenseKey);
+		nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi160.lic",cLicenseKey);
 		APIErrorCheck(pEnv);
 
 		APIVERSION();

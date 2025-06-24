@@ -86,7 +86,7 @@ public class ex_lp1 extends Lindo
         int nSolStatus[] = new int[1];
 
         /* >>> Step 1 <<< Read license file and create a LINDO environment. */
-        nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi150.lic",cLicenseKey);
+        nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi160.lic",cLicenseKey);
         APIErrorCheck(pEnv);
 
         APIVERSION();

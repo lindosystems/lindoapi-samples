@@ -335,7 +335,7 @@ int main(int argc, char **argv)
    /*
     *     Create a LINDO environment.
     */
-   nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadLicenseString("../../../license/lndapi160.lic",MY_LICENSE_KEY);
 
    pEnv = LScreateEnv ( &nErrorCode, MY_LICENSE_KEY);
    if ( nErrorCode == LSERR_NO_VALID_LICENSE) {

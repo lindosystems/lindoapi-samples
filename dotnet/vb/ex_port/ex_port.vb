@@ -289,9 +289,9 @@ Public Class App
 
 
         ' Read license key from file
-        errorcode = Lindo.LSloadLicenseString("../../../license/lndapi150.lic", LicenseKey)
+        errorcode = Lindo.LSloadLicenseString("../../../license/lndapi160.lic", LicenseKey)
         If (errorcode > 0) Then
-            errorcode = Lindo.LSloadLicenseString("../../../../license/lndapi150.lic", LicenseKey)
+            errorcode = Lindo.LSloadLicenseString("../../../../license/lndapi160.lic", LicenseKey)
             If (errorcode > 0) Then
                 Console.WriteLine("License file does not exist.")
                 Call CheckErr(env, errorcode)

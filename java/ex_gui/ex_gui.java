@@ -543,7 +543,7 @@ public class ex_gui extends JFrame implements LindoInterface {
 		ls = new ex_gui();
 
         // Read license file and create a LINDO environment.
-        nErrorCode[0] = Lindo.LSloadLicenseString("../../license/lndapi150.lic",cLicenseKey);
+        nErrorCode[0] = Lindo.LSloadLicenseString("../../license/lndapi160.lic",cLicenseKey);
         APIErrorCheck(pEnv);
 
         APIVERSION();

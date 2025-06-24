@@ -183,7 +183,7 @@ public class ex_nlp3 extends Lindo
         int nStatus[] = new int[1];
 
         /* >>> Step 1 <<< Read license file and create a LINDO environment. */
-        nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi150.lic",cLicenseKey);
+        nErrorCode[0] = ls.LSloadLicenseString("../../license/lndapi160.lic",cLicenseKey);
 
 
         APIVERSION();
