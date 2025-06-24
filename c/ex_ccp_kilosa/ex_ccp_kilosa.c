@@ -96,7 +96,7 @@
 
 /* LINDO API header file */
 #include "lindo.h"
-
+#include "../common/commonutils.c"
 /* Parse command line options */
 int LS_CALLTYPE LSgetCLOpt(pLSenv pEnv, int nArgc, char **pszArgv, char *pszOpt);
 int LS_CALLTYPE LSgetCLOptArg(pLSenv pEnv, char **pszOptArg);
@@ -278,12 +278,6 @@ ErrReturn:
   return errorcode;
 }
 
-/*
- *      Shared functions..
- *
- */
-#include "../common/commonutils.c"
-
 
 /**
  *
@@ -337,7 +331,7 @@ int main(int argc, char **argv)
      exit(1);
    }
 
-   errorcode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+   errorcode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
    APIERRORCHECK;
 
    pEnv = LScreateEnv ( &errorcode, MY_LICENSE_KEY);

@@ -8,7 +8,14 @@
 
 EXAMPLE= ex_mt2
 PLATFORM= x64
+!if defined(LINDOAPI_HOME) && "$(LINDOAPI_HOME)" != ""
+APIPATH = $(LINDOAPI_HOME)
+!else
+APIPATH=..\..\..\..
+!endif
 
+all:
+    @echo APIPATH is set to: $(APIPATH)
 !IF "$(PLATFORM)" == "x64"
 CSC_PLATFORM= /platform:x64
 DEFINES= /define:LSWIN64
@@ -19,5 +26,5 @@ DEFINES=
 
 all: $(EXAMPLE).exe
 
-$(EXAMPLE).exe: $(EXAMPLE).cs ..\..\..\..\include\lindo.cs
-    csc $(DEFINES) $(EXAMPLE).cs ..\..\..\..\include\lindo.cs $(CSC_PLATFORM)
+$(EXAMPLE).exe: $(EXAMPLE).cs $(APIPATH)\include\lindo.cs
+    csc $(DEFINES) $(EXAMPLE).cs $(APIPATH)\include\lindo.cs $(CSC_PLATFORM)

@@ -31,7 +31,7 @@
 #include <math.h>
 /* LINDO API header file */
 #include "lindo.h"
-
+#include "../common/commonutils.c"
 /* Define a macro to declare variables for
     error checking */
 #define APIERRORSETUP  \
@@ -235,7 +235,7 @@ int main()
   /*****************************************************************
    * Step 1: Create a model in the environment.
    *****************************************************************/
-   nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {
       printf( "Failed to load license key (error %d)\n",nErrorCode);

@@ -2,12 +2,14 @@
 # This file is included from makefile.unx in each sample's subfolder
 #
 
-# Get versions of libraries
-include ../../../include/lsversion.sh
+# Set APIPATH to LINDOAPI_HOME if LINDOAPI_HOME is a non-empty environment variable, otherwise fallback to ../../..
+APIPATH = $(if $(LINDOAPI_HOME),$(LINDOAPI_HOME),../../..)
+
+
+include $(APIPATH)/include/lsversion.sh
 
 OBJ_EXT=o
 OBJPATH=.
-APIPATH=../../..
 SRCPATH=.
 LIBPATH=$(APIPATH)/bin/$(PLATFORM)
 
@@ -28,6 +30,14 @@ ifeq ($(PLATFORM),linux64)
 	IFLAGS= -I $(APIPATH)/include 
 	CCOM  = gcc -m64
 	LINK  = gcc -m64
+endif
+
+ifeq ($(PLATFORM),linux64arm)
+	LFLAGS= $(COMMON_FLAGS) -llindo64  -lmosek64 -lconsub3 -lpthread -Wl,-rpath-link,$(LIBPATH) -Wl,-rpath,$(LIBPATH) -lm 
+	CFLAGS= $(COMMON_FLAGS) -c -O3 
+	IFLAGS= -I $(APIPATH)/include 
+	CCOM  = gcc 
+	LINK  = gcc 
 endif
 
 ifeq ($(PLATFORM),linux64ia)
@@ -89,7 +99,7 @@ ifeq ($(PLATFORM),osx32x86)
 endif
 
 ifeq ($(PLATFORM),win32)
-	LFLAGS= $(COMMON_FLAGS) -llindo$(LS_MAJOR)_$(LS_MINOR)  -lmosek$(MSK_MAJOR)_$(MSK_MINOR) -lconopt3 -lpthread -lc -ldl -lm 
+	LFLAGS= $(COMMON_FLAGS) -llindo$(LS_MAJOR)_$(LS_MINOR)  -lmosek$(MSK_MAJOR)_$(MSK_MINOR) -lconopt3 -lpthread 
 	CFLAGS= $(COMMON_FLAGS) -c -O3 -D_LINDO_DLL_
 	IFLAGS= -I $(APIPATH)/include 
 	CCOM  = gcc -m32
@@ -97,7 +107,7 @@ ifeq ($(PLATFORM),win32)
 endif
 
 ifeq ($(PLATFORM),win64)
-	LFLAGS= $(COMMON_FLAGS) -llindo64_$(LS_MAJOR)_$(LS_MINOR)  -lmosek64_$(MSK_MAJOR)_$(MSK_MINOR) -lconopt3 -lpthread -lc -ldl -lm 
+	LFLAGS= $(COMMON_FLAGS) -llindo64_$(LS_MAJOR)_$(LS_MINOR)  -lmosek64_$(MSK_MAJOR)_$(MSK_MINOR) -lconopt3 -lpthread 
 	CFLAGS= $(COMMON_FLAGS) -c -O3 -D_LINDO_DLL_
 	IFLAGS= -I $(APIPATH)/include 
 	CCOM  = gcc -m64
@@ -113,6 +123,7 @@ BINNAME=$(OBJPATH)/$(EXAMPLE)
 OBJS_BIN= $(OBJPATH)/$(EXAMPLE).$(OBJ_EXT)
 
 all:  $(LIB_OBJS) $(BINNAME) 
+	@echo "APIPATH is set to: $(APIPATH)"
 clean: 
 	rm *.$(OBJ_EXT)
 	rm $(EXAMPLE)

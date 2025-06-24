@@ -28,7 +28,7 @@
 
 /* LINDO API header file */
 #include "lindo.h"
-
+#include "../common/commonutils.c"
 /* Define a macro to declare variables for
     error checking */
 #define APIERRORSETUP  \
@@ -93,13 +93,13 @@ int  LS_CALLTYPE print_log(pLSmodel model,int iLoc, void *cbData)
     LSgetCallbackInfo(model,iLoc,LS_IINFO_SIM_ITER,&iter);
     printf("%2d(%d)\tIt=%4d \tInfeas= %8.3e\tObj=%11.5e \tStat=%d\n",
       iLoc,iobj,iter,pfeas,pobj,status);
-  } else 
+  } else
 #endif
   if (iLoc == LSLOC_OBJPOOL) {
     LSgetCallbackInfo(model,iLoc,LS_IINFO_OBJIDX,&iobj);
     printf("\nOptimizing objective #%d",iobj);
-#if 0 
-    if (iobj==2) { 
+#if 0
+    if (iobj==2) {
       //break at this obj (testing only)
       return 1;
     }
@@ -212,7 +212,7 @@ int main(int argc, char **argv)
   /****************************************************************
    * Step 1: Create a LINDO environment.
    ****************************************************************/
-   nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
    APIERRORCHECK;
    APIVERSION;
 
@@ -287,7 +287,7 @@ int main(int argc, char **argv)
      LSwriteBasis(pModel,"init.bas",LS_BASFILE_TXT);
      LSreadModelParameter(pModel,"lindo.par");
      APIERRORCHECK;
-   }   
+   }
 
    /***************************************************************
     * Step 5: Setup obj pool
@@ -379,7 +379,7 @@ int main(int argc, char **argv)
      int maxSolsPerObj=1;
      LSsetModelIntParameter(pModel,LS_IPARAM_SOLPOOL_LIM,maxSolsPerObj);
    }
- 
+
    printf("\nOptimizing ..");
    LSsetModelIntParameter(pModel,LS_IPARAM_MIP_PRINTLEVEL,2);
    if (nVars - nCont > 0) {
@@ -421,11 +421,11 @@ int main(int argc, char **argv)
    }//
 
    // Determine the availability of solutions (1st method)
-   {     
+   {
      int iObj; //index of last objective with a solution
      int iSol=0; //index of first solution
      iObj = nObj-1;
-     sprintf(strbuf,"(%d,%d)",iObj,iSol);     
+     sprintf(strbuf,"(%d,%d)",iObj,iSol);
 
      // count down
      while (iObj>=0) {
@@ -439,9 +439,9 @@ int main(int argc, char **argv)
        printf("\nLoaded Lexmin solution");
      } else if (iObj>=0) {
        printf("\nWarning: solutions for obj #%d and forth are not available",iObj+1);
-     }     
+     }
 
-     if (iObj>=0) { 
+     if (iObj>=0) {
        if (nVars - nCont > 0) {
          nErrorCode = LSgetInfo(pModel,LS_IINFO_MIP_STATUS,&status);
        } else {
@@ -485,7 +485,7 @@ int main(int argc, char **argv)
      // load the last solution with any acceptable status (feasible/local_optimal)
      nErrorCode = LSloadSolutionAt(pModel,iobj_last_anysol,0);
      displaySolution(pEnv,pModel,strbuf,nVars,nCont,pszTitle,paszVarnames,primal,dual,dObj,status);
-   }      
+   }
 
 Terminate:
    /***************************************************************

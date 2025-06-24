@@ -1,10 +1,14 @@
 #!/bin/sh
 
 # set PLATFORM
-. ../../include/platform.inc
+APIPATH=../..
+if [ ! -z $LINDOAPI_HOME ]; then
+	APIPATH=$LINDOAPI_HOME
+fi
+. $APIPATH/include/platform.inc
 
 # Optionally, update environment variables
-#. ../../bin/$PLATFORM/lindoapivars.sh
+#. $APIPATH/bin/$PLATFORM/lindoapivars.sh
 
 ############################################################################  
 if [ "$LINDOAPI_HOME" = "" ]; then

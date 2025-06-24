@@ -171,13 +171,13 @@ namespace ex_nlp3
 
             /* >>> Step 1 <<< Create a LINDO environment. */
             // Read license key from file
-            nErrorCode = lindo.LSloadLicenseString("../../../../../../license/lndapi150.lic", LicenseKey);
-            if (nErrorCode > 0)
-            {
-                //APIErrorCheck(env, nErrorCode);
-                nErrorCode = lindo.LSloadLicenseString("../../../../license/lndapi150.lic", LicenseKey);
-                if (nErrorCode > 0) { APIErrorCheck(pEnv, nErrorCode); return; }
-            }              
+            string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi150.lic";
+
+            nErrorCode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
+            if (nErrorCode > 0) {        
+               APIErrorCheck(pEnv, nErrorCode);
+               return;
+            }            
             pEnv = lindo.LScreateEnv(ref nErrorCode, LicenseKey.ToString());            
             APIErrorCheck(pEnv,nErrorCode);
 

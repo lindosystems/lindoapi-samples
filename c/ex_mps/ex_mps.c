@@ -20,6 +20,7 @@
 #include <math.h>
 /* LINDO API header file */
 #include "lindo.h"
+#include "../common/commonutils.c"
 #define _PRINT_BANNER_COUNT_ 25
 /* userdata for illustration purposes */
 typedef struct
@@ -203,14 +204,14 @@ int  LS_CALLTYPE print_progress_log(pLSmodel model,int iLoc, void *cbData)
   }
 
   // Dummy call to intercept
-  nErr = LSgetProgressInfo(model,iLoc,LS_IINFO_CUR_ITER,&iter); 
+  nErr = LSgetProgressInfo(model,iLoc,LS_IINFO_CUR_ITER,&iter);
   if (iLoc==LSLOC_EXIT_SOLVER)
   {
     nErr = nErr;
   }
 
   // Global iteration count
-  nErr = LSgetProgressInfo(model,iLoc,LS_IINFO_CUR_ITER,&iter); 
+  nErr = LSgetProgressInfo(model,iLoc,LS_IINFO_CUR_ITER,&iter);
   paiErr[LS_IINFO_CUR_ITER-KF]=nErr;
   if (nErr!=LSERR_NO_ERROR) {
     iter=-nErr;
@@ -237,7 +238,7 @@ int  LS_CALLTYPE print_progress_log(pLSmodel model,int iLoc, void *cbData)
     pProgressData->_DINFO_CUR_OBJ=pobj;
   }
 
-  // 
+  //
   nErr = LSgetProgressInfo(model,iLoc,LS_DINFO_SUB_OBJ,&sobj);
   paiErr[LS_DINFO_SUB_OBJ-KF]=nErr;
   if (nErr!=LSERR_NO_ERROR) {
@@ -245,7 +246,7 @@ int  LS_CALLTYPE print_progress_log(pLSmodel model,int iLoc, void *cbData)
   } else {
     pProgressData->_DINFO_SUB_OBJ=sobj;
   }
-  
+
   nErr = LSgetProgressInfo(model,iLoc,LS_DINFO_CUR_BEST_BOUND,&bestbnd);
   paiErr[LS_DINFO_CUR_BEST_BOUND-KF]=nErr;
   if (nErr!=LSERR_NO_ERROR) {
@@ -253,7 +254,7 @@ int  LS_CALLTYPE print_progress_log(pLSmodel model,int iLoc, void *cbData)
   } else {
     pProgressData->_DINFO_CUR_BEST_BOUND=bestbnd;
   }
-  
+
   nErr = LSgetProgressInfo(model,iLoc,LS_DINFO_SUB_PINF,&pfeas);
   paiErr[LS_DINFO_SUB_PINF-KF]=nErr;
   if (nErr!=LSERR_NO_ERROR) {
@@ -753,7 +754,7 @@ int main(int argc, char **argv)
   /****************************************************************
    * Step 1: Create a LINDO environment.
    ****************************************************************/
-   nErrorCode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+   nErrorCode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
    if ( nErrorCode != LSERR_NO_ERROR)
    {
       printf( "Failed to load license key (error %d)\n",nErrorCode);
@@ -853,7 +854,7 @@ int main(int argc, char **argv)
 
    memset(&progressData,0,sizeof(UserData));
    progressData.pModel = pModel;
-   progressData.elapsed = LSgetTic();   
+   progressData.elapsed = LSgetTic();
    /* Install a log function to display solver's progress
    as reported by the internal solver */
    if (0>1) {
@@ -861,7 +862,7 @@ int main(int argc, char **argv)
    } else {
    /* Install a callback function to display solver's progress
    as specified by the user */
-     nErrorCode = LSsetCallback(pModel,(cbFunc_t) print_progress_log, &progressData); 
+     nErrorCode = LSsetCallback(pModel,(cbFunc_t) print_progress_log, &progressData);
    }
 
    /*  Use GOP solver by uncommenting the following line */

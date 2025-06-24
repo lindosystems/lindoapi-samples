@@ -25,7 +25,7 @@
 
 /* LINDO API header file */
 #include "lindo.h"
-
+#include "../common/commonutils.c"
 /* Define a macro to declare variables for
     error checking */
 #define APIERRORSETUP  \
@@ -77,7 +77,7 @@ int main(int argc, char **argv)
    /*
     *     Create a LINDO environment.
     */
-   errorcode = LSloadLicenseString("../../../license/lndapi150.lic",MY_LICENSE_KEY);
+   errorcode = LSloadDefaultLicenseString(MY_LICENSE_KEY);
    APIERRORCHECK;
 
    pEnv = LScreateEnv ( &errorcode, MY_LICENSE_KEY);
