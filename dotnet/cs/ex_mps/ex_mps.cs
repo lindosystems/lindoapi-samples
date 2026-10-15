@@ -173,7 +173,7 @@ public class ex_mps
 
 
         // Read license key from file
-        string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi160.lic";
+        string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi170.lic";
         
         errorcode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
         if (errorcode > 0) {        

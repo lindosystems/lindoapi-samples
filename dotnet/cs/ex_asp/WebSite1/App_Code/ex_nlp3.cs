@@ -172,7 +172,7 @@ namespace ex_nlp3
 
             /* >>> Step 1 <<< Create a LINDO environment. */
             // Read license key from file
-            string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi160.lic";
+            string LicenseFile = System.Environment.GetEnvironmentVariable("LINDOAPI_HOME") + "\\license\\lndapi170.lic";
 
             nErrorCode = lindo.LSloadLicenseString(LicenseFile, LicenseKey);
             if (nErrorCode > 0) {        

@@ -1,13 +1,13 @@
 /*********************************************************************
  **
- **    LINDO API Version 15.0
- **    Copyright (c) 2000-2024
+ **    LINDO API Version 17.0
+ **    Copyright (c) 2000-2027
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: lindo.cs 3311 2024-02-15 05:05:29Z mka $
+ **    $Id: lindo.cs 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 
@@ -22,19 +22,19 @@ public class lindo
   */
  
 #if LSWIN64
-  public const string   LINDO_DLL                         = "lindo64_15_0.dll";
+  public const string   LINDO_DLL                         = "lindo64_17_0.dll";
 #else  
-  public const string   LINDO_DLL                         = "lindo15_0.dll";
+  public const string   LINDO_DLL                         = "lindo17_0.dll";
 #endif  
 
  /*********************************************************************
  *                        Constant Definitions                       *
  *********************************************************************/
-       public const int    LS_MAJOR_VER_NUMBER            =         15;
+       public const int    LS_MAJOR_VER_NUMBER            =         17;
        public const int    LS_MINOR_VER_NUMBER            =          0;
-       public const int    LS_REV_VER_NUMBER              =        124;
-       public const int    LS_VER_NUMBER                  =       1500;
-       public const int    LS_BUILD_VER_NUMBER            =       6099;
+       public const int    LS_REV_VER_NUMBER              =        99;
+       public const int    LS_VER_NUMBER                  =       1700;
+       public const int    LS_BUILD_VER_NUMBER            =       8099;
        public const int    LS_MIN                         =         +1;
        public const int    LS_MAX                         =         -1;
        public const int    LS_CONTYPE_GE                  =        'G';
@@ -291,6 +291,10 @@ public class lindo
        public const int    LS_IPARAM_LP_BASPOLISH_ITRLMT  =       4093;
        public const int    LS_IPARAM_LP_BASPOLISH_DEPTH   =       4094;
        public const int    LS_IPARAM_LP_BASPOLISH_MODE    =       4095;
+       public const int    LS_IPARAM_LP_FOLD_MODE         =       4096;
+       public const int    LS_IPARAM_LP_XOVER_ENGINE    =       4097;
+       public const int    LS_IPARAM_LP_FOLD_KBEST      =       4098;
+       public const int    LS_IPARAM_LP_FOLD_LIFT       =       4099;
 
     /* Advanced parameters for LU decomposition (4800 - 4+++) */
        public const int    LS_IPARAM_LU_NUM_CANDITS       =       4800;
@@ -389,6 +393,9 @@ public class lindo
        public const int    LS_IPARAM_NLP_USECUTOFFOBJ     =       2554;
        public const int     LS_IPARAM_NLP_CONIC_REFORM    =       2555;
        public const int    LS_IPARAM_NLP_QP_REFORM_LEVEL  =       2556;
+       public const int    LS_IPARAM_NLP_NLOPT_ALGO    =       2557;
+       public const int    LS_DPARAM_NLP_ENLAMBDA    =       2558;
+       public const int    LS_IPARAM_NLP_QP_REFINING    =       2559;
 
     /* Mixed integer programming (MIP) parameters (5000 - 5+++) */
        public const int    LS_IPARAM_MIP_TIMLIM           =       5300;
@@ -447,6 +454,21 @@ public class lindo
        public const int    LS_IPARAM_MIP_USE_INT_ZERO_TOL =       5353;
        public const int    LS_IPARAM_MIP_USE_CUTS_HEU     =       5354;
        public const int    LS_DPARAM_MIP_BIGM_FOR_INTTOL  =       5355;
+       public const int    LS_IPARAM_MIP_PBE_HEU    =       5356;
+       public const int    LS_IPARAM_MIP_PBE_VARLIM    =       5357;
+       public const int    LS_IPARAM_MIP_PBE_MAXPASSES    =       5358;
+       public const int    LS_DPARAM_MIP_PBE_COEFCAP    =       5359;
+       public const int    LS_DPARAM_MIP_PBE_RATTOL    =       5360;
+       public const int    LS_IPARAM_MIP_PBE_NODELIM    =       5361;
+       public const int    LS_IPARAM_MIP_PBE_PROJECT    =       5362;
+       public const int    LS_IPARAM_MIP_PBE_SELECT    =       5363;
+       public const int    LS_IPARAM_MIP_PBE_DAMP_ROUNDS    =       5364;
+       public const int    LS_DPARAM_MIP_PBE_DAMP_PCT    =       5365;
+       public const int    LS_IPARAM_MIP_PBE_PRINT    =       5424;
+       public const int    LS_IPARAM_MIP_PBE_OBJCUT    =       5425;
+       public const int    LS_IPARAM_MIP_OCTANE_HEU    =       5426;
+       public const int    LS_IPARAM_MIP_OCTANE_FMAX    =       5427;
+       public const int    LS_IPARAM_MIP_OCTANE_RAYS    =       5428;
        public const int    LS_IPARAM_MIP_STRONGBRANCHDONUM =       5366;
        public const int    LS_IPARAM_MIP_MAKECUT_INACTIVE_COUNT =       5367;
        public const int    LS_IPARAM_MIP_PRE_ELIM_FILL    =       5368;
@@ -761,6 +783,7 @@ public class lindo
 
     /*! Optimality tolerance for NCM method */
        public const int    LS_DPARAM_SAMP_NCM_OPTTOL      =       7707;
+       public const int    LS_DPARAM_SAMP_CDSMAX    =       7708;
 
     /*! Number of parallel threads */
        public const int    LS_IPARAM_SAMP_NUM_THREADS     =       7708;
@@ -1224,6 +1247,7 @@ public class lindo
        public const int    LS_SINFO_MODEL_TYPE            =      11242;
        public const int    LS_IINFO_NLP_LINEARITY         =      11243;
        public const int    LS_DINFO_ALL_ITER              =      11244;
+       public const int    LS_DINFO_TIME_TO_BESTSOL    =       11245;
 
  /* MIP and MINLP related info (11300-11400) */
        public const int    LS_IINFO_MIP_STATUS            =      11300;
@@ -1290,8 +1314,10 @@ public class lindo
        public const int    LS_IINFO_MIP_SOFTKNAP_CUTS     =      11371;
        public const int    LS_IINFO_MIP_LP_ROUND_CUTS     =      11372;
        public const int    LS_IINFO_MIP_PERSPECTIVE_CUTS  =      11373;
+       public const int    LS_IINFO_MIP_PATHMIR_CUTS      =      11377;
        public const int    LS_IINFO_MIP_STRATEGY_MASK     =      11374;
        public const int    LS_DINFO_MIP_ALL_ITER          =      11375;
+       public const int    LS_DINFO_MIP_TIME_TO_BESTSOL    =       11376;
 
  /* GOP related info (11601-11699) */
        public const int    LS_DINFO_GOP_OBJ               =      11600;
@@ -2336,6 +2362,7 @@ public class lindo
        public const int    LS_METHOD_SPRINT               =         11;
        public const int    LS_METHOD_GA                   =         12;
        public const int    LS_METHOD_FILELP               =         13;
+       public const int    LS_METHOD_PDLP    =       14;
        public const int    LS_STRATEGY_USER               =          0;
        public const int    LS_STRATEGY_PRIMIP             =          1;
        public const int    LS_STRATEGY_NODEMIP            =          2;
@@ -2347,6 +2374,8 @@ public class lindo
        public const int    LS_NMETHOD_SLP                 =          8;
        public const int    LS_NMETHOD_MSW_GRG             =          9;
        public const int    LS_NMETHOD_IPOPT               =         10;
+       public const int    LS_NMETHOD_NLOPT    =       11;
+       public const int    LS_NMETHOD_ENOPT    =       12;
        public const int    LS_PROB_SOLVE_FREE             =          0;
        public const int    LS_PROB_SOLVE_PRIMAL           =          1;
        public const int    LS_PROB_SOLVE_DUAL             =          2;
@@ -2456,6 +2485,9 @@ public class lindo
        public const int    LS_MIP_MODE_NO_BRANCH_CUTS     =         16;
        public const int    LS_MIP_MODE_NO_LP_BARRIER      =         32;
        public const int    LS_MIP_MODE_NO_LSLVDP          =         64;
+       public const int    LS_MIP_MODE_SOS2_GRAY    =       128;
+       public const int    LS_MIP_MODE_INSMIPSOL    =       256;
+       public const int    LS_MIP_MODE_INSMIPBND    =       512;
 
  /* Bit mask for cut generation levels. Use sums to
  * enable a collection of available cuts.
@@ -2476,6 +2508,8 @@ public class lindo
        public const int    LS_MIP_DISJUN_CUTS             =      16384;
        public const int    LS_MIP_SOFT_KNAP_CUTS          =      32768;
        public const int    LS_MIP_LP_ROUND_CUTS           =      65536;
+       public const int    LS_MIP_PATHMIR_CUTS            =      131072;
+       public const int    LS_MIP_PATHMIR_MIX_CUTS        =      262144;
 
  /* Bit masks for MIP preprocessing levels. Use sums
  * to enable a collection of available levels.
@@ -2491,6 +2525,7 @@ public class lindo
        public const int    LS_MIP_PREP_COEF_LIFTING       =        512;
        public const int    LS_MIP_PREP_MAXPASS            =       1024;
        public const int    LS_MIP_PREP_SIMROW             =       2048;
+       public const int    LS_MIP_PREP_EXTERNAL    =       16384;
 
  /* Bit masks for solver preprocessing levels. Use sums
  * to enable a collection of available levels.
@@ -2502,7 +2537,10 @@ public class lindo
        public const int    LS_SOLVER_PREP_DCOL            =         32;
        public const int    LS_SOLVER_PREP_DROW            =         64;
        public const int    LS_SOLVER_PREP_CONE            =        128;
+       public const int    LS_SOLVER_PREP_FLIPGE    =       256;
+       public const int    LS_SOLVER_PREP_RES512    =       512;
        public const int    LS_SOLVER_PREP_MAXPASS         =       1024;
+       public const int    LS_SOLVER_PREP_RES2048    =       2048;
        public const int    LS_SOLVER_PREP_DECOMP          =       4096;
        public const int    LS_SOLVER_PREP_LOWMEM          =       8192;
        public const int    LS_SOLVER_PREP_EXTERNAL        =      16384;
@@ -2542,6 +2580,7 @@ public class lindo
        public const int    LS_MIP_IN_HEU_MODE             =          2;
        public const int    LS_MIP_IN_ENUM                 =          3;
        public const int    LS_MIP_IN_CUT_ADD_TOP          =          4;
+       public const int    LS_MIP_IN_CUT_ADD_TREE    =       5;
        public const int    LS_MIP_IN_BANDB                =          6;
 
 /**
@@ -2710,6 +2749,14 @@ public class lindo
        public const int    LS_MSW_MODE_PRECOLLECT         =     128;
        public const int    LS_MSW_MODE_POWER_SOLVE        =     256;
        public const int    LS_MSW_MODE_SHARE_STACK        =     512;
+       public const int    LS_MSW_MODE_ENTROPY_POX    =       1024;
+       public const int    LS_MSW_MODE_MERIT_POX    =       2048;
+       public const int    LS_MSW_MODE_BOUND_PROP    =       4096;
+       public const int    LS_MSW_MODE_FEAS_RANK    =       8192;
+       public const int    LS_MSW_MODE_CONS_CONSENSUS    =       16384;
+       public const int    LS_MSW_MODE_QMC_SAMPLE    =       32768;
+       public const int    LS_MSW_MODE_MLSL_FILTER    =       65536;
+       public const int    LS_MSW_MODE_AUTO    =       131072;
 
 
        public const int    LS_GA_CROSS_SBX                =     101;
@@ -2746,6 +2793,19 @@ public class lindo
        public const int    LS_SOLVER_MODE_FULL_AGGR       =        256;
        public const int    LS_SOLVER_MODE_ADD_PM1_SQR     =        512;
        public const int    LS_SOLVER_MODE_ADD_PM1_ABS     =        1024;
+       public const int    LS_SOLVER_MODE_GREY_AGGR    =       2048;
+       public const int    LS_PARCLASS_BITMASK    =       1;
+       public const int    LS_PARCLASS_MULSTEP    =       2;
+       public const int    LS_PARCLASS_TUNPAR    =       4;
+       public const int    LS_PARCLASS_LP    =       32;
+       public const int    LS_PARCLASS_QUAD    =       64;
+       public const int    LS_PARCLASS_NLP    =       128;
+       public const int    LS_PARCLASS_GOP    =       256;
+       public const int    LS_PARCLASS_MIP    =       512;
+       public const int    LS_PARCLASS_ENV    =       1024;
+       public const int    LS_PARCLASS_MOD    =       2048;
+       public const int    LS_PARCLASS_HIT    =       4096;
+       public const int    LS_PARCLASS_ZSTATIC    =       8192;
 
  /* Equivalences */
        public const int    LS_IINFO_OBJSENSE              = LS_IPARAM_OBJSENSE;
@@ -5521,14 +5581,14 @@ public class lindo
  **
  **    Stochastic Programming Interface
  **
- **    LINDO API Version 15.0
+ **    LINDO API Version 17.0
  **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: lindo.cs 3311 2024-02-15 05:05:29Z mka $
+ **    $Id: lindo.cs 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 
@@ -6986,14 +7046,14 @@ public class lindo
  **
  **    Tuner Functions
  **
- **    LINDO API Version 15.0
+ **    LINDO API Version 17.0
  **    Copyright (c) 2019-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: lindo.cs 3311 2024-02-15 05:05:29Z mka $
+ **    $Id: lindo.cs 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 

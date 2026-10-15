@@ -1,19 +1,19 @@
 /*********************************************************************
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2000-2022
+ **    LINDO API Version 17.0
+ **    Copyright (c) 2000-2027
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: Lindo.java 3021 2022-01-25 10:13:57Z mka $
+ **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 package com.lindo;
 
 
-/** @dll.import("LINDO15_0.DLL")
+/** @dll.import("LINDO17_0.DLL")
 */
 
 
@@ -25,11 +25,11 @@ public class Lindo
  *********************************************************************/
 
 /* Version macros */
-   public static final int    LS_MAJOR_VER_NUMBER               = 14;
+   public static final int    LS_MAJOR_VER_NUMBER               = 17;
    public static final int    LS_MINOR_VER_NUMBER               = 0;
-   public static final int    LS_REV_VER_NUMBER                 = 146;
-   public static final int    LS_VER_NUMBER                     = 1400;
-   public static final int    LS_BUILD_VER_NUMBER               = 5099;
+   public static final int    LS_REV_VER_NUMBER                 = 99;
+   public static final int    LS_VER_NUMBER                     = 1700;
+   public static final int    LS_BUILD_VER_NUMBER               = 8099;
 
    public static final int    LS_MIN                            = +1;
    public static final int    LS_MAX                            = -1;
@@ -163,6 +163,12 @@ public class Lindo
    public static final int    LS_XSOLVER_SOP                    = 11;
    public static final int    LS_XSOLVER_CBC                    = 12;
    public static final int    LS_XSOLVER_XPR                    = 13;
+   public static final int    LS_XSOLVER_HIGHS                  = 14;
+   public static final int    LS_XSOLVER_IPOPT                  = 15;
+   public static final int    LS_XSOLVER_TABOX                  = 95;
+   public static final int    LS_XSOLVER_MUMPS                  = 96;
+   public static final int    LS_XSOLVER_MUPARSER               = 97;
+   public static final int    LS_XSOLVER_LUA                    = 98;
    public static final int    LS_XSOLVER_XLINDO                 = 99;
 
 /* ref types */
@@ -229,6 +235,7 @@ public class Lindo
    public static final int    LS_IPARAM_FIND_SYMMETRY_PRINT_LEVEL = 1056;
    public static final int    LS_IPARAM_TUNER_PRINT_LEVEL       = 1057;
    public static final int    LS_IPARAM_DEFAULT_SEED            = 1058;
+   public static final int    LS_IPARAM_XSOLVER_LOG_LEVEL       = 1059;
 
    /* Generic solver parameters (1251 - 1500) */
    public static final int    LS_IPARAM_SOLVER_IUSOL            = 1251;
@@ -296,6 +303,10 @@ public class Lindo
    public static final int    LS_IPARAM_LP_BASPOLISH_ITRLMT     = 4093;
    public static final int    LS_IPARAM_LP_BASPOLISH_DEPTH      = 4094;
    public static final int    LS_IPARAM_LP_BASPOLISH_MODE       = 4095;
+   public static final int    LS_IPARAM_LP_FOLD_MODE            = 4096;
+   public static final int    LS_IPARAM_LP_XOVER_ENGINE       = 4097;
+   public static final int    LS_IPARAM_LP_FOLD_KBEST         = 4098;
+   public static final int    LS_IPARAM_LP_FOLD_LIFT          = 4099;
 
    /* Advanced parameters for LU decomposition (4800 - 4+++) */
    public static final int    LS_IPARAM_LU_NUM_CANDITS          = 4800;
@@ -394,6 +405,9 @@ public class Lindo
    public static final int    LS_IPARAM_NLP_USECUTOFFOBJ        = 2554;
    public static final int    LS_IPARAM_NLP_CONIC_REFORM        = 2555;
    public static final int    LS_IPARAM_NLP_QP_REFORM_LEVEL     = 2556;
+   public static final int    LS_IPARAM_NLP_NLOPT_ALGO       = 2557;
+   public static final int    LS_DPARAM_NLP_ENLAMBDA       = 2558;
+   public static final int    LS_IPARAM_NLP_QP_REFINING       = 2559;
 
    /* Mixed integer programming (MIP) parameters (5000 - 5+++) */
    public static final int    LS_IPARAM_MIP_TIMLIM              = 5300;
@@ -452,6 +466,21 @@ public class Lindo
    public static final int    LS_IPARAM_MIP_USE_INT_ZERO_TOL    = 5353;
    public static final int    LS_IPARAM_MIP_USE_CUTS_HEU        = 5354;
    public static final int    LS_DPARAM_MIP_BIGM_FOR_INTTOL     = 5355;
+   public static final int    LS_IPARAM_MIP_PBE_HEU       = 5356;
+   public static final int    LS_IPARAM_MIP_PBE_VARLIM       = 5357;
+   public static final int    LS_IPARAM_MIP_PBE_MAXPASSES       = 5358;
+   public static final int    LS_DPARAM_MIP_PBE_COEFCAP       = 5359;
+   public static final int    LS_DPARAM_MIP_PBE_RATTOL       = 5360;
+   public static final int    LS_IPARAM_MIP_PBE_NODELIM       = 5361;
+   public static final int    LS_IPARAM_MIP_PBE_PROJECT       = 5362;
+   public static final int    LS_IPARAM_MIP_PBE_SELECT       = 5363;
+   public static final int    LS_IPARAM_MIP_PBE_DAMP_ROUNDS       = 5364;
+   public static final int    LS_DPARAM_MIP_PBE_DAMP_PCT       = 5365;
+   public static final int    LS_IPARAM_MIP_PBE_PRINT       = 5424;
+   public static final int    LS_IPARAM_MIP_PBE_OBJCUT       = 5425;
+   public static final int    LS_IPARAM_MIP_OCTANE_HEU       = 5426;
+   public static final int    LS_IPARAM_MIP_OCTANE_FMAX       = 5427;
+   public static final int    LS_IPARAM_MIP_OCTANE_RAYS       = 5428;
    public static final int    LS_IPARAM_MIP_STRONGBRANCHDONUM   = 5366;
    public static final int    LS_IPARAM_MIP_MAKECUT_INACTIVE_COUNT = 5367;
    public static final int    LS_IPARAM_MIP_PRE_ELIM_FILL       = 5368;
@@ -509,6 +538,7 @@ public class Lindo
    public static final int    LS_IPARAM_MIP_SOLLIM              = 5420;
    public static final int    LS_IPARAM_MIP_FP_PROJECTION       = 5421;
    public static final int    LS_IPARAM_MIP_SYMMETRY_NONZ       = 5422;
+   public static final int    LS_IPARAM_MIP_FIXINIT_ITRLIM      = 5423;
 
    /* Global optimization (GOP) parameters (6000 - 6+++) */
    public static final int    LS_DPARAM_GOP_RELOPTTOL           = 6400;
@@ -721,6 +751,7 @@ public class Lindo
    public static final int    LS_IPARAM_SAMP_NCM_ITERLIM        = 7706;
    /*! Optimality tolerance for NCM method */
    public static final int    LS_DPARAM_SAMP_NCM_OPTTOL         = 7707;
+   public static final int    LS_DPARAM_SAMP_CDSMAX       = 7708;
    /*! Number of parallel threads */
    public static final int    LS_IPARAM_SAMP_NUM_THREADS        = 7708;
    /*! Buffer size for random number generators */
@@ -1018,7 +1049,8 @@ public class Lindo
    public static final int    EP_LOGSUMAEXP                     = 1188;
    public static final int    EP_EXPMODIV                       = 1189;
    public static final int    EP_POWERUTILITY                   = 1190;
-
+   public static final int    EP_POLYNOMIAL                     = 1191;
+   public static final int    EP_CENSOR                         = 1192;
 
 /* Model and solution information codes ( 110xx-140xx) */
 /* Model statistics (11001-11199)*/
@@ -1100,6 +1132,7 @@ public class Lindo
    public static final int    LS_DINFO_OBJRELTOL                = 11076;
    public static final int    LS_DINFO_OBJABSTOL                = 11077;
    public static final int    LS_DINFO_OBJTIMLIM                = 11078;
+   public static final int    LS_IINFO_NUM_NLP_COUNT            = 11079;
 
 /* LP and NLP related info (11200-11299)*/
    public static final int    LS_IINFO_METHOD                   = 11200;
@@ -1147,6 +1180,7 @@ public class Lindo
    public static final int    LS_SINFO_MODEL_TYPE               = 11242;
    public static final int    LS_IINFO_NLP_LINEARITY            = 11243;
    public static final int    LS_DINFO_ALL_ITER                 = 11244;
+   public static final int    LS_DINFO_TIME_TO_BESTSOL       = 11245;
 
 /* MIP and MINLP related info (11300-11400) */
    public static final int    LS_IINFO_MIP_STATUS               = 11300;
@@ -1213,8 +1247,10 @@ public class Lindo
    public static final int    LS_IINFO_MIP_SOFTKNAP_CUTS        = 11371;
    public static final int    LS_IINFO_MIP_LP_ROUND_CUTS        = 11372;
    public static final int    LS_IINFO_MIP_PERSPECTIVE_CUTS     = 11373;
+   public static final int    LS_IINFO_MIP_PATHMIR_CUTS         = 11377;
    public static final int    LS_IINFO_MIP_STRATEGY_MASK        = 11374;
    public static final int    LS_DINFO_MIP_ALL_ITER             = 11375;
+   public static final int    LS_DINFO_MIP_TIME_TO_BESTSOL       = 11376;
 
 /* GOP related info (11601-11699) */
    public static final int    LS_DINFO_GOP_OBJ                  = 11600;
@@ -1750,6 +1786,7 @@ public class Lindo
    public static final int    LSERR_XSOLVER_NOT_SUPPORTED       = 2091;
    public static final int    LSERR_XSOLVER_INVALID_VERSION     = 2092;
    public static final int    LSERR_FDE_NOT_INSTALLED           = 2093;
+   public static final int    LSERR_MODEL_NOT_SUPPORTED_XSOLVER = 2094;
 
    /*! @ingroup LSmatrixOps @{ */
 
@@ -2044,6 +2081,7 @@ public class Lindo
    public static final int    LS_METHOD_SPRINT                  = 11;
    public static final int    LS_METHOD_GA                      = 12;
    public static final int    LS_METHOD_FILELP                  = 13;
+   public static final int    LS_METHOD_PDLP       = 14;
 
 
    public static final int    LS_STRATEGY_USER                  = 0;
@@ -2059,6 +2097,8 @@ public class Lindo
    public static final int    LS_NMETHOD_SLP                    = 8;
    public static final int    LS_NMETHOD_MSW_GRG                = 9;
    public static final int    LS_NMETHOD_IPOPT                  = 10;
+   public static final int    LS_NMETHOD_NLOPT       = 11;
+   public static final int    LS_NMETHOD_ENOPT       = 12;
 
 
    public static final int    LS_PROB_SOLVE_FREE                = 0;
@@ -2181,6 +2221,9 @@ public class Lindo
    public static final int    LS_MIP_MODE_NO_BRANCH_CUTS        = 16;
    public static final int    LS_MIP_MODE_NO_LP_BARRIER         = 32;
    public static final int    LS_MIP_MODE_NO_LSLVDP             = 64;
+   public static final int    LS_MIP_MODE_SOS2_GRAY       = 128;
+   public static final int    LS_MIP_MODE_INSMIPSOL       = 256;
+   public static final int    LS_MIP_MODE_INSMIPBND       = 512;
 
 
 /* Bit mask for cut generation levels. Use sums to
@@ -2202,6 +2245,8 @@ public class Lindo
    public static final int    LS_MIP_DISJUN_CUTS                = 16384;
    public static final int    LS_MIP_SOFT_KNAP_CUTS             = 32768;
    public static final int    LS_MIP_LP_ROUND_CUTS              = 65536;
+   public static final int    LS_MIP_PATHMIR_CUTS               = 131072;
+   public static final int    LS_MIP_PATHMIR_MIX_CUTS           = 262144;
 
 
 /* Bit masks for MIP preprocessing levels. Use sums
@@ -2218,6 +2263,7 @@ public class Lindo
    public static final int    LS_MIP_PREP_COEF_LIFTING          = 512;
    public static final int    LS_MIP_PREP_MAXPASS               = 1024;
    public static final int    LS_MIP_PREP_SIMROW                = 2048;
+   public static final int    LS_MIP_PREP_EXTERNAL       = 16384;
 
 
 /* Bit masks for solver preprocessing levels. Use sums
@@ -2230,7 +2276,10 @@ public class Lindo
    public static final int    LS_SOLVER_PREP_DCOL               = 32;
    public static final int    LS_SOLVER_PREP_DROW               = 64;
    public static final int    LS_SOLVER_PREP_CONE               = 128;
+   public static final int    LS_SOLVER_PREP_FLIPGE       = 256;
+   public static final int    LS_SOLVER_PREP_RES512       = 512;
    public static final int    LS_SOLVER_PREP_MAXPASS            = 1024;
+   public static final int    LS_SOLVER_PREP_RES2048       = 2048;
    public static final int    LS_SOLVER_PREP_DECOMP             = 4096;
    public static final int    LS_SOLVER_PREP_LOWMEM             = 8192;
    public static final int    LS_SOLVER_PREP_EXTERNAL           = 16384;
@@ -2464,6 +2513,15 @@ public class Lindo
    public static final int    LS_MSW_MODE_SAMPLE_FREEVARS       = 64;
    public static final int    LS_MSW_MODE_PRECOLLECT            = 128;
    public static final int    LS_MSW_MODE_POWER_SOLVE           = 256;
+   public static final int    LS_MSW_MODE_SHARE_STACK           = 512;
+   public static final int    LS_MSW_MODE_ENTROPY_POX       = 1024;
+   public static final int    LS_MSW_MODE_MERIT_POX       = 2048;
+   public static final int    LS_MSW_MODE_BOUND_PROP       = 4096;
+   public static final int    LS_MSW_MODE_FEAS_RANK       = 8192;
+   public static final int    LS_MSW_MODE_CONS_CONSENSUS       = 16384;
+   public static final int    LS_MSW_MODE_QMC_SAMPLE       = 32768;
+   public static final int    LS_MSW_MODE_MLSL_FILTER       = 65536;
+   public static final int    LS_MSW_MODE_AUTO       = 131072;
 
 
    public static final int    LS_GA_CROSS_SBX                   = 101;
@@ -2491,6 +2549,10 @@ public class Lindo
   /*! resolve failed lex-model */
    public static final int    LS_SOLVER_MODE_LEX_RESOLVEFAIL    = 128;
 
+   public static final int    LS_SOLVER_MODE_FULL_AGGR          = 256;
+   public static final int    LS_SOLVER_MODE_ADD_PM1_SQR        = 512;
+   public static final int    LS_SOLVER_MODE_ADD_PM1_ABS        = 1024;
+   public static final int    LS_SOLVER_MODE_GREY_AGGR       = 2048;
 
    public static final int    LS_PARCLASS_BITMASK               = 1;
    public static final int    LS_PARCLASS_MULSTEP               = 2;
@@ -2839,6 +2901,11 @@ public class Lindo
     public static native int LSgetErrorRowIndex
                              (Object       pModel,
                               int          iRow[]);
+
+
+    public static native int LSgetDataType
+                             (Object       pEnv,
+                              int          nDataMacro);
 
 
 /**********************************************************************
@@ -3610,6 +3677,12 @@ public class Lindo
                               double       adDual[]);
 
 
+    public static native int LSgetSDPSolution
+                             (Object       pModel,
+                              double       adSDPPrimal[],
+                              double       adSDPDual[]);
+
+
     public static native int LSgetReducedCosts
                              (Object       pModel,
                               double       adRedcosts[]);
@@ -3667,6 +3740,12 @@ public class Lindo
                              (Object       pModel,
                               int          anCstatus[],
                               int          anRstatus[]);
+
+
+    public static native int LSgetMIPSDPSolution
+                             (Object       pModel,
+                              double       adSDPPrimal[],
+                              double       adSDPDual[]);
 
 
     public static native int LSgetNextBestMIPSol
@@ -3978,7 +4057,8 @@ public class Lindo
                               double       adObjRound[],
                               double       adPfeasRound[],
                               int          nstatus[],
-                              int          iUseOpti);
+                              int          iUseOpti,
+                              int          callerFunc);
 
 
     public static native int LSgetDuplicateColumns
@@ -4072,6 +4152,11 @@ public class Lindo
 
 
     public static native int LSdeleteConstraints
+                             (Object       pModel,
+                              int          nCons,
+                              int          aiCons[]);
+
+    public static native int LSdeleteIndConstraints
                              (Object       pModel,
                               int          nCons,
                               int          aiCons[]);
@@ -4570,14 +4655,14 @@ public class Lindo
  **
  **    Stochastic Programming Interface
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2006-2020
+ **    LINDO API Version 17.0
+ **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: Lindo.java 2966 2020-10-31 10:57:00Z mka $
+ **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 /* basic I/O routines */
@@ -5173,14 +5258,14 @@ public class Lindo
  **
  **    Statistical Calculations Interface
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2006-2020
+ **    LINDO API Version 17.0
+ **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: Lindo.java 2966 2020-10-31 10:57:00Z mka $
+ **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 /* Public Functions */
@@ -5340,14 +5425,14 @@ public class Lindo
  **
  **    Random Number Generation Interface
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2006-2020
+ **    LINDO API Version 17.0
+ **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: Lindo.java 2966 2020-10-31 10:57:00Z mka $
+ **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 /* Public functions */
@@ -5454,14 +5539,14 @@ public class Lindo
  **
  **    Sprint Interface
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2006-2020
+ **    LINDO API Version 17.0
+ **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: Lindo.java 2966 2020-10-31 10:57:00Z mka $
+ **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 /* Public functions */
@@ -5499,14 +5584,14 @@ public class Lindo
  **
  **    Date/Time Functions
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2006-2020
+ **    LINDO API Version 17.0
+ **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: Lindo.java 2966 2020-10-31 10:57:00Z mka $
+ **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 /* Documented Public functions */
@@ -5685,14 +5770,14 @@ public class Lindo
  **
  **    Tuner Functions
  **
- **    LINDO API Version 14.0
- **    Copyright (c) 2019-2020
+ **    LINDO API Version 17.0
+ **    Copyright (c) 2019-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1415 North Dayton St.          info@lindo.com
  **    Chicago, IL 60622              http://www.lindo.com
  **
- **    $Id: Lindo.java 2966 2020-10-31 10:57:00Z mka $
+ **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
  *********************************************************************/
 
@@ -5795,6 +5880,11 @@ public class Lindo
                              (Object       pEnv,
                               String       szKey,
                               double       dValue);
+
+    public static native int LSaddTunerStrOption
+                             (Object       pEnv,
+                              String       szKey,
+                              String       szValue);
 
     public static native int LSdisplayTunerResults
                              (Object       pEnv);

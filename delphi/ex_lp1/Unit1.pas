@@ -99,7 +99,7 @@ var
 
     // read license from file
     SetLength(szLicence, LS_MAX_ERROR_MESSAGE_LENGTH);
-    LSloadLicenseString (TLindoPChar('..\..\..\license\lndapi160.lic'),TLindoPChar(szLicence));
+    LSloadLicenseString (TLindoPChar('..\..\..\license\lndapi170.lic'),TLindoPChar(szLicence));
 
     // create Lindo environment handle
     nEnv := LScreateEnv (errorcode, TLindoPChar(szLicence));
