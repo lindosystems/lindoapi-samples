@@ -786,10 +786,10 @@ public class lindo
        public const int    LS_DPARAM_SAMP_CDSMAX    =       7708;
 
     /*! Number of parallel threads */
-       public const int    LS_IPARAM_SAMP_NUM_THREADS     =       7708;
+       public const int    LS_IPARAM_SAMP_NUM_THREADS     =       7738;
 
     /*! Buffer size for random number generators */
-       public const int    LS_IPARAM_SAMP_RG_BUFFER_SIZE  =       7709;
+       public const int    LS_IPARAM_SAMP_RG_BUFFER_SIZE  =       7739;
 
     /*bound size when subproblem is unbounded*/
        public const int    LS_DPARAM_BNP_INFBND           =       8010;
@@ -2595,13 +2595,13 @@ public class lindo
        /*! Stochastic parameter is a RHS value (belongs to RHS column)      */
        public const int    LS_JCOL_RHS                    = -5;
        /*! Stochastic parameter is an objective coefficient (belongs to OBJ row)   */
-       public const int    LS_IROW_OBJ                    = -4;
+       public const int    LS_IROW_OBJ                    = -1;
        /*! Stochastic parameter is a variable lower bound (belongs to LO row) */
        public const int    LS_IROW_VUB                    = -3;
        /*! Stochastic parameter is a variable upper bound (belongs to UP row) */
        public const int    LS_IROW_VLB                    = -2;
        /*! Stochastic parameter is a variable fixed bound (belongs to FX row) */
-       public const int    LS_IROW_VFX                    = -1;
+       public const int    LS_IROW_VFX                    = -4;
        /*! Stochastic parameter is an LP matrix entry. */
        public const int    LS_IMAT_AIJ                    =  0;
 

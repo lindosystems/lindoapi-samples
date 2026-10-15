@@ -562,7 +562,7 @@ Public Class lindo
   Public Const  LS_IPARAM_GOP_QUAD_METHOD      As Integer =       6441
   Public Const  LS_IPARAM_GOP_SOLLIM           As Integer =       6442
   Public Const  LS_IPARAM_GOP_CMINLP           As Integer =       6443
-  Public Const  LS_IPARAM_GOP_CONIC_REFORM     As Integer =       6644
+  Public Const  LS_IPARAM_GOP_CONIC_REFORM     As Integer =       6444
 
     ' License information parameters '
   Public Const  LS_IPARAM_LIC_CONSTRAINTS      As Integer =        500
@@ -775,10 +775,10 @@ Public Class lindo
   Public Const  LS_DPARAM_SAMP_CDSMAX    As Integer =       7708
 
     '! Number of parallel threads '
-  Public Const  LS_IPARAM_SAMP_NUM_THREADS     As Integer =       7708
+  Public Const  LS_IPARAM_SAMP_NUM_THREADS     As Integer =       7738
 
     '! Buffer size for random number generators '
-  Public Const  LS_IPARAM_SAMP_RG_BUFFER_SIZE  As Integer =       7709
+  Public Const  LS_IPARAM_SAMP_RG_BUFFER_SIZE  As Integer =       7739
 
     'bound size when subproblem is unbounded'
   Public Const  LS_DPARAM_BNP_INFBND           As Integer =       8010
@@ -2583,13 +2583,13 @@ Public Class lindo
     '! Stochastic parameter is a RHS value (belongs to RHS column)      '/
     Public Const LS_JCOL_RHS As Integer = -5
     '! Stochastic parameter is an objective coefficient (belongs to OBJ row)   '/
-    Public Const LS_IROW_OBJ As Integer = -4
+    Public Const LS_IROW_OBJ As Integer = -1
     '! Stochastic parameter is a variable lower bound (belongs to LO row) '/
     Public Const LS_IROW_VUB As Integer = -3
     '! Stochastic parameter is a variable upper bound (belongs to UP row) '/
     Public Const LS_IROW_VLB As Integer = -2
     '! Stochastic parameter is a variable fixed bound (belongs to FX row) '/
-    Public Const LS_IROW_VFX As Integer = -1
+    Public Const LS_IROW_VFX As Integer = -4
     '! Stochastic parameter is an LP matrix entry. '/
   Public Const  LS_IMAT_AIJ                    As Integer =          0
 

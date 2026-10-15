@@ -753,9 +753,9 @@ public class Lindo
    public static final int    LS_DPARAM_SAMP_NCM_OPTTOL         = 7707;
    public static final int    LS_DPARAM_SAMP_CDSMAX       = 7708;
    /*! Number of parallel threads */
-   public static final int    LS_IPARAM_SAMP_NUM_THREADS        = 7708;
+   public static final int    LS_IPARAM_SAMP_NUM_THREADS        = 7738;
    /*! Buffer size for random number generators */
-   public static final int    LS_IPARAM_SAMP_RG_BUFFER_SIZE     = 7709;
+   public static final int    LS_IPARAM_SAMP_RG_BUFFER_SIZE     = 7739;
 
    /*Branch And Price parameters (8000 - 8499) */
 
