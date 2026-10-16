@@ -159,6 +159,12 @@ public class lindo
        public const int    LS_XSOLVER_XPR                 =         13;
        public const int    LS_XSOLVER_HIGHS               =         14;
        public const int    LS_XSOLVER_IPOPT               =         15;
+       public const int    LS_XSOLVER_HIGHSLP             =         16;
+       public const int    LS_XSOLVER_COPT                =         17;
+       public const int    LS_XSOLVER_COPTLP              =         18;
+       public const int    LS_XSOLVER_XPRLP               =         19;
+       public const int    LS_XSOLVER_NLOPT               =         20;
+       public const int    LS_XSOLVER_MYUSER              =         94;
        public const int    LS_XSOLVER_TABOX               =         95;
        public const int    LS_XSOLVER_MUMPS               =         96;
        public const int    LS_XSOLVER_MUPARSER            =         97;
@@ -1119,6 +1125,9 @@ public class lindo
        public const int    EP_POWERUTILITY                =       1190;
        public const int    EP_POLYNOMIAL                  =       1191;
        public const int    EP_CENSOR                      =       1192;
+       public const int    EP_ENTROPY                     =       1193;
+       public const int    EP_XLOGIT                      =       1194;
+       public const int    EP_IRR                         =       1195;
        
  /* Model statistics (11001-11199)*/
        public const int    LS_IINFO_NUM_NONZ_OBJ          =      11001;
@@ -2348,6 +2357,7 @@ public class lindo
        public const int    LSLOC_SP_BENCH_END             =         25;
        public const int    LSLOC_BNP                      =         26;
        public const int    LSLOC_OBJPOOL                  =         27;
+       public const int    LSLOC_MIP_SETS                 =         28;
        public const int    LS_METHOD_FREE                 =          0;
        public const int    LS_METHOD_PSIMPLEX             =          1;
        public const int    LS_METHOD_DSIMPLEX             =          2;
@@ -2609,6 +2619,7 @@ public class lindo
        public const int    LSDIST_TYPE_BINOMIAL           =        701;
        public const int    LSDIST_TYPE_DISCRETE           =        702;
        public const int    LSDIST_TYPE_DISCRETE_BLOCK     =        703;
+       public const int    LSDIST_TYPE_NEGATIVE_BINOMIAL  =        704;
        public const int    LSDIST_TYPE_GEOMETRIC          =        705;
        public const int    LSDIST_TYPE_POISSON            =        706;
        public const int    LSDIST_TYPE_LOGARITHMIC        =        707;

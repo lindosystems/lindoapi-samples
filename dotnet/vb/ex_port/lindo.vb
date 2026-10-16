@@ -148,6 +148,12 @@ Public Class lindo
   Public Const  LS_XSOLVER_XPR                 As Integer =         13
   Public Const  LS_XSOLVER_HIGHS               As Integer =         14
   Public Const  LS_XSOLVER_IPOPT               As Integer =         15
+  Public Const  LS_XSOLVER_HIGHSLP             As Integer =         16
+  Public Const  LS_XSOLVER_COPT                As Integer =         17
+  Public Const  LS_XSOLVER_COPTLP              As Integer =         18
+  Public Const  LS_XSOLVER_XPRLP               As Integer =         19
+  Public Const  LS_XSOLVER_NLOPT               As Integer =         20
+  Public Const  LS_XSOLVER_MYUSER              As Integer =         94
   Public Const  LS_XSOLVER_TABOX               As Integer =         95
   Public Const  LS_XSOLVER_MUMPS               As Integer =         96
   Public Const  LS_XSOLVER_MUPARSER            As Integer =         97
@@ -1108,6 +1114,9 @@ Public Class lindo
   Public Const  EP_POWERUTILITY                As Integer =       1190
   Public Const  EP_POLYNOMIAL                  As Integer =       1191
   Public Const  EP_CENSOR                      As Integer =       1192
+  Public Const  EP_ENTROPY                     As Integer =       1193
+  Public Const  EP_XLOGIT                      As Integer =       1194
+  Public Const  EP_IRR                         As Integer =       1195
  
  ' Model statistics (11001-11199)'
   Public Const  LS_IINFO_NUM_NONZ_OBJ          As Integer =      11001
@@ -2336,6 +2345,7 @@ Public Class lindo
   Public Const  LSLOC_SP_BENCH_END             As Integer =         25
   Public Const  LSLOC_BNP                      As Integer =         26
   Public Const  LSLOC_OBJPOOL                  As Integer =         27
+  Public Const  LSLOC_MIP_SETS                 As Integer =         28
   Public Const  LS_METHOD_FREE                 As Integer =          0
   Public Const  LS_METHOD_PSIMPLEX             As Integer =          1
   Public Const  LS_METHOD_DSIMPLEX             As Integer =          2
@@ -2597,6 +2607,7 @@ Public Class lindo
   Public Const  LSDIST_TYPE_BINOMIAL           As Integer =        701
   Public Const  LSDIST_TYPE_DISCRETE           As Integer =        702
   Public Const  LSDIST_TYPE_DISCRETE_BLOCK     As Integer =        703
+  Public Const  LSDIST_TYPE_NEGATIVE_BINOMIAL  As Integer =        704
   Public Const  LSDIST_TYPE_GEOMETRIC          As Integer =        705
   Public Const  LSDIST_TYPE_POISSON            As Integer =        706
   Public Const  LSDIST_TYPE_LOGARITHMIC        As Integer =        707

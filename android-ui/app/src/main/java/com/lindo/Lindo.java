@@ -45,6 +45,7 @@ public class Lindo
    public static final byte   LS_VARTYPE_CONT                   = 67 ;//'C'
    public static final byte   LS_VARTYPE_BIN                    = 66 ;//'B'
    public static final byte   LS_VARTYPE_INT                    = 73 ;//'I'
+   public static final byte   LS_VARTYPE_SC                     = 83 ;//'S'
 
    public static final double LS_INFINITY                       = 1.0E+30;
 
@@ -165,6 +166,12 @@ public class Lindo
    public static final int    LS_XSOLVER_XPR                    = 13;
    public static final int    LS_XSOLVER_HIGHS                  = 14;
    public static final int    LS_XSOLVER_IPOPT                  = 15;
+   public static final int    LS_XSOLVER_HIGHSLP                = 16;
+   public static final int    LS_XSOLVER_COPT                   = 17;
+   public static final int    LS_XSOLVER_COPTLP                 = 18;
+   public static final int    LS_XSOLVER_XPRLP                  = 19;
+   public static final int    LS_XSOLVER_NLOPT                  = 20;
+   public static final int    LS_XSOLVER_MYUSER                 = 94;
    public static final int    LS_XSOLVER_TABOX                  = 95;
    public static final int    LS_XSOLVER_MUMPS                  = 96;
    public static final int    LS_XSOLVER_MUPARSER               = 97;
@@ -1051,6 +1058,9 @@ public class Lindo
    public static final int    EP_POWERUTILITY                   = 1190;
    public static final int    EP_POLYNOMIAL                     = 1191;
    public static final int    EP_CENSOR                         = 1192;
+   public static final int    EP_ENTROPY                        = 1193;
+   public static final int    EP_XLOGIT                         = 1194;
+   public static final int    EP_IRR                            = 1195;
 
 /* Model and solution information codes ( 110xx-140xx) */
 /* Model statistics (11001-11199)*/
@@ -2065,6 +2075,7 @@ public class Lindo
    public static final int    LSLOC_SP_BENCH_END                = 25;
    public static final int    LSLOC_BNP                         = 26;
    public static final int    LSLOC_OBJPOOL                     = 27;
+   public static final int    LSLOC_MIP_SETS                    = 28;
 
 
    public static final int    LS_METHOD_FREE                    = 0;
