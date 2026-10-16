@@ -112,7 +112,7 @@ public class About extends Fragment implements OnClickListener {
 
 		Intent intent = new Intent(Intent.ACTION_VIEW);
 		intent.setDataAndType(
-				Uri.parse("file://" +sdcard+"/Download" + "/"+"lndapi130.lic"),
+				Uri.parse("file://" +sdcard+"/Download" + "/"+"lndapi170.lic"),
 				"text/plain");
 		startActivity(intent);
 	}

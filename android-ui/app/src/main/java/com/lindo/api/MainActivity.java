@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity {
 
         File sdcard = Environment.getExternalStorageDirectory();
         //Get the text file
-        File file = new File(sdcard+"/Download","lndapi130.lic");
+        File file = new File(sdcard+"/Download","lndapi170.lic");
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
