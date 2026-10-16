@@ -22,13 +22,13 @@ n_v: Number of vertices of polygon.
 To run sample
     include("/PathToUse/JuMP_interface/ex_Largest_Small_Polygon.jl")
 
-To update to the most current version of Lindoapi.jl
+To update to the most current version of LindoAPI.jl
 Run in REPL:
     using Pkg
-    Pkg.add(url="https://github.com/lindosystems/lindoapi.jl")
+    Pkg.add(url="https://github.com/lindosystems/LindoAPI.jl")
 
 This sample also uses the libraries Printf and Plots
-both are not added as dependencies when installing Lindoapi.jl
+both are not added as dependencies when installing LindoAPI.jl
 If not installed yet
 Run in REPL:
     using Pkg
@@ -37,7 +37,7 @@ Run in REPL:
 
 """
 
-using Lindoapi
+using LindoAPI
 using JuMP
 using Plots
 using Printf
@@ -51,15 +51,15 @@ n_v = 5
 
 
 # initialize an empty model
-model = Model( Lindoapi.Optimizer)
+model = Model( LindoAPI.Optimizer)
 set_optimizer_attribute(model,"use_Global",use_global)
 # make the two variable arrays of radius and theta
 # with the constraints
 @variable(model, r[1:n_v] >= 0)
 @variable(model, 0 <= θ[1:n_v] <= pi)
 # Fix the position of the last vertex
-@NLconstraint(model, r[n_v] == 0)
-@NLconstraint(model, θ[n_v] == pi)
+@constraint(model, r[n_v] == 0)
+@constraint(model, θ[n_v] == pi)
 # Maximize area of the n-polygon
 @NLobjective(model,
              Max,
@@ -71,7 +71,7 @@ set_optimizer_attribute(model,"use_Global",use_global)
               r[i]^2 + r[j]^2 - 2*r[i]*r[j]*cos(θ[i] - θ[j]) <= 1
               )
 # Enforce ordering of vertex angles
-@NLconstraint(model,
+@constraint(model,
               [i = 1:(n_v - 1)],
               θ[i] - θ[i+1] <= 0
               )

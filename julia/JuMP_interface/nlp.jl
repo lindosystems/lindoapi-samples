@@ -15,23 +15,20 @@
  To run sample
      include("/PathToUse/JuMP_interface/nlp.jl")
 
- To update to the most current version of Lindoapi.jl
+ To update to the most current version of LindoAPI.jl
       Run in REPL:
           using Pkg
-          Pkg.add(url="https://github.com/lindosystems/lindoapi.jl")
+          Pkg.add(url="https://github.com/lindosystems/LindoAPI.jl")
 """
 
-using Lindoapi
+using LindoAPI
 using JuMP
 using Printf
-const LS = Lindoapi
+const LS = LindoAPI
 # Set to true to use
 # the global solver
-use_Global = false
-
-uDict = Dict(
-"Prefix" => "Lindo API Callback",
-"Postfix" => "...",)
+use_Global = true
+uDict = Dict("last_iter" => 0)
 
 # This callback function calls LSgetCallbackInfo to get information
 # to printout.
@@ -43,22 +40,25 @@ function cbFunc(pModel, nLocation, uData)
     obj_val      = Cdouble[-1]
     infeasibilty = Cdouble[-1]
 
+    
     LS.LSgetCallbackInfo(pModel, nLocation, LS.LS_IINFO_NLP_ITER, nlp_itter)
     LS.LSgetCallbackInfo(pModel, nLocation, LS.LS_DINFO_POBJ    , obj_val)
     LS.LSgetCallbackInfo(pModel, nLocation, LS.LS_DINFO_DINFEAS , infeasibilty)
-
-    println(uData["Prefix"])
-    @printf("NLP iteration   : %d\n"   ,  nlp_itter[1])
-    @printf("Objective value : %.10f\n",  obj_val[1])
-    @printf("Infeasibilty    : %.6f\n" ,  infeasibilty[1])
-    println(uData["Postfix"])
-    println()
+    if nlp_itter[1] > uDict["last_iter"] 
+        uDict["last_iter"] = nlp_itter[1]
+        @printf("\n============================================================\n")
+        @printf("NLP iteration   : %d\n"   ,  nlp_itter[1])
+        @printf("Objective value : %.10f\n",  obj_val[1])
+        @printf("Infeasibilty    : %.6f\n" ,  infeasibilty[1])
+        @printf("============================================================\n\n")
+    end
+    
 end
 
 
 # Create a model
-model = Model(Lindoapi.Optimizer)
-MOI.set(model, Lindoapi.CallbackFunction(uDict), cbFunc)
+model = Model(LindoAPI.Optimizer)
+MOI.set(model, LindoAPI.CallbackFunction(uDict), cbFunc)
 
 # Turn on global solver if use_GLoabal == true
 set_optimizer_attribute(model,"use_Global", use_Global)
@@ -75,8 +75,8 @@ set_optimizer_attribute(model,"use_Global", use_Global)
           )
 
 # Model constraints
-@NLconstraint(model, x^2 + y   <=  6)
-@NLconstraint(model, x   + y^2 <=  6)
+@constraint(model, x^2 + y   <=  6)
+@constraint(model, x   + y^2 <=  6)
 
 # Call the optimizer
 optimize!(model)

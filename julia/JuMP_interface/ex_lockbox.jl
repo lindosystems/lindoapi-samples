@@ -18,13 +18,13 @@ Purpose:
 To update to the most current version of Ipopt.jl
      Run in REPL:
          using Pkg
-         Pkg.add(url="https://github.com/lindosystems/lindoapi.jl")
+         Pkg.add(url="https://github.com/lindosystems/LindoAPI.jl")
 
 """
 
 
 
-using Lindoapi
+using LindoAPI
 using JuMP
 using Printf
 
@@ -47,20 +47,20 @@ n_regions, m_cities = size(loss_interest)
 K = 4
 
 
-model = Model(Lindoapi.Optimizer)
+model = Model(LindoAPI.Optimizer)
 
 @variable(model, x[1:n_regions, 1:m_cities], Bin)
 @variable(model, y[1:m_cities], Bin)
 
-@NLobjective(model, Min,
+@objective(model, Min,
              sum(x[i,j]*loss_interest[i,j] for i in 1:n_regions, j in 1:m_cities)
             + lockbox_cost*sum(y[j] for j in 1:m_cities)
              )
 
-One_per_region       = @NLconstraint(model, [i = 1:n_regions],
+One_per_region       = @constraint(model, [i = 1:n_regions],
                                      sum(x[i,j] for j in 1:m_cities) == 1
                                     )
-assign_to_open_boxes = @NLconstraint(model, [j = 1:m_cities],
+assign_to_open_boxes = @constraint(model, [j = 1:m_cities],
                              sum(x[i,j] for i in 1:n_regions) <= y[j]*m_cities
                         )
 optimize!(model)

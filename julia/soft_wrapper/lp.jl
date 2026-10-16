@@ -21,17 +21,17 @@
 To run sample
     include("/PathToUse/soft_wrapper/lp.jl")
 
-To update to the most current version of Lindoapi.jl
+To update to the most current version of LindoAPI.jl
  Run in REPL:
     using Pkg
-    Pkg.add(url="https://github.com/lindosystems/lindoapi.jl")
+    Pkg.add(url="https://github.com/lindosystems/LindoAPI.jl")
 
 
 """
 
-import Lindoapi
+import LindoAPI
 using Printf
-const LS = Lindoapi
+const LS = LindoAPI
 PATH = ENV["LINDOAPI_HOME"]
 
 uDict = Dict()                                                                  # Empty Dict
