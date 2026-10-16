@@ -20,15 +20,18 @@ C!
 C!    a, b, c are integer
 c!    x,y,z are continuous
 C!    
-c!  $ ifort  ex_nlp7.for /4L132 ..\..\..\lib\win32\lindo15_0.lib /iface:cvf
+c!  $ ifort  ex_nlp7.for /4L132 ..\..\..\lib\win32\lindo17_0.lib /iface:cvf
 c!***********************************************************************
 c      
       IMPLICIT NONE
       include '../../../include/lindo.fi'
 c
 c
-      INTEGER NPTRENV, NERR, NPTRMOD, NM, NN, NDIR, NNZ, I, k
-      INTEGER NBEGCOL( 101 ), NROWX( 50), NULL, ALENCOL(100)
+      INTEGER NERR, NM, NN, NDIR, NNZ, I, k
+      INTEGER(INT_PTR_KIND()) NPTRENV, NPTRMOD
+      INTEGER NBEGCOL( 101 ), NROWX( 50), ALENCOL(100)
+      INTEGER(INT_PTR_KIND()) NULL
+      INTEGER NCBDATA(1)
       INTEGER NSOLSTAT, numCont, numVars
 c
       REAL*8 DOBJCONST, DC(100),DB(50),DA(200),DOBJVAL,X(100)
@@ -55,8 +58,9 @@ c
       
 
       DATA NULL /0/
+      DATA NCBDATA /0/
 c
-      LICENSEFILE = '../../../license/lndapi170.LIC' // char(0)
+      LICENSEFILE = '../../../license/lndapi170.lic' // char(0)
 c
       NERR = LSLOADLICENSESTRING(LOC(LICENSEFILE), LOC(LICENSEKEY))
       IF ( NERR .NE. 0) GO TO 9001
@@ -197,7 +201,7 @@ c
       nErr= LSsetModelLogfunc( NPTRMOD, Loc(Logger), NULL )
       IF ( nErr .NE. 0) GO TO 9001
 
-      NERR = LSsetCallback(NPTRMOD,LOC(LOCAL_SOL_LOG),NULL)
+      NERR = LSsetCallback(NPTRMOD,LOC(LOCAL_SOL_LOG),LOC(NCBDATA))
       IF ( NERR .NE. 0) GO TO 9001
 
 c/* We have now assembled a full description of the model. 
@@ -364,7 +368,7 @@ c
 c
 
 
-      INTEGER pModel            [VALUE]
+      INTEGER(INT_PTR_KIND()) pModel            [VALUE]
       INTEGER pUserData         [REFERENCE]
       INTEGER nRow              [VALUE]
       REAL * 8 pdx              [REFERENCE]
@@ -404,7 +408,7 @@ c
 c
       IMPLICIT NONE
 c
-      INTEGER pModel           [VALUE]
+      INTEGER(INT_PTR_KIND()) pModel           [VALUE]
       INTEGER pUserData        [REFERENCE]
       INTEGER nRow             [VALUE]
       INTEGER nNewPnt          [VALUE]
@@ -492,7 +496,7 @@ cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c
       IMPLICIT NONE
 c
-      INTEGER pModel            [VALUE]
+      INTEGER(INT_PTR_KIND()) pModel            [VALUE]
       INTEGER szMessage         [REFERENCE]
       INTEGER pUserData         [REFERENCE]
 c
@@ -502,7 +506,7 @@ c
     
       INTEGER FUNCTION LOCAL_SOL_LOG(NPTRMOD,ILOC,CBDATA) RESULT(NERR)
 
-      INTEGER(INT_PTR_KIND()), INTENT(INOUT) :: NPTRMOD
+      INTEGER(INT_PTR_KIND()), VALUE, INTENT(IN) :: NPTRMOD
       INTEGER, VALUE         , INTENT(IN   ) :: ILOC
       INTEGER                , INTENT(INOUT) :: CBDATA(*)
 

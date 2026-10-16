@@ -9,7 +9,8 @@
       INTEGER(INT_PTR_KIND()) NPTRENV, NPTRMOD
       INTEGER(INT_PTR_KIND()) NVNAMES(2)      
 
-      INTEGER NBEGCOL(3), NCOLCNT(2), NROWX( 4), NULL
+      INTEGER NBEGCOL(3), NCOLCNT(2), NROWX( 4)
+      INTEGER(INT_PTR_KIND()) NULL
       INTEGER NSOLSTAT
       REAL*8 DOBJCONST, DC(2), DB( 3), DA( 4), DOBJVAL
       REAL*8 X( 100), Y(100), S(100), DJ(100),UB(2),LB(2)
@@ -26,7 +27,7 @@
 
       DATA NULL /0/
 
-      licensefile = '../../../license/lndapi100.lic' // char(0)
+      licensefile = '../../../license/lndapi170.lic' // char(0)
 
       NERR = LSloadLicenseString(LOC(LICENSEFILE), LOC(LICENSEKEY))
       IF ( NERR .NE. 0) GO TO 9001
