@@ -32,6 +32,11 @@ the sample on Win32 or Win64.
 7- The interfaces pass variables and arrays by [VALUE] therefore heavily relies 
 on F9x's LOC() function. See the samples for usage.
 
+8- Callback routines (LSsetFuncalc, LSsetGradcalc, LSsetModelLogfunc, 
+LSsetCallback) are called by LINDO API, which is a C library: declare them 
+BIND(C), with pointers and scalars by VALUE and arrays by reference, as the 
+typedefs in lindo.h say.  ex_nlp10 shows all four.
+
 
 
 
