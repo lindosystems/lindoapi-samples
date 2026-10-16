@@ -52,3 +52,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 *.bak
+
+# Editor backups, IDE per-user settings, compiled Delphi units
+*~
+*.user
+*.dcu
