@@ -4,8 +4,8 @@
  **    Copyright (c) 2000-2027
  **
  **    LINDO Systems, Inc.            312.988.7422
- **    1415 North Dayton St.          info@lindo.com
- **    Chicago, IL 60622              http://www.lindo.com
+ **    1332 North Halsted Street      info@lindo.com
+ **    Chicago, Illinois 60642        http://www.lindo.com
  **
  **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
@@ -4670,8 +4670,8 @@ public class Lindo
  **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
- **    1415 North Dayton St.          info@lindo.com
- **    Chicago, IL 60622              http://www.lindo.com
+ **    1332 North Halsted Street      info@lindo.com
+ **    Chicago, Illinois 60642        http://www.lindo.com
  **
  **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
@@ -5273,8 +5273,8 @@ public class Lindo
  **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
- **    1415 North Dayton St.          info@lindo.com
- **    Chicago, IL 60622              http://www.lindo.com
+ **    1332 North Halsted Street      info@lindo.com
+ **    Chicago, Illinois 60642        http://www.lindo.com
  **
  **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
@@ -5440,8 +5440,8 @@ public class Lindo
  **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
- **    1415 North Dayton St.          info@lindo.com
- **    Chicago, IL 60622              http://www.lindo.com
+ **    1332 North Halsted Street      info@lindo.com
+ **    Chicago, Illinois 60642        http://www.lindo.com
  **
  **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
@@ -5554,8 +5554,8 @@ public class Lindo
  **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
- **    1415 North Dayton St.          info@lindo.com
- **    Chicago, IL 60622              http://www.lindo.com
+ **    1332 North Halsted Street      info@lindo.com
+ **    Chicago, Illinois 60642        http://www.lindo.com
  **
  **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
@@ -5599,8 +5599,8 @@ public class Lindo
  **    Copyright (c) 2006-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
- **    1415 North Dayton St.          info@lindo.com
- **    Chicago, IL 60622              http://www.lindo.com
+ **    1332 North Halsted Street      info@lindo.com
+ **    Chicago, Illinois 60642        http://www.lindo.com
  **
  **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
@@ -5785,8 +5785,8 @@ public class Lindo
  **    Copyright (c) 2019-2023
  **
  **    LINDO Systems, Inc.            312.988.7422
- **    1415 North Dayton St.          info@lindo.com
- **    Chicago, IL 60622              http://www.lindo.com
+ **    1332 North Halsted Street      info@lindo.com
+ **    Chicago, Illinois 60642        http://www.lindo.com
  **
  **    $Id: Lindo.java 4107 2026-10-05 22:37:32Z mka $
  **
