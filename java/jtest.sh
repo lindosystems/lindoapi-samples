@@ -2,7 +2,7 @@
 ###########################################################################
 #
 # Tests the JNI (Java Native Interface) for LINDO API
-# Copyright (c) 2002-2011, Lindo Systems Inc.
+# Copyright (c) 2002-2027, Lindo Systems Inc.
 #
 # $Id: jtest.sh 237 2017-06-12 21:28:12Z mka $
 ###########################################################################

@@ -380,7 +380,7 @@ Attribute VB_Exposed = False
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''
 ''    LINDO API Version 4.0
-''    Copyright (c) 2000-2005
+''    Copyright (c) 2000-2027
 ''
 ''    LINDO Systems, Inc.            312.988.7422
 ''    1332 North Halsted Street      info@lindo.com

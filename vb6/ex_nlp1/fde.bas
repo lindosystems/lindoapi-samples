@@ -2,7 +2,7 @@ Attribute VB_Name = "fde"
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''
 ''    LINDO API Version 4.0
-''    Copyright (c) 2006
+''    Copyright (c) 2006-2027
 ''
 ''    LINDO Systems, Inc.            312.988.7422
 ''    1332 North Halsted Street      info@lindo.com

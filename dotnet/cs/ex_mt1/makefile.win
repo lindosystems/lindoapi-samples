@@ -3,7 +3,7 @@
 #
 # Linking against LINDO-API libraries on Windows Platforms.
 #
-# Copyright (c) 2001-2002, Lindo Systems Inc.
+# Copyright (c) 2001-2027, Lindo Systems Inc.
 ###########################################################################
 
 EXAMPLE= ex_mt1

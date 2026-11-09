@@ -5593,7 +5593,7 @@ public class lindo
  **    Stochastic Programming Interface
  **
  **    LINDO API Version 17.0
- **    Copyright (c) 2006-2023
+ **    Copyright (c) 2006-2027
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1332 North Halsted Street      info@lindo.com
@@ -7058,7 +7058,7 @@ public class lindo
  **    Tuner Functions
  **
  **    LINDO API Version 17.0
- **    Copyright (c) 2019-2023
+ **    Copyright (c) 2019-2027
  **
  **    LINDO Systems, Inc.            312.988.7422
  **    1332 North Halsted Street      info@lindo.com

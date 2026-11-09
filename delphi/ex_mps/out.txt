@@ -5,7 +5,7 @@
 * Barrier Solver Version 5.0.0.125, Nonlinear Solver Version 3.14S
 * Platform Windows x86
 *
-* Copyright (c) 2009 by LINDO Systems, Inc. Licensed material,
+* Copyright (c) 2009-2027 by LINDO Systems, Inc. Licensed material,
 * all rights reserved. Copying except as authorized in license 
 * agreement is prohibited.
 * -----------------------------------------------------------------

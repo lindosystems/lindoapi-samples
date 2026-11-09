@@ -1,7 +1,7 @@
 /*
 	Lindo API for Android
 	Lindo Systems, Inc.
-	Copyright 2017
+	Copyright 2017-2027
 
 	Design by Joseph Rios, Littlepancake Software, info@littlepancake.com
 	Copyright 2014,

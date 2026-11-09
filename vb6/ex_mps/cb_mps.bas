@@ -2,7 +2,7 @@ Attribute VB_Name = "Callback"
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''
 '' LINDO API Version 4.0
-'' Copyright (c) 2006
+'' Copyright (c) 2006-2027
 ''
 '' The PeekMessage function is a WIN API function used to
 '' check the thread message queue for a message and to
@@ -49,7 +49,7 @@ End Type
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''
 ''    LINDO API Version 4.0
-''    Copyright (c) 2006
+''    Copyright (c) 2006-2027
 ''
 ''    LINDO Systems, Inc.            312.988.7422
 ''    1332 North Halsted Street      info@lindo.com

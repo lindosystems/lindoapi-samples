@@ -3,7 +3,7 @@
 rem ###########################################################################
 rem #
 rem # Tests the JNI (Java Native Interface) for LINDO API
-rem # Copyright (c) 2002-2010, Lindo Systems Inc.
+rem # Copyright (c) 2002-2027, Lindo Systems Inc.
 rem #
 rem # $Id: jtestall.bat 121 2010-12-29 20:00:00Z svn $
 rem ###########################################################################

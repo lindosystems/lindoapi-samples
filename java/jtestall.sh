@@ -2,7 +2,7 @@
 ###########################################################################
 #
 # Tests the JNI (Java Native Interface) for LINDO API
-# Copyright (c) 2002-2010, Lindo Systems Inc.
+# Copyright (c) 2002-2027, Lindo Systems Inc.
 #
 # $Id: jtestall.sh 29 2010-05-12 17:55:26Z svn $
 ###########################################################################

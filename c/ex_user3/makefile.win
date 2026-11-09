@@ -3,7 +3,7 @@
 #
 # Linking against LINDO-API libraries on Linux/Unix Platforms.
 #
-# Copyright (c) 2000-2017, Lindo Systems Inc.
+# Copyright (c) 2000-2027, Lindo Systems Inc.
 ###########################################################################
 
 # Choose platform and define platform specific 
